@@ -36,10 +36,7 @@ pub struct ThreeWayAnalyzer;
 
 impl ThreeWayAnalyzer {
     /// Analyze a file's final content against its edit history
-    pub fn analyze(
-        history: &FileEditHistory,
-        final_content: &str,
-    ) -> FileAttributionResult {
+    pub fn analyze(history: &FileEditHistory, final_content: &str) -> FileAttributionResult {
         let final_lines: Vec<&str> = final_content.lines().collect();
 
         // Build lookup tables for efficient matching
@@ -124,7 +121,7 @@ impl ThreeWayAnalyzer {
         // First pass: mark lines that came from AI edits (takes priority)
         let ai_line_map = build_ai_line_map(history);
         for (ai_idx, final_idx) in &ai_to_final_mapping {
-            let ai_line = latest_ai.lines().get(*ai_idx).map(|s| *s).unwrap_or("");
+            let ai_line = latest_ai.lines().get(*ai_idx).copied().unwrap_or("");
             let normalized = normalize_for_key(ai_line);
 
             // Check if this line came from an AI edit
@@ -242,7 +239,7 @@ impl ThreeWayAnalyzer {
 
 /// Build a set of normalized lines from content for fast lookup
 fn build_line_set(content: &str) -> HashSet<String> {
-    content.lines().map(|l| normalize_for_key(l)).collect()
+    content.lines().map(normalize_for_key).collect()
 }
 
 /// Build a map from normalized line content -> (edit_id, prompt_index) for all AI edits
@@ -406,10 +403,10 @@ fn find_similar_ai_line(
         }
 
         let similarity = compute_similarity(line_trimmed, ai_trimmed);
-        if similarity >= threshold {
-            if best_match.is_none() || similarity > best_match.as_ref().unwrap().2 {
-                best_match = Some((edit_id.clone(), *prompt_idx, similarity));
-            }
+        if similarity >= threshold
+            && (best_match.is_none() || similarity > best_match.as_ref().unwrap().2)
+        {
+            best_match = Some((edit_id.clone(), *prompt_idx, similarity));
         }
     }
 
@@ -462,7 +459,7 @@ fn longest_common_subsequence(a: &str, b: &str) -> usize {
 
 /// Improve attributions using contextual information
 fn improve_attributions_with_context(
-    attributions: &mut Vec<LineAttribution>,
+    attributions: &mut [LineAttribution],
     _history: &FileEditHistory,
     _final_content: &str,
 ) {
@@ -578,10 +575,12 @@ mod tests {
         // Similar strings with comparable length should have high similarity
         assert!(compute_similarity("println(hello)", "println(world)") > 0.6);
         // Modified line detection
-        assert!(compute_similarity(
-            "    println!(\"hello\");",
-            "    println!(\"hello, world!\");"
-        ) > 0.6);
+        assert!(
+            compute_similarity(
+                "    println!(\"hello\");",
+                "    println!(\"hello, world!\");"
+            ) > 0.6
+        );
     }
 
     #[test]
@@ -604,10 +603,7 @@ mod tests {
             "original\nfirst AI\nsecond AI\n",
         ));
 
-        let result = ThreeWayAnalyzer::analyze(
-            &history,
-            "original\nfirst AI\nsecond AI\n",
-        );
+        let result = ThreeWayAnalyzer::analyze(&history, "original\nfirst AI\nsecond AI\n");
 
         // All lines are in the AI output from the second edit
         // "original" gets attributed to edit 1 (first appearance in AI output)
@@ -617,11 +613,19 @@ mod tests {
         assert_eq!(result.summary.original_lines, 0);
 
         // Check prompt indices - later edits override, so "original" is from edit 1
-        let first_ai = result.lines.iter().find(|l| l.content == "first AI").unwrap();
+        let first_ai = result
+            .lines
+            .iter()
+            .find(|l| l.content == "first AI")
+            .unwrap();
         // first AI appears in edit 0's output and edit 1's output, later wins
         assert_eq!(first_ai.prompt_index, Some(1));
 
-        let second_ai = result.lines.iter().find(|l| l.content == "second AI").unwrap();
+        let second_ai = result
+            .lines
+            .iter()
+            .find(|l| l.content == "second AI")
+            .unwrap();
         assert_eq!(second_ai.prompt_index, Some(1));
     }
 
@@ -733,7 +737,10 @@ mod tests {
         // All lines should be AI - especially the closing brace
         assert_eq!(result.summary.ai_lines, 4, "All lines should be AI");
         assert_eq!(result.summary.human_lines, 0, "No human lines expected");
-        assert_eq!(result.summary.original_lines, 0, "No original lines (all in AI output)");
+        assert_eq!(
+            result.summary.original_lines, 0,
+            "No original lines (all in AI output)"
+        );
 
         // Verify the closing brace specifically is AI
         let closing_brace = result.lines.iter().find(|l| l.content == "}").unwrap();
@@ -768,7 +775,10 @@ mod tests {
         println!("  Human lines: {}", result.summary.human_lines);
 
         for line in &result.lines {
-            println!("  Line {}: {:?} - '{}'", line.line_number, line.source, line.content);
+            println!(
+                "  Line {}: {:?} - '{}'",
+                line.line_number, line.source, line.content
+            );
         }
 
         // All 8 lines should be AI (they're all in the AI edit output)
@@ -807,17 +817,27 @@ fn bar() {
                 LineSource::Human => "Human",
                 _ => "Other",
             };
-            println!("  Line {}: {} - '{}'", line.line_number, source_str, line.content);
+            println!(
+                "  Line {}: {} - '{}'",
+                line.line_number, source_str, line.content
+            );
         }
 
         // All lines should be AI (including the duplicate "}")
-        assert_eq!(result.summary.human_lines, 0, "No human lines - all are in AI output");
+        assert_eq!(
+            result.summary.human_lines, 0,
+            "No human lines - all are in AI output"
+        );
         // The closing brace "}" appears twice but both should be AI
         let closing_braces: Vec<_> = result.lines.iter().filter(|l| l.content == "}").collect();
         assert_eq!(closing_braces.len(), 2, "Should have 2 closing braces");
         for brace in closing_braces {
-            assert!(matches!(brace.source, LineSource::AI { .. }),
-                "Closing brace at line {} should be AI, got {:?}", brace.line_number, brace.source);
+            assert!(
+                matches!(brace.source, LineSource::AI { .. }),
+                "Closing brace at line {} should be AI, got {:?}",
+                brace.line_number,
+                brace.source
+            );
         }
     }
 

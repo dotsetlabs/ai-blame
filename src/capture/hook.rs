@@ -128,8 +128,7 @@ impl CaptureHook {
         };
 
         // Open repo and get HEAD commit
-        let repo = Repository::open(&self.repo_root)
-            .context("Failed to open repository")?;
+        let repo = Repository::open(&self.repo_root).context("Failed to open repository")?;
         let head = repo
             .head()
             .context("Failed to get HEAD")?
@@ -338,7 +337,8 @@ mod tests {
             let sig = Signature::now("Test", "test@test.com").unwrap();
             let tree_id = repo.index().unwrap().write_tree().unwrap();
             let tree = repo.find_tree(tree_id).unwrap();
-            repo.commit(Some("HEAD"), &sig, &sig, "Initial", &tree, &[]).unwrap();
+            repo.commit(Some("HEAD"), &sig, &sig, "Initial", &tree, &[])
+                .unwrap();
         }
 
         (dir, repo)

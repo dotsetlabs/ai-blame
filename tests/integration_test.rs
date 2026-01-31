@@ -270,7 +270,9 @@ fn test_new_file_attribution() {
 /// Test storing and fetching attribution from git notes
 #[test]
 fn test_notes_roundtrip() {
-    use ai_blame::capture::snapshot::{AttributionSummary, FileAttributionResult, LineAttribution, LineSource};
+    use ai_blame::capture::snapshot::{
+        AttributionSummary, FileAttributionResult, LineAttribution, LineSource,
+    };
     use ai_blame::core::attribution::ModelInfo;
 
     let dir = TempDir::new().unwrap();
