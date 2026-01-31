@@ -26,7 +26,20 @@ cargo install --path .
 
 ## Setup
 
-### 1. Initialize in your repository
+### 1. One-time global setup
+
+Run this once to configure Claude Code integration:
+
+```bash
+whogitit setup
+```
+
+This automatically:
+- Installs the capture hook to `~/.claude/hooks/`
+- Configures Claude Code's `settings.json` with the required hooks
+- No manual file copying or JSON editing needed
+
+### 2. Initialize each repository
 
 ```bash
 cd your-project
@@ -38,50 +51,21 @@ This installs git hooks that:
 - Push git notes with your commits (pre-push)
 - Configure git to fetch notes automatically
 
-### 2. Configure Claude Code hooks
-
-Copy the capture script to your Claude hooks directory:
+### 3. Verify your setup
 
 ```bash
-mkdir -p ~/.claude/hooks
-cp hooks/whogitit-capture.sh ~/.claude/hooks/
-chmod +x ~/.claude/hooks/whogitit-capture.sh
+whogitit doctor
 ```
 
-Add to `~/.claude/settings.json`:
+This checks all configuration and shows any issues.
 
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "WHOGITIT_HOOK_PHASE=pre ~/.claude/hooks/whogitit-capture.sh"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "WHOGITIT_HOOK_PHASE=post ~/.claude/hooks/whogitit-capture.sh"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+### Manual setup (alternative)
 
-### 3. Push notes with commits
+If you prefer manual configuration, see [detailed installation docs](docs/src/getting-started/installation.md).
 
-Git notes must be pushed separately. After `whogitit init`, this happens automatically on `git push`. To push manually:
+### Push notes with commits
+
+Git notes are pushed automatically on `git push` after `whogitit init`. To push manually:
 
 ```bash
 git push origin refs/notes/whogitit

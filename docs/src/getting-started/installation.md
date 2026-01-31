@@ -4,6 +4,9 @@
 
 - **Rust** (1.70 or later) - [Install Rust](https://rustup.rs/)
 - **Git** (2.25 or later)
+- **jq** - JSON processor used by capture hook
+  - macOS: `brew install jq`
+  - Linux: `apt install jq` or `dnf install jq`
 - **Claude Code** - For automatic AI attribution capture
 
 ## Install from Source
@@ -29,9 +32,54 @@ You should see output like:
 whogitit 0.1.0
 ```
 
-## Install the Capture Hook
+## Quick Setup (Recommended)
 
-The capture hook integrates with Claude Code to automatically track AI-generated changes.
+The easiest way to set up whogitit is with the automated setup command:
+
+### 1. Run global setup (once)
+
+```bash
+whogitit setup
+```
+
+This automatically:
+- Installs the capture hook script to `~/.claude/hooks/`
+- Configures Claude Code's `~/.claude/settings.json` with required hooks
+- Creates a backup of your existing settings
+
+### 2. Initialize your repository
+
+```bash
+cd your-project
+whogitit init
+```
+
+This installs git hooks for the repository:
+- `post-commit` - Attaches attribution data to commits
+- `pre-push` - Automatically pushes git notes with your code
+
+### 3. Verify setup
+
+```bash
+whogitit doctor
+```
+
+This checks all configuration and shows any issues:
+
+```
+[OK] whogitit binary: Installed and running
+[OK] Capture hook: Installed at ~/.claude/hooks/whogitit-capture.sh
+[OK] Hook permissions: Executable
+[OK] Claude Code settings: Hooks configured
+[OK] Required tools (jq): Available
+[OK] Repository hooks: Initialized in current repo
+
+All checks passed! whogitit is properly configured.
+```
+
+## Manual Setup (Alternative)
+
+If you prefer manual configuration or need to customize the setup:
 
 ### 1. Copy the hook script
 
@@ -76,7 +124,7 @@ Add the following to `~/.claude/settings.json`:
 
 > **Note**: The hook captures Edit, Write, and Bash tool uses. Bash commands that modify files (like `sed`, `echo >`, etc.) are also tracked.
 
-## Initialize a Repository
+### 3. Initialize a Repository
 
 In each repository where you want to track AI attribution:
 
@@ -85,16 +133,15 @@ cd your-project
 whogitit init
 ```
 
-This command:
-- Installs a `post-commit` hook that attaches attribution data to commits
-- Installs a `pre-push` hook that automatically pushes git notes
-- Configures git to fetch notes automatically
-
 ## Verify Setup
 
 After setup, you can verify everything is working:
 
 ```bash
+# Run the doctor command for comprehensive checks
+whogitit doctor
+
+# Or check manually:
 # Check that hooks are installed
 ls -la .git/hooks/post-commit .git/hooks/pre-push
 

@@ -2,6 +2,8 @@
 
 Common issues and their solutions.
 
+> **Tip:** Run `whogitit doctor` first to diagnose most configuration issues automatically.
+
 ## Installation Issues
 
 ### `whogitit` command not found
@@ -65,7 +67,19 @@ error[E0433]: failed to resolve: could not find `xyz` in `abc`
 - `whogitit status` shows "No pending AI attribution"
 - `whogitit show HEAD` shows no attribution
 
-**Solutions:**
+**Quick Fix:**
+
+Run the doctor command to diagnose:
+```bash
+whogitit doctor
+```
+
+If doctor shows issues, run setup to fix them:
+```bash
+whogitit setup
+```
+
+**Manual Solutions:**
 
 1. **Check Claude hooks are configured:**
    ```bash
@@ -334,6 +348,23 @@ Error: expected value at line 1 column 1
    ```
 
 ## Getting Help
+
+### Run Doctor First
+
+The doctor command checks all configuration automatically:
+
+```bash
+whogitit doctor
+```
+
+It verifies:
+- whogitit binary is installed
+- Capture hook is installed and executable
+- Claude Code settings are configured
+- Required tools (jq) are available
+- Repository hooks are installed (if in a git repo)
+
+If any checks fail, it provides fix hints.
 
 ### Debug Mode
 

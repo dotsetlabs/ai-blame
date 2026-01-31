@@ -14,6 +14,8 @@ whogitit provides a comprehensive CLI for viewing and managing AI attribution da
 | [`export`](./commands/export.md) | Export attribution data as JSON/CSV |
 | [`retention`](./commands/retention.md) | Manage data retention policies |
 | [`audit`](./commands/audit.md) | View the audit log |
+| `setup` | Configure Claude Code integration (one-time) |
+| `doctor` | Verify whogitit configuration |
 | `init` | Initialize whogitit in a repository |
 | `clear` | Discard pending changes without committing |
 
@@ -54,8 +56,17 @@ whogitit retention preview
 ### Setup Commands
 
 ```bash
-# Initialize repository
+# One-time global setup (configures Claude Code)
+whogitit setup
+
+# Verify all configuration
+whogitit doctor
+
+# Initialize repository hooks
 whogitit init
+
+# Initialize even if global setup incomplete
+whogitit init --force
 
 # Test redaction patterns
 whogitit redact-test "api_key=secret123"

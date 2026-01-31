@@ -24,6 +24,7 @@ colored = "2"
 regex = "1"
 uuid = { version = "1", features = ["v4"] }
 toml = "0.8"
+dirs = "5"
 
 [dev-dependencies]
 tempfile = "3"

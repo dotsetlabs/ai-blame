@@ -2,22 +2,35 @@
 
 This guide will get you tracking AI-generated code in under 5 minutes.
 
-## 1. Install and Initialize
+## 1. Install whogitit
 
 ```bash
 # Install whogitit (if not already done)
 cargo install --path /path/to/whogitit
+```
 
-# Navigate to your project
+## 2. Run Global Setup (once)
+
+```bash
+whogitit setup
+```
+
+This configures Claude Code integration automatically.
+
+## 3. Initialize Your Repository
+
+```bash
 cd your-project
-
-# Initialize whogitit
 whogitit init
 ```
 
-## 2. Set Up Claude Code Hooks
+## 4. Verify Setup
 
-Copy the capture hook and configure Claude Code as described in [Installation](./installation.md#install-the-capture-hook).
+```bash
+whogitit doctor
+```
+
+You should see all checks passing.
 
 ## 3. Write Some Code with Claude
 

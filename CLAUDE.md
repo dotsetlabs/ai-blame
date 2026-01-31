@@ -48,13 +48,17 @@ cargo audit
 # Run locally during development
 cargo run -- <command>
 
-# Examples
+# Setup and configuration
+cargo run -- setup              # One-time global setup (Claude Code integration)
+cargo run -- doctor             # Verify configuration
+cargo run -- init               # Initialize repository hooks
+
+# Core commands
 cargo run -- blame src/main.rs
 cargo run -- show HEAD
 cargo run -- prompt src/main.rs:42
 cargo run -- summary --base main
 cargo run -- status
-cargo run -- init
 ```
 
 ## Architecture Overview
