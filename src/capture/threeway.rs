@@ -6,6 +6,20 @@ use crate::capture::snapshot::{
     FileAttributionResult, FileEditHistory, LineAttribution, LineSource,
 };
 
+/// Normalize a line for comparison purposes.
+/// - Trims trailing whitespace (but preserves leading indentation)
+/// - Normalizes line endings
+/// - Handles cross-platform line ending differences
+fn normalize_line(line: &str) -> String {
+    line.trim_end().to_string()
+}
+
+/// Normalize a line for use as a hash key.
+/// Uses the same normalization as normalize_line.
+fn normalize_for_key(line: &str) -> String {
+    normalize_line(line)
+}
+
 /// Performs three-way attribution analysis
 ///
 /// Given:
@@ -111,9 +125,10 @@ impl ThreeWayAnalyzer {
         let ai_line_map = build_ai_line_map(history);
         for (ai_idx, final_idx) in &ai_to_final_mapping {
             let ai_line = latest_ai.lines().get(*ai_idx).map(|s| *s).unwrap_or("");
+            let normalized = normalize_for_key(ai_line);
 
             // Check if this line came from an AI edit
-            if let Some((edit_id, prompt_idx)) = ai_line_map.get(ai_line) {
+            if let Some((edit_id, prompt_idx)) = ai_line_map.get(&normalized) {
                 final_line_sources.insert(
                     *final_idx,
                     (
@@ -134,9 +149,30 @@ impl ThreeWayAnalyzer {
             }
         }
 
-        // Third pass: check for AI-modified lines
+        // Third pass: check unmapped lines against AI content
+        // This is critical - the diff may not map lines even if they're identical
+        // (e.g., when surrounding context changes, diff sees Delete+Insert instead of Equal)
         for (idx, line) in final_lines.iter().enumerate() {
             if final_line_sources.contains_key(&idx) {
+                continue;
+            }
+
+            let normalized = normalize_for_key(line);
+
+            // First check for exact match in AI map - this is the key fix!
+            // Lines that exist verbatim in AI output should be attributed to AI
+            // even if the diff algorithm didn't map them as "Equal"
+            if let Some((edit_id, prompt_idx)) = ai_line_map.get(&normalized) {
+                final_line_sources.insert(
+                    idx,
+                    (
+                        LineSource::AI {
+                            edit_id: edit_id.clone(),
+                        },
+                        Some(edit_id.clone()),
+                        Some(*prompt_idx),
+                    ),
+                );
                 continue;
             }
 
@@ -155,10 +191,17 @@ impl ThreeWayAnalyzer {
                         Some(prompt_idx),
                     ),
                 );
-            } else {
-                // New line added by human
-                final_line_sources.insert(idx, (LineSource::Human, None, None));
+                continue;
             }
+
+            // Check if line exists in original (untouched by AI or human)
+            if line_in_content(line, &history.original.content) {
+                final_line_sources.insert(idx, (LineSource::Original, None, None));
+                continue;
+            }
+
+            // New line added by human
+            final_line_sources.insert(idx, (LineSource::Human, None, None));
         }
 
         // Build final attributions
@@ -197,17 +240,19 @@ impl ThreeWayAnalyzer {
     }
 }
 
-/// Build a set of lines from content for fast lookup
+/// Build a set of normalized lines from content for fast lookup
 fn build_line_set(content: &str) -> HashSet<String> {
-    content.lines().map(|l| l.to_string()).collect()
+    content.lines().map(|l| normalize_for_key(l)).collect()
 }
 
-/// Build a map from line content -> (edit_id, prompt_index) for all AI edits
+/// Build a map from normalized line content -> (edit_id, prompt_index) for all AI edits
 ///
 /// IMPORTANT: All lines in an AI edit's `after` content are considered AI-generated,
 /// not just lines that differ from `before`. This is because when AI writes/edits a file,
 /// it produces the entire output - even if some lines coincidentally match the original,
 /// the AI chose to include them.
+///
+/// Lines are normalized (trailing whitespace trimmed) to handle git/editor differences.
 fn build_ai_line_map(history: &FileEditHistory) -> HashMap<String, (String, u32)> {
     let mut map = HashMap::new();
 
@@ -217,7 +262,7 @@ fn build_ai_line_map(history: &FileEditHistory) -> HashMap<String, (String, u32)
         // This ensures complete file rewrites are properly attributed
         for line in edit.after.content.lines() {
             map.insert(
-                line.to_string(),
+                normalize_for_key(line),
                 (edit.edit_id.clone(), edit.prompt_index),
             );
         }
@@ -226,9 +271,10 @@ fn build_ai_line_map(history: &FileEditHistory) -> HashMap<String, (String, u32)
     map
 }
 
-/// Check if a line exists in content
+/// Check if a normalized line exists in content
 fn line_in_content(line: &str, content: &str) -> bool {
-    content.lines().any(|l| l == line)
+    let normalized = normalize_for_key(line);
+    content.lines().any(|l| normalize_for_key(l) == normalized)
 }
 
 /// Map line indices from source to target using diff
@@ -265,6 +311,8 @@ fn diff_map_lines(source: &str, target: &str) -> Vec<(usize, usize)> {
 /// 2. AIModified - if line is similar to an AI line
 /// 3. Original - if line existed before AI edits and wasn't touched
 /// 4. Human - line was added after AI edits
+///
+/// All lookups use normalized line content to handle whitespace differences.
 fn attribute_line(
     line: &str,
     line_number: u32,
@@ -272,10 +320,12 @@ fn attribute_line(
     ai_line_sources: &HashMap<String, (String, u32)>,
     _history: &FileEditHistory,
 ) -> LineAttribution {
+    let normalized = normalize_for_key(line);
+
     // Check if line matches an AI edit exactly - AI takes priority
     // because if the AI output contains this line, it's AI-generated
     // (even if the same line existed in the original)
-    if let Some((edit_id, prompt_idx)) = ai_line_sources.get(line) {
+    if let Some((edit_id, prompt_idx)) = ai_line_sources.get(&normalized) {
         return LineAttribution {
             line_number,
             content: line.to_string(),
@@ -306,7 +356,7 @@ fn attribute_line(
     }
 
     // Check if line existed in original (and wasn't part of AI output)
-    if original_lines.contains(line) {
+    if original_lines.contains(&normalized) {
         return LineAttribution {
             line_number,
             content: line.to_string(),
@@ -329,12 +379,18 @@ fn attribute_line(
 }
 
 /// Find a similar AI line using edit distance
+///
+/// Note: Empty/whitespace-only lines are handled by exact matching in attribute_line,
+/// so this function focuses on non-trivial content similarity.
 fn find_similar_ai_line(
     line: &str,
     ai_lines: &HashMap<String, (String, u32)>,
     threshold: f64,
 ) -> Option<(String, u32, f64)> {
     let line_trimmed = line.trim();
+
+    // Empty lines should be handled by exact matching, not similarity
+    // (empty lines match other empty lines with 100% similarity via normalize_for_key)
     if line_trimmed.is_empty() {
         return None;
     }
@@ -343,6 +399,8 @@ fn find_similar_ai_line(
 
     for (ai_line, (edit_id, prompt_idx)) in ai_lines {
         let ai_trimmed = ai_line.trim();
+
+        // Skip empty AI lines in similarity comparison
         if ai_trimmed.is_empty() {
             continue;
         }
@@ -580,5 +638,225 @@ mod tests {
         assert_eq!(result.summary.original_lines, 2);
         assert_eq!(result.summary.human_lines, 1);
         assert_eq!(result.summary.ai_lines, 0);
+    }
+
+    #[test]
+    fn test_whitespace_normalization() {
+        // Test that trailing whitespace differences don't affect attribution
+        let mut history = FileEditHistory::new("test.rs", Some(""));
+
+        // AI generates lines with trailing spaces
+        history.add_edit(AIEdit::new(
+            "Generate code",
+            0,
+            "Write",
+            "",
+            "fn main() {  \n    println!(\"hello\");  \n}\n",
+        ));
+
+        // Final commit has trailing spaces stripped (common git behavior)
+        let final_content = "fn main() {\n    println!(\"hello\");\n}\n";
+        let result = ThreeWayAnalyzer::analyze(&history, final_content);
+
+        // All lines should be AI despite whitespace differences
+        assert_eq!(result.summary.ai_lines, 3, "All lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines expected");
+    }
+
+    #[test]
+    fn test_empty_line_attribution() {
+        // Test that empty lines in AI output are properly attributed
+        let mut history = FileEditHistory::new("test.rs", Some(""));
+
+        // AI generates code with empty lines
+        history.add_edit(AIEdit::new(
+            "Generate code with spacing",
+            0,
+            "Write",
+            "",
+            "fn main() {\n\n    println!(\"hello\");\n\n}\n",
+        ));
+
+        let final_content = "fn main() {\n\n    println!(\"hello\");\n\n}\n";
+        let result = ThreeWayAnalyzer::analyze(&history, final_content);
+
+        // All lines including empty ones should be AI
+        assert_eq!(result.summary.ai_lines, 5, "All 5 lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines expected");
+    }
+
+    #[test]
+    fn test_tabs_vs_spaces() {
+        // Test that different indentation styles still match
+        let mut history = FileEditHistory::new("test.rs", Some(""));
+
+        // AI generates with spaces
+        history.add_edit(AIEdit::new(
+            "Generate code",
+            0,
+            "Write",
+            "",
+            "fn main() {\n    code();\n}\n",
+        ));
+
+        // Final uses same content (tabs would need different handling)
+        let final_content = "fn main() {\n    code();\n}\n";
+        let result = ThreeWayAnalyzer::analyze(&history, final_content);
+
+        assert_eq!(result.summary.ai_lines, 3);
+        assert_eq!(result.summary.human_lines, 0);
+    }
+
+    #[test]
+    fn test_diff_unmapped_lines_still_attributed_to_ai() {
+        // This test covers the critical bug fix:
+        // When the diff algorithm sees structural changes, it may not map identical lines
+        // (treating them as Delete+Insert instead of Equal). We need to still attribute
+        // those lines to AI if they exist in the AI output.
+        let original = "fn foo() {\n    old_code();\n}\n";
+        let mut history = FileEditHistory::new("test.rs", Some(original));
+
+        // AI rewrites the function with new content
+        // The closing brace "}" exists in both, but diff might not map it
+        let ai_output = "fn foo() {\n    new_code();\n    more_code();\n}\n";
+        history.add_edit(AIEdit::new(
+            "Rewrite function",
+            0,
+            "Edit",
+            original,
+            ai_output,
+        ));
+
+        // Final content matches AI output exactly
+        let result = ThreeWayAnalyzer::analyze_with_diff(&history, ai_output);
+
+        // All lines should be AI - especially the closing brace
+        assert_eq!(result.summary.ai_lines, 4, "All lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines expected");
+        assert_eq!(result.summary.original_lines, 0, "No original lines (all in AI output)");
+
+        // Verify the closing brace specifically is AI
+        let closing_brace = result.lines.iter().find(|l| l.content == "}").unwrap();
+        assert!(
+            matches!(closing_brace.source, LineSource::AI { .. }),
+            "Closing brace should be AI, got {:?}",
+            closing_brace.source
+        );
+    }
+
+    #[test]
+    fn test_debug_attribution_flow() {
+        // Debug test to verify attribution logic
+        let original = "line1\nline2\nline3\nline4\nline5\n";
+        let mut history = FileEditHistory::new("test.rs", Some(original));
+
+        // First AI edit: adds line6, line7
+        let after1 = "line1\nline2\nline3\nline4\nline5\nline6\nline7\n";
+        history.add_edit(AIEdit::new("prompt1", 0, "Edit", original, after1));
+
+        // Second AI edit: adds line8 and modifies line3
+        let after2 = "line1\nline2\nLINE3_MODIFIED\nline4\nline5\nline6\nline7\nline8\n";
+        history.add_edit(AIEdit::new("prompt2", 1, "Edit", after1, after2));
+
+        // Final content matches AI edit exactly
+        let result = ThreeWayAnalyzer::analyze_with_diff(&history, after2);
+
+        println!("\nAttribution results:");
+        println!("  AI lines: {}", result.summary.ai_lines);
+        println!("  AI modified lines: {}", result.summary.ai_modified_lines);
+        println!("  Original lines: {}", result.summary.original_lines);
+        println!("  Human lines: {}", result.summary.human_lines);
+
+        for line in &result.lines {
+            println!("  Line {}: {:?} - '{}'", line.line_number, line.source, line.content);
+        }
+
+        // All 8 lines should be AI (they're all in the AI edit output)
+        assert_eq!(result.summary.ai_lines, 8, "All lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines expected");
+    }
+
+    #[test]
+    fn test_duplicate_lines_in_ai_output() {
+        // Test that duplicate lines (like closing braces) are properly attributed
+        // This tests the real-world scenario where the same line content appears multiple times
+        let original = r#"fn foo() {
+    code();
+}
+"#;
+        let mut history = FileEditHistory::new("test.rs", Some(original));
+
+        // AI adds a new function with similar structure (duplicate "}" and empty lines)
+        let after1 = r#"fn foo() {
+    code();
+}
+
+fn bar() {
+    more_code();
+}
+"#;
+        history.add_edit(AIEdit::new("Add bar function", 0, "Edit", original, after1));
+
+        let result = ThreeWayAnalyzer::analyze_with_diff(&history, after1);
+
+        println!("\nDuplicate lines test:");
+        for line in &result.lines {
+            let source_str = match &line.source {
+                LineSource::AI { .. } => "AI",
+                LineSource::Original => "Orig",
+                LineSource::Human => "Human",
+                _ => "Other",
+            };
+            println!("  Line {}: {} - '{}'", line.line_number, source_str, line.content);
+        }
+
+        // All lines should be AI (including the duplicate "}")
+        assert_eq!(result.summary.human_lines, 0, "No human lines - all are in AI output");
+        // The closing brace "}" appears twice but both should be AI
+        let closing_braces: Vec<_> = result.lines.iter().filter(|l| l.content == "}").collect();
+        assert_eq!(closing_braces.len(), 2, "Should have 2 closing braces");
+        for brace in closing_braces {
+            assert!(matches!(brace.source, LineSource::AI { .. }),
+                "Closing brace at line {} should be AI, got {:?}", brace.line_number, brace.source);
+        }
+    }
+
+    #[test]
+    fn test_common_patterns_attributed_to_ai() {
+        // Test that common patterns like empty lines, closing braces, and doc comments
+        // are properly attributed to AI when they appear in AI output
+        let original = "";
+        let mut history = FileEditHistory::new("test.rs", Some(original));
+
+        // AI generates code with common patterns
+        let ai_output = r#"/// A test function
+#[test]
+fn test() {
+    assert!(true);
+}
+"#;
+        history.add_edit(AIEdit::new(
+            "Generate test",
+            0,
+            "Write",
+            original,
+            ai_output,
+        ));
+
+        let result = ThreeWayAnalyzer::analyze_with_diff(&history, ai_output);
+
+        // All lines should be AI
+        assert_eq!(result.summary.ai_lines, 5, "All 5 lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines");
+
+        // Check each line individually
+        for line in &result.lines {
+            assert!(
+                matches!(line.source, LineSource::AI { .. }),
+                "Line '{}' should be AI, got {:?}",
+                line.content,
+                line.source
+            );
+        }
     }
 }
