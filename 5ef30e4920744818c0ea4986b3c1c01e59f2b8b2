@@ -1,0 +1,3589 @@
+{
+  "version": 2,
+  "session": {
+    "session_id": "7d741253-a48f-4345-8158-6860216e482d",
+    "model": {
+      "id": "claude-opus-4-5-20251101",
+      "provider": "anthropic"
+    },
+    "started_at": "2026-01-31T17:56:02.919018+00:00",
+    "prompt_count": 5
+  },
+  "prompts": [
+    {
+      "index": 0,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T17:56:02.919054+00:00",
+      "affected_files": [
+        ".github/workflows/ai-attribution.yml"
+      ]
+    },
+    {
+      "index": 1,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T17:56:09.097384+00:00",
+      "affected_files": [
+        ".github/workflows/ai-attribution.yml"
+      ]
+    },
+    {
+      "index": 2,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T17:56:14.423532+00:00",
+      "affected_files": [
+        ".github/workflows/ai-attribution.yml"
+      ]
+    },
+    {
+      "index": 3,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T17:56:21.404265+00:00",
+      "affected_files": [
+        ".github/workflows/ai-attribution.yml"
+      ]
+    },
+    {
+      "index": 4,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T17:56:29.558878+00:00",
+      "affected_files": [
+        ".github/workflows/ai-attribution.yml"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/ai-attribution.yml",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "name: AI Attribution Summary",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "on:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "  pull_request:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "    types: [opened, synchronize, reopened]",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "permissions:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "  contents: read",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "  pull-requests: write",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "jobs:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "  analyze:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "    steps:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "      - name: Checkout repository",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "        uses: actions/checkout@v4",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "        with:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "          fetch-depth: 0  # Full history for git notes",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "          ref: ${{ github.event.pull_request.head.sha }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "      - name: Fetch git notes",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "        run: |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "          git fetch origin refs/notes/ai-blame:refs/notes/ai-blame || echo \"No ai-blame notes found\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "        continue-on-error: true",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "      - name: Setup Rust",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "        uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "      - name: Cache cargo",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "        uses: actions/cache@v4",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "        with:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "          path: |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "            ~/.cargo/bin/",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "            ~/.cargo/registry/index/",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "            ~/.cargo/registry/cache/",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "            ~/.cargo/git/db/",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "            target/",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "          restore-keys: |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "            ${{ runner.os }}-cargo-",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "      - name: Build ai-blame",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "        run: cargo build --release",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "      - name: Analyze PR commits",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "        id: analyze",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "        env:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "          BASE_SHA: ${{ github.event.pull_request.base.sha }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "          HEAD_SHA: ${{ github.event.pull_request.head.sha }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "        run: |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "          # Create analysis script",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "          cat > /tmp/analyze.sh << 'SCRIPT'",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "          #!/bin/bash",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "          set -e",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "          BASE_SHA=\"$1\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "          HEAD_SHA=\"$2\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "          AI_BLAME=\"./target/release/ai-blame\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "          # Get list of commits in PR",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "          COMMITS=$(git rev-list --reverse \"$BASE_SHA\"..\"$HEAD_SHA\")",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "          if [ -z \"$COMMITS\" ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "            echo \"No commits to analyze\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "            echo \"has_data=false\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "            exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "          fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "          # Initialize counters",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "          TOTAL_AI=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "          TOTAL_AI_MODIFIED=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "          TOTAL_HUMAN=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "          TOTAL_ORIGINAL=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "          COMMITS_WITH_AI=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "          COMMIT_COUNT=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "          # Collect per-commit data",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "          COMMIT_DETAILS=\"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "          # Track unique prompts (deduplicated across commits)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "          declare -A SEEN_PROMPTS",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "          PROMPT_LIST=\"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "          PROMPT_COUNT=0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "          for COMMIT in $COMMITS; do",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "            COMMIT_COUNT=$((COMMIT_COUNT + 1))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "            SHORT=$(echo \"$COMMIT\" | cut -c1-7)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "            # Try to get attribution for this commit",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "            if ATTR=$(\"$AI_BLAME\" show \"$COMMIT\" --format json 2>/dev/null); then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "              # Skip if no attribution (null output)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "              if [ \"$ATTR\" = \"null\" ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "                continue",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "              fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "              # Parse JSON output",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "              AI=$(echo \"$ATTR\" | jq -r '[.files[].summary.ai_lines] | add // 0')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "              AI_MOD=$(echo \"$ATTR\" | jq -r '[.files[].summary.ai_modified_lines] | add // 0')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "              HUMAN=$(echo \"$ATTR\" | jq -r '[.files[].summary.human_lines] | add // 0')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "              ORIGINAL=$(echo \"$ATTR\" | jq -r '[.files[].summary.original_lines] | add // 0')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "              MODEL=$(echo \"$ATTR\" | jq -r '.session.model.id // \"unknown\"')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "              FILES=$(echo \"$ATTR\" | jq -r '.files | length')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "              if [ \"$AI\" != \"0\" ] || [ \"$AI_MOD\" != \"0\" ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "                COMMITS_WITH_AI=$((COMMITS_WITH_AI + 1))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "                TOTAL_AI=$((TOTAL_AI + AI))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "                TOTAL_AI_MODIFIED=$((TOTAL_AI_MODIFIED + AI_MOD))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "                TOTAL_HUMAN=$((TOTAL_HUMAN + HUMAN))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "                TOTAL_ORIGINAL=$((TOTAL_ORIGINAL + ORIGINAL))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "                # Get commit message (first line)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "                MSG=$(git log -1 --format=%s \"$COMMIT\" | head -c 50)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "                COMMIT_DETAILS=\"${COMMIT_DETAILS}| \\`${SHORT}\\` | ${MSG} | ${AI} | ${AI_MOD} | ${HUMAN} | ${FILES} |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "          \"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "                # Extract prompts from this commit (deduplicated)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "                PROMPTS=$(echo \"$ATTR\" | jq -r '.prompts[]? | @base64' 2>/dev/null || true)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "                for PROMPT_B64 in $PROMPTS; do",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "                  # Decode and extract prompt text",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "                  PROMPT_TEXT=$(echo \"$PROMPT_B64\" | base64 -d | jq -r '.text // \"\"' | head -c 200)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "                  PROMPT_FILES=$(echo \"$PROMPT_B64\" | base64 -d | jq -r '.affected_files | join(\", \")' 2>/dev/null || echo \"\")",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "                  # Skip empty prompts",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "                  if [ -z \"$PROMPT_TEXT\" ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "                    continue",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "                  fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "                  # Create a hash key for deduplication (first 50 chars)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "                  PROMPT_KEY=$(echo \"$PROMPT_TEXT\" | head -c 50 | md5sum | cut -d' ' -f1)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "                  if [ -z \"${SEEN_PROMPTS[$PROMPT_KEY]:-}\" ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "                    SEEN_PROMPTS[$PROMPT_KEY]=1",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "                    PROMPT_COUNT=$((PROMPT_COUNT + 1))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "                    # Truncate prompt for display (max 150 chars)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "                    PROMPT_DISPLAY=$(echo \"$PROMPT_TEXT\" | tr '\\n' ' ' | head -c 150)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "                    if [ ${#PROMPT_TEXT} -gt 150 ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "                      PROMPT_DISPLAY=\"${PROMPT_DISPLAY}...\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "                    fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "                    # Escape pipe characters for markdown table",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "                    PROMPT_DISPLAY=$(echo \"$PROMPT_DISPLAY\" | sed 's/|/\\\\|/g')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "                    PROMPT_LIST=\"${PROMPT_LIST}| ${PROMPT_COUNT} | ${PROMPT_DISPLAY} | ${PROMPT_FILES} |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "          \"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "                  fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "                done",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "              fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "            fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "          done",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 150,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "          # Changed lines = AI + AI_modified + Human (NOT including original/unchanged)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "          CHANGED_LINES=$((TOTAL_AI + TOTAL_AI_MODIFIED + TOTAL_HUMAN))",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 153,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "          if [ \"$COMMITS_WITH_AI\" -eq 0 ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "            echo \"has_data=false\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 156,
+          "content": "            exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 157,
+          "content": "          fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 159,
+          "content": "          # AI percentage is of CHANGED lines only",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 160,
+          "content": "          if [ \"$CHANGED_LINES\" -gt 0 ]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 161,
+          "content": "            AI_PERCENT=$(echo \"scale=1; ($TOTAL_AI + $TOTAL_AI_MODIFIED) * 100 / $CHANGED_LINES\" | bc)",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 162,
+          "content": "          else",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 163,
+          "content": "            AI_PERCENT=\"0\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 164,
+          "content": "          fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 165,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 166,
+          "content": "          # Build summary",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 167,
+          "content": "          echo \"has_data=true\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 168,
+          "content": "          echo \"total_ai=$TOTAL_AI\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 169,
+          "content": "          echo \"total_ai_modified=$TOTAL_AI_MODIFIED\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 170,
+          "content": "          echo \"total_human=$TOTAL_HUMAN\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 171,
+          "content": "          echo \"total_original=$TOTAL_ORIGINAL\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 172,
+          "content": "          echo \"commits_with_ai=$COMMITS_WITH_AI\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 173,
+          "content": "          echo \"commit_count=$COMMIT_COUNT\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 174,
+          "content": "          echo \"ai_percent=$AI_PERCENT\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 175,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 176,
+          "content": "          # Write commit details to file for multi-line output",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 177,
+          "content": "          echo \"$COMMIT_DETAILS\" > /tmp/commit_details.txt",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 178,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 179,
+          "content": "          # Write prompts to file",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 180,
+          "content": "          echo \"$PROMPT_LIST\" > /tmp/prompts.txt",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 181,
+          "content": "          echo \"prompt_count=$PROMPT_COUNT\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 182,
+          "content": "          SCRIPT",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 183,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 184,
+          "content": "          chmod +x /tmp/analyze.sh",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 185,
+          "content": "          /tmp/analyze.sh \"$BASE_SHA\" \"$HEAD_SHA\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 186,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 187,
+          "content": "      - name: Post PR comment",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 188,
+          "content": "        if: steps.analyze.outputs.has_data == 'true'",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 189,
+          "content": "        uses: actions/github-script@v7",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 190,
+          "content": "        env:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 191,
+          "content": "          TOTAL_AI: ${{ steps.analyze.outputs.total_ai }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 192,
+          "content": "          TOTAL_AI_MODIFIED: ${{ steps.analyze.outputs.total_ai_modified }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 193,
+          "content": "          TOTAL_HUMAN: ${{ steps.analyze.outputs.total_human }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 194,
+          "content": "          TOTAL_ORIGINAL: ${{ steps.analyze.outputs.total_original }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 195,
+          "content": "          COMMITS_WITH_AI: ${{ steps.analyze.outputs.commits_with_ai }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 196,
+          "content": "          COMMIT_COUNT: ${{ steps.analyze.outputs.commit_count }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 197,
+          "content": "          AI_PERCENT: ${{ steps.analyze.outputs.ai_percent }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 198,
+          "content": "          PROMPT_COUNT: ${{ steps.analyze.outputs.prompt_count }}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 199,
+          "content": "        with:",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 200,
+          "content": "          script: |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 201,
+          "content": "            const fs = require('fs');",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 202,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 203,
+          "content": "            const totalAI = parseInt(process.env.TOTAL_AI) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 204,
+          "content": "            const totalAIMod = parseInt(process.env.TOTAL_AI_MODIFIED) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 205,
+          "content": "            const totalHuman = parseInt(process.env.TOTAL_HUMAN) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 206,
+          "content": "            const totalOriginal = parseInt(process.env.TOTAL_ORIGINAL) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 207,
+          "content": "            const commitsWithAI = parseInt(process.env.COMMITS_WITH_AI) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 208,
+          "content": "            const commitCount = parseInt(process.env.COMMIT_COUNT) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 209,
+          "content": "            const aiPercent = process.env.AI_PERCENT || '0';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 210,
+          "content": "            const promptCount = parseInt(process.env.PROMPT_COUNT) || 0;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 211,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 212,
+          "content": "            // Read commit details",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 213,
+          "content": "            let commitDetails = '';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 214,
+          "content": "            try {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 215,
+          "content": "              commitDetails = fs.readFileSync('/tmp/commit_details.txt', 'utf8').trim();",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 216,
+          "content": "            } catch (e) {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 217,
+          "content": "              console.log('No commit details file found');",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 218,
+          "content": "            }",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 219,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 220,
+          "content": "            // Read prompts",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 221,
+          "content": "            let promptDetails = '';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 222,
+          "content": "            try {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 223,
+          "content": "              promptDetails = fs.readFileSync('/tmp/prompts.txt', 'utf8').trim();",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 224,
+          "content": "            } catch (e) {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 225,
+          "content": "              console.log('No prompts file found');",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 226,
+          "content": "            }",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 227,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 228,
+          "content": "            // Determine emoji based on AI percentage",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 229,
+          "content": "            let emoji = '🤖';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 230,
+          "content": "            const pct = parseFloat(aiPercent);",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 231,
+          "content": "            if (pct >= 80) emoji = '🤖🤖🤖';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 232,
+          "content": "            else if (pct >= 50) emoji = '🤖🤖';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 233,
+          "content": "            else if (pct >= 20) emoji = '🤖';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 234,
+          "content": "            else emoji = '👤';",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 235,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 236,
+          "content": "            const totalLines = totalAI + totalAIMod + totalHuman + totalOriginal;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 237,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 238,
+          "content": "            let body = `## ${emoji} AI Attribution Summary",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 239,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 240,
+          "content": "            This PR contains **${commitsWithAI}** of **${commitCount}** commits with AI-assisted changes.",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 241,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 242,
+          "content": "            ### Overview",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 243,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 244,
+          "content": "            | Metric | Lines | Percentage |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 245,
+          "content": "            |--------|------:|----------:|",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 246,
+          "content": "            | 🟢 AI-generated | ${totalAI} | ${totalLines > 0 ? ((totalAI / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 247,
+          "content": "            | 🟡 AI-modified by human | ${totalAIMod} | ${totalLines > 0 ? ((totalAIMod / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 248,
+          "content": "            | 🔵 Human-added | ${totalHuman} | ${totalLines > 0 ? ((totalHuman / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 249,
+          "content": "            | ⚪ Original/unchanged | ${totalOriginal} | ${totalLines > 0 ? ((totalOriginal / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 250,
+          "content": "            | **Total** | **${totalLines}** | **100%** |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 251,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 252,
+          "content": "            **AI involvement: ${aiPercent}%** of changed lines",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 253,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 254,
+          "content": "            `;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 255,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 256,
+          "content": "            if (commitDetails) {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 257,
+          "content": "              body += `### Commits with AI Attribution",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 258,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 259,
+          "content": "            | Commit | Message | AI | Modified | Human | Files |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 260,
+          "content": "            |--------|---------|---:|--------:|------:|------:|",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 261,
+          "content": "            ${commitDetails}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 262,
+          "content": "            `;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 263,
+          "content": "            }",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 264,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 265,
+          "content": "            if (promptDetails && promptCount > 0) {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 266,
+          "content": "              body += `### Prompts Used (${promptCount})",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 267,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 268,
+          "content": "            <details>",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 269,
+          "content": "            <summary>Click to expand prompts</summary>",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 270,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 271,
+          "content": "            | # | Prompt | Files Affected |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 272,
+          "content": "            |--:|--------|----------------|",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 273,
+          "content": "            ${promptDetails}",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 274,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 275,
+          "content": "            </details>",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 276,
+          "content": "            `;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 277,
+          "content": "            }",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 278,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 279,
+          "content": "            body += `",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 280,
+          "content": "            ---",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 281,
+          "content": "            <sub>Generated by [ai-blame](https://github.com/dotsetlabs/ai-blame) • [View detailed attribution](command:ai-blame show HEAD)</sub>",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 282,
+          "content": "            `;",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 283,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 284,
+          "content": "            // Find existing comment",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 285,
+          "content": "            const { data: comments } = await github.rest.issues.listComments({",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 286,
+          "content": "              owner: context.repo.owner,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 287,
+          "content": "              repo: context.repo.repo,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 288,
+          "content": "              issue_number: context.issue.number,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 289,
+          "content": "            });",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 290,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 291,
+          "content": "            const botComment = comments.find(c =>",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 292,
+          "content": "              c.user.type === 'Bot' &&",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 293,
+          "content": "              c.body.includes('AI Attribution Summary')",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 294,
+          "content": "            );",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 295,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 296,
+          "content": "            if (botComment) {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 297,
+          "content": "              // Update existing comment",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 298,
+          "content": "              await github.rest.issues.updateComment({",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 299,
+          "content": "                owner: context.repo.owner,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 300,
+          "content": "                repo: context.repo.repo,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 301,
+          "content": "                comment_id: botComment.id,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 302,
+          "content": "                body: body",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 303,
+          "content": "              });",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 304,
+          "content": "              console.log('Updated existing comment');",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 305,
+          "content": "            } else {",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 306,
+          "content": "              // Create new comment",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 307,
+          "content": "              await github.rest.issues.createComment({",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 308,
+          "content": "                owner: context.repo.owner,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 309,
+          "content": "                repo: context.repo.repo,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 310,
+          "content": "                issue_number: context.issue.number,",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 311,
+          "content": "                body: body",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 312,
+          "content": "              });",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 313,
+          "content": "              console.log('Created new comment');",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 314,
+          "content": "            }",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 315,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 316,
+          "content": "      - name: No AI attribution found",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 317,
+          "content": "        if: steps.analyze.outputs.has_data != 'true'",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 318,
+          "content": "        run: |",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 319,
+          "content": "          echo \"No AI attribution data found in this PR's commits.\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 320,
+          "content": "          echo \"This is normal if the commits were not made with ai-blame tracking enabled.\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b"
+          },
+          "edit_id": "733edb6a-4acb-4a8b-84ad-0cf6a12ec77b",
+          "prompt_index": 4,
+          "confidence": 1.0
+        }
+      ],
+      "summary": {
+        "total_lines": 320,
+        "ai_lines": 320,
+        "ai_modified_lines": 0,
+        "human_lines": 0,
+        "original_lines": 0,
+        "unknown_lines": 0
+      }
+    }
+  ]
+}
