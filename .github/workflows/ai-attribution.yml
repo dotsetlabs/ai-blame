@@ -172,15 +172,9 @@ jobs:
                     PROMPT_PREVIEW=$(echo "$PROMPT_PREVIEW" | sed 's/|/\\|/g')
                     FULL_PROMPT_ESCAPED=$(echo "$FULL_PROMPT" | sed 's/|/\\|/g')
 
-                    # Build prompt entry with expandable full text
-                    # Use a separator that won't conflict with YAML
-                    PROMPT_LIST="${PROMPT_LIST}---PROMPT_START---
-PROMPT_NUM:${PROMPT_COUNT}
-PROMPT_FILES:${PROMPT_FILES}
-PROMPT_PREVIEW:${PROMPT_PREVIEW}
-PROMPT_FULL:${PROMPT_TEXT}
----PROMPT_END---
-"
+                    # Build prompt entry - store as base64 to avoid YAML issues
+                    PROMPT_ENTRY=$(echo -e "NUM:${PROMPT_COUNT}\nFILES:${PROMPT_FILES}\nPREVIEW:${PROMPT_PREVIEW}\nFULL:${PROMPT_TEXT}" | base64 -w0)
+                    PROMPT_LIST="${PROMPT_LIST}${PROMPT_ENTRY}|||"
                   fi
                 done
               fi
@@ -256,38 +250,38 @@ PROMPT_FULL:${PROMPT_TEXT}
               console.log('No commit details file found');
             }
 
-            // Read and parse prompts
-            let promptDetails = '';
+            // Read and parse prompts (base64 encoded, separated by |||)
             let parsedPrompts = [];
             try {
               const rawPrompts = fs.readFileSync('/tmp/prompts.txt', 'utf8').trim();
-              // Parse the custom format
-              const promptBlocks = rawPrompts.split('---PROMPT_START---').filter(b => b.trim());
-              for (const block of promptBlocks) {
-                const cleaned = block.replace('---PROMPT_END---', '').trim();
-                if (!cleaned) continue;
+              const promptBlocks = rawPrompts.split('|||').filter(b => b.trim());
+              for (const b64 of promptBlocks) {
+                try {
+                  const decoded = Buffer.from(b64.trim(), 'base64').toString('utf8');
+                  const lines = decoded.split('\n');
+                  const prompt = {};
+                  let fullLines = [];
+                  let inFull = false;
 
-                const lines = cleaned.split('\n');
-                const prompt = {};
-                let fullText = [];
-                let inFull = false;
-
-                for (const line of lines) {
-                  if (line.startsWith('PROMPT_NUM:')) {
-                    prompt.num = line.replace('PROMPT_NUM:', '').trim();
-                  } else if (line.startsWith('PROMPT_FILES:')) {
-                    prompt.files = line.replace('PROMPT_FILES:', '').trim();
-                  } else if (line.startsWith('PROMPT_PREVIEW:')) {
-                    prompt.preview = line.replace('PROMPT_PREVIEW:', '').trim();
-                  } else if (line.startsWith('PROMPT_FULL:')) {
-                    inFull = true;
-                    fullText.push(line.replace('PROMPT_FULL:', ''));
-                  } else if (inFull) {
-                    fullText.push(line);
+                  for (const line of lines) {
+                    if (line.startsWith('NUM:')) {
+                      prompt.num = line.replace('NUM:', '').trim();
+                    } else if (line.startsWith('FILES:')) {
+                      prompt.files = line.replace('FILES:', '').trim();
+                    } else if (line.startsWith('PREVIEW:')) {
+                      prompt.preview = line.replace('PREVIEW:', '').trim();
+                    } else if (line.startsWith('FULL:')) {
+                      inFull = true;
+                      fullLines.push(line.replace('FULL:', ''));
+                    } else if (inFull) {
+                      fullLines.push(line);
+                    }
                   }
+                  prompt.full = fullLines.join('\n').trim();
+                  if (prompt.num) parsedPrompts.push(prompt);
+                } catch (decodeErr) {
+                  console.log('Failed to decode prompt:', decodeErr.message);
                 }
-                prompt.full = fullText.join('\n').trim();
-                if (prompt.num) parsedPrompts.push(prompt);
               }
             } catch (e) {
               console.log('No prompts file found or parse error:', e.message);
