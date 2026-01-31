@@ -1,0 +1,4943 @@
+{
+  "version": 2,
+  "session": {
+    "session_id": "cd734ebe-7d8e-4305-937e-703ab7635056",
+    "model": {
+      "id": "claude-opus-4-5-20251101",
+      "provider": "anthropic"
+    },
+    "started_at": "2026-01-31T16:01:02.678343+00:00",
+    "prompt_count": 3
+  },
+  "prompts": [
+    {
+      "index": 0,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T16:01:02.678381+00:00",
+      "affected_files": [
+        ".github/workflows/ci.yml"
+      ]
+    },
+    {
+      "index": 1,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T16:01:07.303224+00:00",
+      "affected_files": [
+        ".github/workflows/ai-attribution.yml"
+      ]
+    },
+    {
+      "index": 2,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T16:01:11.822490+00:00",
+      "affected_files": [
+        ".github/actions/pr-summary/action.yml"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/actions/pr-summary/action.yml",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "name: 'AI Attribution PR Summary'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "description: 'Analyze AI attribution in PR commits and post a summary comment'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "author: 'dotsetlabs'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "branding:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "  icon: 'cpu'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "  color: 'purple'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "inputs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "  github-token:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "    description: 'GitHub token for posting comments'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "    required: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "    default: ${{ github.token }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "  ai-blame-version:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "    description: 'Version of ai-blame to use (or \"latest\")'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "    required: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "    default: 'latest'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "  skip-if-no-attribution:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "    description: 'Skip posting comment if no AI attribution found'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "    required: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "    default: 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "outputs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "  has-attribution:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "    description: 'Whether AI attribution was found'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "    value: ${{ steps.analyze.outputs.has_data }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "  total-ai-lines:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "    description: 'Total AI-generated lines'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "    value: ${{ steps.analyze.outputs.total_ai }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "  ai-percentage:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "    description: 'Percentage of AI involvement'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "    value: ${{ steps.analyze.outputs.ai_percent }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "runs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "  using: 'composite'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "  steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "    - name: Fetch git notes",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "      shell: bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "      run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "        git fetch origin refs/notes/ai-blame:refs/notes/ai-blame 2>/dev/null || echo \"No ai-blame notes found\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "      continue-on-error: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "    - name: Setup Rust",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "      uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "AI",
+            "edit_id": "dc36d2a4-e6f5-4778-8d4d-b7a85862210e"
+          },
+          "edit_id": "dc36d2a4-e6f5-4778-8d4d-b7a85862210e",
+          "prompt_index": 2,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "    - name: Install ai-blame",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "      shell: bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "      run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "        if [ \"${{ inputs.ai-blame-version }}\" = \"latest\" ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "          cargo install ai-blame || cargo install --git https://github.com/dotsetlabs/ai-blame",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "        else",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "          cargo install ai-blame@${{ inputs.ai-blame-version }} || \\",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "            cargo install --git https://github.com/dotsetlabs/ai-blame --tag ${{ inputs.ai-blame-version }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "        fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "    - name: Analyze PR commits",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "      id: analyze",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "      shell: bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "      env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "        BASE_SHA: ${{ github.event.pull_request.base.sha }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "        HEAD_SHA: ${{ github.event.pull_request.head.sha }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "      run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "        ${{ github.action_path }}/analyze.sh \"$BASE_SHA\" \"$HEAD_SHA\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "    - name: Post PR comment",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "      if: steps.analyze.outputs.has_data == 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "      uses: actions/github-script@v7",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "      env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "        TOTAL_AI: ${{ steps.analyze.outputs.total_ai }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "        TOTAL_AI_MODIFIED: ${{ steps.analyze.outputs.total_ai_modified }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "        TOTAL_HUMAN: ${{ steps.analyze.outputs.total_human }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "        TOTAL_ORIGINAL: ${{ steps.analyze.outputs.total_original }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "        COMMITS_WITH_AI: ${{ steps.analyze.outputs.commits_with_ai }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "        COMMIT_COUNT: ${{ steps.analyze.outputs.commit_count }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "        AI_PERCENT: ${{ steps.analyze.outputs.ai_percent }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "        GITHUB_TOKEN: ${{ inputs.github-token }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "      with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "        github-token: ${{ inputs.github-token }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "        script: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "          const fs = require('fs');",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "          const path = require('path');",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "          const totalAI = parseInt(process.env.TOTAL_AI) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "          const totalAIMod = parseInt(process.env.TOTAL_AI_MODIFIED) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "          const totalHuman = parseInt(process.env.TOTAL_HUMAN) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "          const totalOriginal = parseInt(process.env.TOTAL_ORIGINAL) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "          const commitsWithAI = parseInt(process.env.COMMITS_WITH_AI) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "          const commitCount = parseInt(process.env.COMMIT_COUNT) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "          const aiPercent = process.env.AI_PERCENT || '0';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "          let commitDetails = '';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "          try {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "            commitDetails = fs.readFileSync('/tmp/commit_details.txt', 'utf8').trim();",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "          } catch (e) {}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "          const pct = parseFloat(aiPercent);",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "          let emoji = pct >= 80 ? '🤖🤖🤖' : pct >= 50 ? '🤖🤖' : pct >= 20 ? '🤖' : '👤';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "          const totalLines = totalAI + totalAIMod + totalHuman + totalOriginal;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "          let body = `## ${emoji} AI Attribution Summary",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "          This PR contains **${commitsWithAI}** of **${commitCount}** commits with AI-assisted changes.",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "          ### Overview",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "          | Metric | Lines | Percentage |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "          |--------|------:|----------:|",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "          | 🟢 AI-generated | ${totalAI} | ${totalLines > 0 ? ((totalAI / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "          | 🟡 AI-modified by human | ${totalAIMod} | ${totalLines > 0 ? ((totalAIMod / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "          | 🔵 Human-added | ${totalHuman} | ${totalLines > 0 ? ((totalHuman / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "          | ⚪ Original/unchanged | ${totalOriginal} | ${totalLines > 0 ? ((totalOriginal / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "          | **Total** | **${totalLines}** | **100%** |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "          **AI involvement: ${aiPercent}%** of changed lines",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "          `;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "          if (commitDetails) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "            body += `",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "          ### Commits with AI Attribution",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "          | Commit | Message | AI | Modified | Human | Files |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "          |--------|---------|---:|--------:|------:|------:|",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "          ${commitDetails}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "          `;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "          }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "          body += `",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "          ---",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "          <sub>Generated by [ai-blame](https://github.com/dotsetlabs/ai-blame)</sub>",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "          `;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "          const { data: comments } = await github.rest.issues.listComments({",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "            owner: context.repo.owner,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "            repo: context.repo.repo,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "            issue_number: context.issue.number,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "          });",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "          const botComment = comments.find(c =>",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "            c.user.type === 'Bot' && c.body.includes('AI Attribution Summary')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "          );",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "          if (botComment) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "            await github.rest.issues.updateComment({",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "              owner: context.repo.owner,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "              repo: context.repo.repo,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "              comment_id: botComment.id,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "              body: body",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "            });",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 150,
+          "content": "          } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "            await github.rest.issues.createComment({",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "              owner: context.repo.owner,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 153,
+          "content": "              repo: context.repo.repo,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "              issue_number: context.issue.number,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "              body: body",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 156,
+          "content": "            });",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 157,
+          "content": "          }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 159,
+          "content": "    - name: No attribution message",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 160,
+          "content": "      if: steps.analyze.outputs.has_data != 'true' && inputs.skip-if-no-attribution != 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 161,
+          "content": "      shell: bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 162,
+          "content": "      run: echo \"No AI attribution data found in PR commits.\"",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        }
+      ],
+      "summary": {
+        "total_lines": 162,
+        "ai_lines": 1,
+        "ai_modified_lines": 0,
+        "human_lines": 1,
+        "original_lines": 160,
+        "unknown_lines": 0
+      }
+    },
+    {
+      "path": ".github/workflows/ai-attribution.yml",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "name: AI Attribution Summary",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "on:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "  pull_request:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "    types: [opened, synchronize, reopened]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "permissions:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "  contents: read",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "  pull-requests: write",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "jobs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "  analyze:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "      - name: Checkout repository",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "        uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "          fetch-depth: 0  # Full history for git notes",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "          ref: ${{ github.event.pull_request.head.sha }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "      - name: Fetch git notes",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "          git fetch origin refs/notes/ai-blame:refs/notes/ai-blame || echo \"No ai-blame notes found\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "        continue-on-error: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "      - name: Setup Rust",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "        uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "AI",
+            "edit_id": "c5da1336-376a-449f-88ba-771556ebe909"
+          },
+          "edit_id": "c5da1336-376a-449f-88ba-771556ebe909",
+          "prompt_index": 1,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "      - name: Cache cargo",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "        uses: actions/cache@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "          path: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "            ~/.cargo/bin/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "            ~/.cargo/registry/index/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "            ~/.cargo/registry/cache/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "            ~/.cargo/git/db/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "            target/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "          restore-keys: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "            ${{ runner.os }}-cargo-",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "      - name: Build ai-blame",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "        run: cargo build --release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "      - name: Analyze PR commits",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "        id: analyze",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "        env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "          BASE_SHA: ${{ github.event.pull_request.base.sha }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "          HEAD_SHA: ${{ github.event.pull_request.head.sha }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "          # Create analysis script",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "          cat > /tmp/analyze.sh << 'SCRIPT'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "          #!/bin/bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "          set -e",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "          BASE_SHA=\"$1\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "          HEAD_SHA=\"$2\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "          AI_BLAME=\"./target/release/ai-blame\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "          # Get list of commits in PR",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "          COMMITS=$(git rev-list --reverse \"$BASE_SHA\"..\"$HEAD_SHA\")",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "          if [ -z \"$COMMITS\" ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "            echo \"No commits to analyze\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "            echo \"has_data=false\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "            exit 0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "          fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "          # Initialize counters",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "          TOTAL_AI=0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "          TOTAL_AI_MODIFIED=0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "          TOTAL_HUMAN=0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "          TOTAL_ORIGINAL=0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "          COMMITS_WITH_AI=0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "          COMMIT_COUNT=0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "          # Collect per-commit data",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "          COMMIT_DETAILS=\"\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "          for COMMIT in $COMMITS; do",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "            COMMIT_COUNT=$((COMMIT_COUNT + 1))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "            SHORT=$(echo \"$COMMIT\" | cut -c1-7)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "            # Try to get attribution for this commit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "            if ATTR=$(\"$AI_BLAME\" show \"$COMMIT\" --format json 2>/dev/null); then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "              # Parse JSON output",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "              AI=$(echo \"$ATTR\" | jq -r '[.files[].summary.ai_lines] | add // 0')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "              AI_MOD=$(echo \"$ATTR\" | jq -r '[.files[].summary.ai_modified_lines] | add // 0')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "              HUMAN=$(echo \"$ATTR\" | jq -r '[.files[].summary.human_lines] | add // 0')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "              ORIGINAL=$(echo \"$ATTR\" | jq -r '[.files[].summary.original_lines] | add // 0')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "              MODEL=$(echo \"$ATTR\" | jq -r '.session.model.id // \"unknown\"')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "              FILES=$(echo \"$ATTR\" | jq -r '.files | length')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "              if [ \"$AI\" != \"0\" ] || [ \"$AI_MOD\" != \"0\" ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "                COMMITS_WITH_AI=$((COMMITS_WITH_AI + 1))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "                TOTAL_AI=$((TOTAL_AI + AI))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "                TOTAL_AI_MODIFIED=$((TOTAL_AI_MODIFIED + AI_MOD))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "                TOTAL_HUMAN=$((TOTAL_HUMAN + HUMAN))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "                TOTAL_ORIGINAL=$((TOTAL_ORIGINAL + ORIGINAL))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "                # Get commit message (first line)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "                MSG=$(git log -1 --format=%s \"$COMMIT\" | head -c 50)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "                COMMIT_DETAILS=\"${COMMIT_DETAILS}| \\`${SHORT}\\` | ${MSG} | ${AI} | ${AI_MOD} | ${HUMAN} | ${FILES} |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "          \"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "              fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "            fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "          done",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "          # Calculate totals",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "          TOTAL_LINES=$((TOTAL_AI + TOTAL_AI_MODIFIED + TOTAL_HUMAN + TOTAL_ORIGINAL))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "          if [ \"$COMMITS_WITH_AI\" -eq 0 ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "            echo \"has_data=false\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "            exit 0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "          fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "          # Calculate percentage",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "          if [ \"$TOTAL_LINES\" -gt 0 ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "            AI_PERCENT=$(echo \"scale=1; ($TOTAL_AI + $TOTAL_AI_MODIFIED) * 100 / $TOTAL_LINES\" | bc)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "          else",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "            AI_PERCENT=\"0\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "          fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "          # Build summary",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "          echo \"has_data=true\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "          echo \"total_ai=$TOTAL_AI\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "          echo \"total_ai_modified=$TOTAL_AI_MODIFIED\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "          echo \"total_human=$TOTAL_HUMAN\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "          echo \"total_original=$TOTAL_ORIGINAL\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "          echo \"commits_with_ai=$COMMITS_WITH_AI\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "          echo \"commit_count=$COMMIT_COUNT\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "          echo \"ai_percent=$AI_PERCENT\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "          # Write commit details to file for multi-line output",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "          echo \"$COMMIT_DETAILS\" > /tmp/commit_details.txt",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "          SCRIPT",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "          chmod +x /tmp/analyze.sh",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "          /tmp/analyze.sh \"$BASE_SHA\" \"$HEAD_SHA\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "      - name: Post PR comment",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "        if: steps.analyze.outputs.has_data == 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "        uses: actions/github-script@v7",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "        env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "          TOTAL_AI: ${{ steps.analyze.outputs.total_ai }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "          TOTAL_AI_MODIFIED: ${{ steps.analyze.outputs.total_ai_modified }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "          TOTAL_HUMAN: ${{ steps.analyze.outputs.total_human }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "          TOTAL_ORIGINAL: ${{ steps.analyze.outputs.total_original }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 150,
+          "content": "          COMMITS_WITH_AI: ${{ steps.analyze.outputs.commits_with_ai }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "          COMMIT_COUNT: ${{ steps.analyze.outputs.commit_count }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "          AI_PERCENT: ${{ steps.analyze.outputs.ai_percent }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 153,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "          script: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "            const fs = require('fs');",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 156,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 157,
+          "content": "            const totalAI = parseInt(process.env.TOTAL_AI) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "            const totalAIMod = parseInt(process.env.TOTAL_AI_MODIFIED) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 159,
+          "content": "            const totalHuman = parseInt(process.env.TOTAL_HUMAN) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 160,
+          "content": "            const totalOriginal = parseInt(process.env.TOTAL_ORIGINAL) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 161,
+          "content": "            const commitsWithAI = parseInt(process.env.COMMITS_WITH_AI) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 162,
+          "content": "            const commitCount = parseInt(process.env.COMMIT_COUNT) || 0;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 163,
+          "content": "            const aiPercent = process.env.AI_PERCENT || '0';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 164,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 165,
+          "content": "            // Read commit details",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 166,
+          "content": "            let commitDetails = '';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 167,
+          "content": "            try {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 168,
+          "content": "              commitDetails = fs.readFileSync('/tmp/commit_details.txt', 'utf8').trim();",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 169,
+          "content": "            } catch (e) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 170,
+          "content": "              console.log('No commit details file found');",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 171,
+          "content": "            }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 172,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 173,
+          "content": "            // Determine emoji based on AI percentage",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 174,
+          "content": "            let emoji = '🤖';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 175,
+          "content": "            const pct = parseFloat(aiPercent);",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 176,
+          "content": "            if (pct >= 80) emoji = '🤖🤖🤖';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 177,
+          "content": "            else if (pct >= 50) emoji = '🤖🤖';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 178,
+          "content": "            else if (pct >= 20) emoji = '🤖';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 179,
+          "content": "            else emoji = '👤';",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 180,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 181,
+          "content": "            const totalLines = totalAI + totalAIMod + totalHuman + totalOriginal;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 182,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 183,
+          "content": "            let body = `## ${emoji} AI Attribution Summary",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 184,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 185,
+          "content": "            This PR contains **${commitsWithAI}** of **${commitCount}** commits with AI-assisted changes.",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 186,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 187,
+          "content": "            ### Overview",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 188,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 189,
+          "content": "            | Metric | Lines | Percentage |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 190,
+          "content": "            |--------|------:|----------:|",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 191,
+          "content": "            | 🟢 AI-generated | ${totalAI} | ${totalLines > 0 ? ((totalAI / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 192,
+          "content": "            | 🟡 AI-modified by human | ${totalAIMod} | ${totalLines > 0 ? ((totalAIMod / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 193,
+          "content": "            | 🔵 Human-added | ${totalHuman} | ${totalLines > 0 ? ((totalHuman / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 194,
+          "content": "            | ⚪ Original/unchanged | ${totalOriginal} | ${totalLines > 0 ? ((totalOriginal / totalLines) * 100).toFixed(1) : 0}% |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 195,
+          "content": "            | **Total** | **${totalLines}** | **100%** |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 196,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 197,
+          "content": "            **AI involvement: ${aiPercent}%** of changed lines",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 198,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 199,
+          "content": "            `;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 200,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 201,
+          "content": "            if (commitDetails) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 202,
+          "content": "              body += `### Commits with AI Attribution",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 203,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 204,
+          "content": "            | Commit | Message | AI | Modified | Human | Files |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 205,
+          "content": "            |--------|---------|---:|--------:|------:|------:|",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 206,
+          "content": "            ${commitDetails}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 207,
+          "content": "            `;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 208,
+          "content": "            }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 209,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 210,
+          "content": "            body += `",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 211,
+          "content": "            ---",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 212,
+          "content": "            <sub>Generated by [ai-blame](https://github.com/dotsetlabs/ai-blame) • [View detailed attribution](command:ai-blame show HEAD)</sub>",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 213,
+          "content": "            `;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 214,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 215,
+          "content": "            // Find existing comment",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 216,
+          "content": "            const { data: comments } = await github.rest.issues.listComments({",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 217,
+          "content": "              owner: context.repo.owner,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 218,
+          "content": "              repo: context.repo.repo,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 219,
+          "content": "              issue_number: context.issue.number,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 220,
+          "content": "            });",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 221,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 222,
+          "content": "            const botComment = comments.find(c =>",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 223,
+          "content": "              c.user.type === 'Bot' &&",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 224,
+          "content": "              c.body.includes('AI Attribution Summary')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 225,
+          "content": "            );",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 226,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 227,
+          "content": "            if (botComment) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 228,
+          "content": "              // Update existing comment",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 229,
+          "content": "              await github.rest.issues.updateComment({",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 230,
+          "content": "                owner: context.repo.owner,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 231,
+          "content": "                repo: context.repo.repo,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 232,
+          "content": "                comment_id: botComment.id,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 233,
+          "content": "                body: body",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 234,
+          "content": "              });",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 235,
+          "content": "              console.log('Updated existing comment');",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 236,
+          "content": "            } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 237,
+          "content": "              // Create new comment",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 238,
+          "content": "              await github.rest.issues.createComment({",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 239,
+          "content": "                owner: context.repo.owner,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 240,
+          "content": "                repo: context.repo.repo,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 241,
+          "content": "                issue_number: context.issue.number,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 242,
+          "content": "                body: body",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 243,
+          "content": "              });",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 244,
+          "content": "              console.log('Created new comment');",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 245,
+          "content": "            }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 246,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 247,
+          "content": "      - name: No AI attribution found",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 248,
+          "content": "        if: steps.analyze.outputs.has_data != 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 249,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 250,
+          "content": "          echo \"No AI attribution data found in this PR's commits.\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 251,
+          "content": "          echo \"This is normal if the commits were not made with ai-blame tracking enabled.\"",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        }
+      ],
+      "summary": {
+        "total_lines": 251,
+        "ai_lines": 1,
+        "ai_modified_lines": 0,
+        "human_lines": 1,
+        "original_lines": 249,
+        "unknown_lines": 0
+      }
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "name: CI",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "on:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "  push:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "    branches: [main]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "  pull_request:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "    branches: [main]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "  CARGO_TERM_COLOR: always",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "jobs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "  test:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "      - uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "      - name: Setup Rust",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "        uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "AI",
+            "edit_id": "0ccf7de1-e3cc-4b9a-84d1-c66e83cc42f6"
+          },
+          "edit_id": "0ccf7de1-e3cc-4b9a-84d1-c66e83cc42f6",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "      - name: Cache cargo",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "        uses: actions/cache@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "          path: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "            ~/.cargo/bin/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "            ~/.cargo/registry/index/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "            ~/.cargo/registry/cache/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "            ~/.cargo/git/db/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "            target/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "          restore-keys: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "            ${{ runner.os }}-cargo-",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "      - name: Build",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "        run: cargo build --verbose",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "      - name: Run tests",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "        run: cargo test --verbose",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "      - name: Run clippy",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "        run: cargo clippy -- -D warnings",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "        continue-on-error: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "      - name: Check formatting",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "        run: cargo fmt -- --check",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "        continue-on-error: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "  build-release:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "      - uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "      - name: Setup Rust",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "        uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "AI",
+            "edit_id": "0ccf7de1-e3cc-4b9a-84d1-c66e83cc42f6"
+          },
+          "edit_id": "0ccf7de1-e3cc-4b9a-84d1-c66e83cc42f6",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "      - name: Cache cargo",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "        uses: actions/cache@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "          path: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "            ~/.cargo/bin/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "            ~/.cargo/registry/index/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "            ~/.cargo/registry/cache/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "            ~/.cargo/git/db/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "            target/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "          key: ${{ runner.os }}-cargo-release-${{ hashFiles('**/Cargo.lock') }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "          restore-keys: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "            ${{ runner.os }}-cargo-release-",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "      - name: Build release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "        run: cargo build --release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "      - name: Test CLI help",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "        run: ./target/release/ai-blame --help",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        }
+      ],
+      "summary": {
+        "total_lines": 73,
+        "ai_lines": 2,
+        "ai_modified_lines": 0,
+        "human_lines": 1,
+        "original_lines": 70,
+        "unknown_lines": 0
+      }
+    }
+  ]
+}
