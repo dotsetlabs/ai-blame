@@ -11,6 +11,8 @@
 # User Guide
 
 - [CLI Commands](./guide/cli-commands.md)
+  - [setup](./guide/commands/setup.md)
+  - [doctor](./guide/commands/doctor.md)
   - [blame](./guide/commands/blame.md)
   - [show](./guide/commands/show.md)
   - [prompt](./guide/commands/prompt.md)

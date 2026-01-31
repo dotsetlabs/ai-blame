@@ -5,6 +5,7 @@ pub mod output;
 pub mod prompt;
 pub mod redact;
 pub mod retention;
+pub mod setup;
 pub mod show;
 pub mod summary;
 
@@ -66,7 +67,21 @@ pub enum Commands {
     Clear,
 
     /// Initialize whogitit in a git repository (installs post-commit hook)
-    Init,
+    Init(InitArgs),
+
+    /// Set up whogitit globally (install capture hook and configure Claude Code)
+    Setup,
+
+    /// Check whogitit configuration and diagnose issues
+    Doctor,
+}
+
+/// Init command arguments
+#[derive(Debug, clap::Args)]
+pub struct InitArgs {
+    /// Skip global setup check
+    #[arg(long)]
+    pub force: bool,
 }
 
 /// Capture command arguments
@@ -106,7 +121,9 @@ pub fn run() -> Result<()> {
         Commands::PostCommit => run_post_commit(),
         Commands::Status => run_status(),
         Commands::Clear => run_clear(),
-        Commands::Init => run_init(),
+        Commands::Init(args) => run_init(args),
+        Commands::Setup => setup::run_setup(),
+        Commands::Doctor => setup::run_doctor(),
     }
 }
 
@@ -171,7 +188,32 @@ fn run_clear() -> Result<()> {
     Ok(())
 }
 
-fn run_init() -> Result<()> {
+fn run_init(args: InitArgs) -> Result<()> {
+    // Check global setup status first (unless --force is used)
+    let status = setup::check_setup_status();
+    if !status.is_complete() && !args.force {
+        println!("Global setup incomplete:");
+        if !status.hook_script_installed {
+            println!("  - Capture hook not installed");
+        }
+        if !status.hook_script_executable {
+            println!("  - Capture hook not executable");
+        }
+        if !status.settings_configured {
+            println!("  - Claude Code hooks not configured");
+        }
+        println!();
+        println!("Run 'whogitit setup' first to configure Claude Code integration.");
+        println!("Then run 'whogitit init' again to initialize this repository.");
+        println!();
+        println!("Or run 'whogitit init --force' to skip this check and proceed anyway.");
+        return Ok(());
+    }
+
+    if !status.is_complete() && args.force {
+        println!("Warning: Global setup is incomplete. Proceeding with --force.\n");
+    }
+
     let repo = git2::Repository::discover(".").context("Not in a git repository")?;
     let repo_root = repo
         .workdir()
@@ -189,9 +231,12 @@ fn run_init() -> Result<()> {
     // Configure git to auto-fetch notes
     configure_git_fetch(&repo)?;
 
-    println!("\nSetup complete! AI attribution will be tracked for commits in this repo.");
+    println!("\nRepository initialized! AI attribution will be tracked for commits in this repo.");
     println!("Notes will be automatically pushed with 'git push' and fetched with 'git fetch'.");
-    println!("\nMake sure Claude Code hooks are configured in ~/.claude/settings.json");
+
+    if !status.is_complete() {
+        println!("\nReminder: Run 'whogitit setup' to complete Claude Code integration.");
+    }
 
     Ok(())
 }

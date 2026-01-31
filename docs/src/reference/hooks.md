@@ -26,9 +26,22 @@ whogitit uses two hook systems: Claude Code hooks for capturing changes, and git
 
 ## Claude Code Hooks
 
-### Configuration
+### Automatic Configuration
 
-Add to `~/.claude/settings.json`:
+The easiest way to configure Claude Code hooks is using the setup command:
+
+```bash
+whogitit setup
+```
+
+This automatically:
+- Installs the capture script to `~/.claude/hooks/whogitit-capture.sh`
+- Configures `~/.claude/settings.json` with the required hooks
+- The capture script is embedded in the whogitit binary, so no source files are needed
+
+### Manual Configuration
+
+If you prefer manual configuration, add to `~/.claude/settings.json`:
 
 ```json
 {
@@ -208,6 +221,10 @@ chmod +x .git/hooks/pre-push
 
 ### Manual Claude Hooks
 
+The recommended method is `whogitit setup`, which extracts the embedded capture script.
+
+For manual installation from source:
+
 ```bash
 mkdir -p ~/.claude/hooks
 cp /path/to/whogitit/hooks/whogitit-capture.sh ~/.claude/hooks/
@@ -268,6 +285,14 @@ repos:
 
 ## Troubleshooting
 
+### Run Doctor First
+
+The doctor command checks all hook configuration automatically:
+
+```bash
+whogitit doctor
+```
+
 ### Hooks Not Running
 
 ```bash
@@ -285,6 +310,10 @@ file .git/hooks/post-commit
 ### No Attribution Being Captured
 
 ```bash
+# Run doctor for quick diagnosis
+whogitit doctor
+
+# Or check manually:
 # Check if whogitit is in PATH
 which whogitit
 
