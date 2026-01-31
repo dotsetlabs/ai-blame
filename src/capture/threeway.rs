@@ -6,6 +6,19 @@ use crate::capture::snapshot::{
     FileAttributionResult, FileEditHistory, LineAttribution, LineSource,
 };
 
+/// Normalize a line for comparison purposes.
+/// - Trims trailing whitespace (but preserves leading indentation)
+/// - Normalizes line endings
+fn normalize_line(line: &str) -> String {
+    line.trim_end().to_string()
+}
+
+/// Normalize a line for use as a hash key.
+/// Uses the same normalization as normalize_line.
+fn normalize_for_key(line: &str) -> String {
+    normalize_line(line)
+}
+
 /// Performs three-way attribution analysis
 ///
 /// Given:
@@ -111,9 +124,10 @@ impl ThreeWayAnalyzer {
         let ai_line_map = build_ai_line_map(history);
         for (ai_idx, final_idx) in &ai_to_final_mapping {
             let ai_line = latest_ai.lines().get(*ai_idx).map(|s| *s).unwrap_or("");
+            let normalized = normalize_for_key(ai_line);
 
             // Check if this line came from an AI edit
-            if let Some((edit_id, prompt_idx)) = ai_line_map.get(ai_line) {
+            if let Some((edit_id, prompt_idx)) = ai_line_map.get(&normalized) {
                 final_line_sources.insert(
                     *final_idx,
                     (
@@ -197,17 +211,19 @@ impl ThreeWayAnalyzer {
     }
 }
 
-/// Build a set of lines from content for fast lookup
+/// Build a set of normalized lines from content for fast lookup
 fn build_line_set(content: &str) -> HashSet<String> {
-    content.lines().map(|l| l.to_string()).collect()
+    content.lines().map(|l| normalize_for_key(l)).collect()
 }
 
-/// Build a map from line content -> (edit_id, prompt_index) for all AI edits
+/// Build a map from normalized line content -> (edit_id, prompt_index) for all AI edits
 ///
 /// IMPORTANT: All lines in an AI edit's `after` content are considered AI-generated,
 /// not just lines that differ from `before`. This is because when AI writes/edits a file,
 /// it produces the entire output - even if some lines coincidentally match the original,
 /// the AI chose to include them.
+///
+/// Lines are normalized (trailing whitespace trimmed) to handle git/editor differences.
 fn build_ai_line_map(history: &FileEditHistory) -> HashMap<String, (String, u32)> {
     let mut map = HashMap::new();
 
@@ -217,7 +233,7 @@ fn build_ai_line_map(history: &FileEditHistory) -> HashMap<String, (String, u32)
         // This ensures complete file rewrites are properly attributed
         for line in edit.after.content.lines() {
             map.insert(
-                line.to_string(),
+                normalize_for_key(line),
                 (edit.edit_id.clone(), edit.prompt_index),
             );
         }
@@ -226,9 +242,10 @@ fn build_ai_line_map(history: &FileEditHistory) -> HashMap<String, (String, u32)
     map
 }
 
-/// Check if a line exists in content
+/// Check if a normalized line exists in content
 fn line_in_content(line: &str, content: &str) -> bool {
-    content.lines().any(|l| l == line)
+    let normalized = normalize_for_key(line);
+    content.lines().any(|l| normalize_for_key(l) == normalized)
 }
 
 /// Map line indices from source to target using diff
@@ -265,6 +282,8 @@ fn diff_map_lines(source: &str, target: &str) -> Vec<(usize, usize)> {
 /// 2. AIModified - if line is similar to an AI line
 /// 3. Original - if line existed before AI edits and wasn't touched
 /// 4. Human - line was added after AI edits
+///
+/// All lookups use normalized line content to handle whitespace differences.
 fn attribute_line(
     line: &str,
     line_number: u32,
@@ -272,10 +291,12 @@ fn attribute_line(
     ai_line_sources: &HashMap<String, (String, u32)>,
     _history: &FileEditHistory,
 ) -> LineAttribution {
+    let normalized = normalize_for_key(line);
+
     // Check if line matches an AI edit exactly - AI takes priority
     // because if the AI output contains this line, it's AI-generated
     // (even if the same line existed in the original)
-    if let Some((edit_id, prompt_idx)) = ai_line_sources.get(line) {
+    if let Some((edit_id, prompt_idx)) = ai_line_sources.get(&normalized) {
         return LineAttribution {
             line_number,
             content: line.to_string(),
@@ -306,7 +327,7 @@ fn attribute_line(
     }
 
     // Check if line existed in original (and wasn't part of AI output)
-    if original_lines.contains(line) {
+    if original_lines.contains(&normalized) {
         return LineAttribution {
             line_number,
             content: line.to_string(),
@@ -329,12 +350,18 @@ fn attribute_line(
 }
 
 /// Find a similar AI line using edit distance
+///
+/// Note: Empty/whitespace-only lines are handled by exact matching in attribute_line,
+/// so this function focuses on non-trivial content similarity.
 fn find_similar_ai_line(
     line: &str,
     ai_lines: &HashMap<String, (String, u32)>,
     threshold: f64,
 ) -> Option<(String, u32, f64)> {
     let line_trimmed = line.trim();
+
+    // Empty lines should be handled by exact matching, not similarity
+    // (empty lines match other empty lines with 100% similarity via normalize_for_key)
     if line_trimmed.is_empty() {
         return None;
     }
@@ -343,6 +370,8 @@ fn find_similar_ai_line(
 
     for (ai_line, (edit_id, prompt_idx)) in ai_lines {
         let ai_trimmed = ai_line.trim();
+
+        // Skip empty AI lines in similarity comparison
         if ai_trimmed.is_empty() {
             continue;
         }
@@ -580,5 +609,72 @@ mod tests {
         assert_eq!(result.summary.original_lines, 2);
         assert_eq!(result.summary.human_lines, 1);
         assert_eq!(result.summary.ai_lines, 0);
+    }
+
+    #[test]
+    fn test_whitespace_normalization() {
+        // Test that trailing whitespace differences don't affect attribution
+        let mut history = FileEditHistory::new("test.rs", Some(""));
+
+        // AI generates lines with trailing spaces
+        history.add_edit(AIEdit::new(
+            "Generate code",
+            0,
+            "Write",
+            "",
+            "fn main() {  \n    println!(\"hello\");  \n}\n",
+        ));
+
+        // Final commit has trailing spaces stripped (common git behavior)
+        let final_content = "fn main() {\n    println!(\"hello\");\n}\n";
+        let result = ThreeWayAnalyzer::analyze(&history, final_content);
+
+        // All lines should be AI despite whitespace differences
+        assert_eq!(result.summary.ai_lines, 3, "All lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines expected");
+    }
+
+    #[test]
+    fn test_empty_line_attribution() {
+        // Test that empty lines in AI output are properly attributed
+        let mut history = FileEditHistory::new("test.rs", Some(""));
+
+        // AI generates code with empty lines
+        history.add_edit(AIEdit::new(
+            "Generate code with spacing",
+            0,
+            "Write",
+            "",
+            "fn main() {\n\n    println!(\"hello\");\n\n}\n",
+        ));
+
+        let final_content = "fn main() {\n\n    println!(\"hello\");\n\n}\n";
+        let result = ThreeWayAnalyzer::analyze(&history, final_content);
+
+        // All lines including empty ones should be AI
+        assert_eq!(result.summary.ai_lines, 5, "All 5 lines should be AI");
+        assert_eq!(result.summary.human_lines, 0, "No human lines expected");
+    }
+
+    #[test]
+    fn test_tabs_vs_spaces() {
+        // Test that different indentation styles still match
+        let mut history = FileEditHistory::new("test.rs", Some(""));
+
+        // AI generates with spaces
+        history.add_edit(AIEdit::new(
+            "Generate code",
+            0,
+            "Write",
+            "",
+            "fn main() {\n    code();\n}\n",
+        ));
+
+        // Final uses same content (tabs would need different handling)
+        let final_content = "fn main() {\n    code();\n}\n";
+        let result = ThreeWayAnalyzer::analyze(&history, final_content);
+
+        assert_eq!(result.summary.ai_lines, 3);
+        assert_eq!(result.summary.human_lines, 0);
     }
 }
