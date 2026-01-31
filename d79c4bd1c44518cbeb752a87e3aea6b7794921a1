@@ -1,0 +1,2751 @@
+{
+  "version": 2,
+  "session": {
+    "session_id": "0f76441d-11af-4495-afee-b98cda22151a",
+    "model": {
+      "id": "claude-opus-4-5-20251101",
+      "provider": "anthropic"
+    },
+    "started_at": "2026-01-31T16:27:19.937236+00:00",
+    "prompt_count": 1
+  },
+  "prompts": [
+    {
+      "index": 0,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T16:27:19.937280+00:00",
+      "affected_files": [
+        "src/cli/mod.rs"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "src/cli/mod.rs",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "pub mod blame;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "pub mod output;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "pub mod prompt;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "pub mod show;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "pub mod summary;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "use std::fs;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "use std::os::unix::fs::PermissionsExt;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "use anyhow::{Context, Result};",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "use clap::{Parser, Subcommand};",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "use crate::capture::hook;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "/// AI-aware git blame tool for tracking AI-generated code",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "#[derive(Debug, Parser)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "#[command(name = \"ai-blame\")]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "#[command(author, version, about, long_about = None)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "pub struct Cli {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "    #[command(subcommand)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "    pub command: Commands,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "#[derive(Debug, Subcommand)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "pub enum Commands {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "    /// Show AI attribution for each line of a file",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "    Blame(blame::BlameArgs),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "    /// View the prompt that generated specific lines",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "    Prompt(prompt::PromptArgs),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "    /// Show AI attribution summary for a commit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "    Show(show::ShowArgs),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "    /// Generate summary for a range of commits (useful for PRs)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "    Summary(summary::SummaryArgs),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "    /// Capture a file change (called by Claude Code hook)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "    Capture(CaptureArgs),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "    /// Finalize attribution after a commit (post-commit hook)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "    PostCommit,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "    /// Show pending changes status",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "    Status,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "    /// Clear pending changes without committing",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "    Clear,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "    /// Initialize ai-blame in a git repository (installs post-commit hook)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "    Init,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "/// Capture command arguments",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "#[derive(Debug, clap::Args)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "pub struct CaptureArgs {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "    /// Read hook input from stdin",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "    #[arg(long)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "    pub stdin: bool,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "    /// File path (if not using stdin)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "    #[arg(long)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "    pub file: Option<String>,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "    /// Tool name",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "    #[arg(long)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "    pub tool: Option<String>,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "    /// Prompt text",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "    #[arg(long)]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "    pub prompt: Option<String>,",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "/// Run the CLI",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "pub fn run() -> Result<()> {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "    let cli = Cli::parse();",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "    match cli.command {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "        Commands::Blame(args) => blame::run(args),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "        Commands::Prompt(args) => prompt::run(args),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "        Commands::Show(args) => show::run(args),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "        Commands::Summary(args) => summary::run(args),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "        Commands::Capture(args) => run_capture(args),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "        Commands::PostCommit => run_post_commit(),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "        Commands::Status => run_status(),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "        Commands::Clear => run_clear(),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "        Commands::Init => run_init(),",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "    }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "fn run_capture(args: CaptureArgs) -> Result<()> {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "    if args.stdin {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "        hook::run_capture_hook()",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "    } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "        anyhow::bail!(\"Capture requires --stdin flag for hook input\")",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "    }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "fn run_post_commit() -> Result<()> {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "    hook::run_post_commit_hook()",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "fn run_status() -> Result<()> {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "    let repo = git2::Repository::discover(\".\")?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "    let repo_root = repo.workdir()",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "        .ok_or_else(|| anyhow::anyhow!(\"No working directory\"))?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "    let hook_handler = crate::capture::CaptureHook::new(repo_root)?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "    let status = hook_handler.status()?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "    if status.has_pending {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "        println!(\"Pending AI attribution:\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "        println!(\"  Session: {}\", status.session_id.as_deref().unwrap_or(\"unknown\"));",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "        println!(\"  Files: {}\", status.file_count);",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "        println!(\"  Lines: {}\", status.line_count);",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "        println!(\"\\nRun 'git commit' to finalize attribution.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "    } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "        println!(\"No pending AI attribution.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "    }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "fn run_clear() -> Result<()> {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "    let repo = git2::Repository::discover(\".\")?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "    let repo_root = repo.workdir()",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "        .ok_or_else(|| anyhow::anyhow!(\"No working directory\"))?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "    let hook_handler = crate::capture::CaptureHook::new(repo_root)?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "    hook_handler.clear_pending()?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "    println!(\"Cleared pending AI attribution.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "fn run_init() -> Result<()> {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "    let repo = git2::Repository::discover(\".\")",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "        .context(\"Not in a git repository\")?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "    let repo_root = repo.workdir()",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "        .ok_or_else(|| anyhow::anyhow!(\"No working directory\"))?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "    let hooks_dir = repo_root.join(\".git/hooks\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "    fs::create_dir_all(&hooks_dir)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "        .context(\"Failed to create hooks directory\")?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "    // Install post-commit hook (attaches attribution to commits)",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "    install_post_commit_hook(&hooks_dir)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 150,
+          "content": "    // Install pre-push hook (auto-pushes notes with regular git push)",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "    install_pre_push_hook(&hooks_dir)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 153,
+          "content": "    // Configure git to auto-fetch notes",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "    configure_git_fetch(&repo)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 156,
+          "content": "    println!(\"\\nSetup complete! AI attribution will be tracked for commits in this repo.\");",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 157,
+          "content": "    println!(\"Notes will be automatically pushed with 'git push' and fetched with 'git fetch'.\");",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "    println!(\"\\nMake sure Claude Code hooks are configured in ~/.claude/settings.json\");",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 159,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 160,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 161,
+          "content": "}",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 162,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 163,
+          "content": "fn install_post_commit_hook(hooks_dir: &std::path::Path) -> Result<()> {",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 164,
+          "content": "    let hook_path = hooks_dir.join(\"post-commit\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 165,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 166,
+          "content": "    if hook_path.exists() {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 167,
+          "content": "        let content = fs::read_to_string(&hook_path)?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 168,
+          "content": "        if content.contains(\"ai-blame\") {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 169,
+          "content": "            println!(\"✓ ai-blame post-commit hook already installed.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 170,
+          "content": "            return Ok(());",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 171,
+          "content": "        }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 172,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 173,
+          "content": "        // Append to existing hook",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 174,
+          "content": "        let new_content = format!(",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 175,
+          "content": "            \"{}\\n\\n# ai-blame post-commit hook\\nif command -v ai-blame &> /dev/null; then\\n    ai-blame post-commit 2>/dev/null || true\\nfi\\n\",",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 176,
+          "content": "            content.trim_end()",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 177,
+          "content": "        );",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 178,
+          "content": "        fs::write(&hook_path, new_content)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 179,
+          "content": "        println!(\"✓ Added ai-blame to existing post-commit hook.\");",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 180,
+          "content": "    } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 181,
+          "content": "        let hook_content = r#\"#!/bin/bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 182,
+          "content": "# ai-blame post-commit hook",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 183,
+          "content": "# Attaches AI attribution notes to the commit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 184,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 185,
+          "content": "if command -v ai-blame &> /dev/null; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 186,
+          "content": "    ai-blame post-commit 2>/dev/null || true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 187,
+          "content": "elif [[ -x \"$HOME/.cargo/bin/ai-blame\" ]]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 188,
+          "content": "    \"$HOME/.cargo/bin/ai-blame\" post-commit 2>/dev/null || true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 189,
+          "content": "fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 190,
+          "content": "\"#;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 191,
+          "content": "        fs::write(&hook_path, hook_content)?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 192,
+          "content": "        make_executable(&hook_path)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 193,
+          "content": "        println!(\"✓ Installed ai-blame post-commit hook.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 194,
+          "content": "    }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 195,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 196,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 197,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 198,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 199,
+          "content": "fn install_pre_push_hook(hooks_dir: &std::path::Path) -> Result<()> {",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 200,
+          "content": "    let hook_path = hooks_dir.join(\"pre-push\");",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 201,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 202,
+          "content": "    if hook_path.exists() {",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 203,
+          "content": "        let content = fs::read_to_string(&hook_path)?;",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 204,
+          "content": "        if content.contains(\"ai-blame\") {",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 205,
+          "content": "            println!(\"✓ ai-blame pre-push hook already installed.\");",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 206,
+          "content": "            return Ok(());",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 207,
+          "content": "        }",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 208,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 209,
+          "content": "        // Append to existing hook",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 210,
+          "content": "        let new_content = format!(",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 211,
+          "content": "            \"{}\\n\\n# ai-blame pre-push hook - automatically push notes\\n# Push notes to the same remote being pushed to\\nremote=\\\"$1\\\"\\nif git notes --ref=ai-blame list &>/dev/null; then\\n    git push \\\"$remote\\\" refs/notes/ai-blame 2>/dev/null || true\\nfi\\n\",",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 212,
+          "content": "            content.trim_end()",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 213,
+          "content": "        );",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 214,
+          "content": "        fs::write(&hook_path, new_content)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 215,
+          "content": "        println!(\"✓ Added ai-blame to existing pre-push hook.\");",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 216,
+          "content": "    } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 217,
+          "content": "        let hook_content = r#\"#!/bin/bash",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 218,
+          "content": "# ai-blame pre-push hook",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 219,
+          "content": "# Automatically pushes ai-blame notes alongside regular pushes",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 220,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 221,
+          "content": "remote=\"$1\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 222,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 223,
+          "content": "# Only push notes if they exist",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 224,
+          "content": "if git notes --ref=ai-blame list &>/dev/null; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 225,
+          "content": "    git push \"$remote\" refs/notes/ai-blame 2>/dev/null || true",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 226,
+          "content": "fi",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 227,
+          "content": "\"#;",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 228,
+          "content": "        fs::write(&hook_path, hook_content)?;",
+          "source": {
+            "type": "AIModified",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+            "similarity": 0.8918918918918919
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 0.8918918918918919
+        },
+        {
+          "line_number": 229,
+          "content": "        make_executable(&hook_path)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 230,
+          "content": "        println!(\"✓ Installed ai-blame pre-push hook.\");",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 231,
+          "content": "    }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 232,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 233,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 234,
+          "content": "}",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 235,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 236,
+          "content": "fn make_executable(path: &std::path::Path) -> Result<()> {",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 237,
+          "content": "    let mut perms = fs::metadata(path)?.permissions();",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 238,
+          "content": "    perms.set_mode(0o755);",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 239,
+          "content": "    fs::set_permissions(path, perms)?;",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 240,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 241,
+          "content": "}",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 242,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 243,
+          "content": "/// Configure git to automatically fetch ai-blame notes",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 244,
+          "content": "fn configure_git_fetch(repo: &git2::Repository) -> Result<()> {",
+          "source": {
+            "type": "AI",
+            "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc"
+          },
+          "edit_id": "2616fe99-8e65-4ee8-aaf4-697a394c5ddc",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 245,
+          "content": "    let mut config = repo.config()",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 246,
+          "content": "        .context(\"Failed to open git config\")?;",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 247,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 248,
+          "content": "    let fetch_refspec = \"+refs/notes/ai-blame:refs/notes/ai-blame\";",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 249,
+          "content": "    let fetch_configured = config",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 250,
+          "content": "        .get_string(\"remote.origin.fetch\")",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 251,
+          "content": "        .map(|v| v.contains(\"ai-blame\"))",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 252,
+          "content": "        .unwrap_or(false);",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 253,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 254,
+          "content": "    if !fetch_configured {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 255,
+          "content": "        config.set_multivar(\"remote.origin.fetch\", \"^$\", fetch_refspec)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 256,
+          "content": "            .or_else(|_| {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 257,
+          "content": "                config.set_str(\"remote.origin.fetch\", fetch_refspec)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 258,
+          "content": "            })",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 259,
+          "content": "            .context(\"Failed to configure fetch refspec\")?;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 260,
+          "content": "        println!(\"✓ Configured git to fetch ai-blame notes automatically.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 261,
+          "content": "    } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 262,
+          "content": "        println!(\"✓ Git already configured to fetch ai-blame notes.\");",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 263,
+          "content": "    }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 264,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 265,
+          "content": "    Ok(())",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 266,
+          "content": "}",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        },
+        {
+          "line_number": 267,
+          "content": "",
+          "source": {
+            "type": "Human"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 0.9
+        }
+      ],
+      "summary": {
+        "total_lines": 267,
+        "ai_lines": 42,
+        "ai_modified_lines": 1,
+        "human_lines": 30,
+        "original_lines": 194,
+        "unknown_lines": 0
+      }
+    }
+  ]
+}
