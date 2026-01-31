@@ -1,0 +1,2659 @@
+{
+  "version": 2,
+  "session": {
+    "session_id": "e16b75a1-5e66-45ef-93df-d8ee94de5716",
+    "model": {
+      "id": "claude-opus-4-5-20251101",
+      "provider": "anthropic"
+    },
+    "started_at": "2026-01-31T18:10:15.975279+00:00",
+    "prompt_count": 7
+  },
+  "prompts": [
+    {
+      "index": 0,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T18:10:15.975312+00:00",
+      "affected_files": [
+        "hooks/ai-blame-capture.sh"
+      ]
+    },
+    {
+      "index": 1,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T18:11:20.306286+00:00",
+      "affected_files": [
+        "/Users/gregking/.claude/hooks/ai-blame-capture.sh"
+      ]
+    },
+    {
+      "index": 2,
+      "text": "AI-assisted code change",
+      "timestamp": "2026-01-31T18:11:25.087204+00:00",
+      "affected_files": [
+        "hooks/ai-blame-capture.sh"
+      ]
+    },
+    {
+      "index": 3,
+      "text": "\"Why doesn't the ai-blame hook trigger when using git commit directly? I don't really understand what you mean. If we have ai-blame configured in the repo via ai-blame init and the user follows their normal git commit and git push workflows, shouldn't everything get tracked and pushed with those commits including the notes automatically?\"",
+      "timestamp": "2026-01-31T18:13:55.326035+00:00",
+      "affected_files": [
+        "/Users/gregking/.claude/hooks/ai-blame-capture.sh"
+      ]
+    },
+    {
+      "index": 4,
+      "text": "\"Why doesn't the ai-blame hook trigger when using git commit directly? I don't really understand what you mean. If we have ai-blame configured in the repo via ai-blame init and the user follows their normal git commit and git push workflows, shouldn't everything get tracked and pushed with those commits including the notes automatically?\"",
+      "timestamp": "2026-01-31T18:14:01.423699+00:00",
+      "affected_files": [
+        "hooks/ai-blame-capture.sh"
+      ]
+    },
+    {
+      "index": 5,
+      "text": "\"Why doesn't the ai-blame hook trigger when using git commit directly? I don't really understand what you mean. If we have ai-blame configured in the repo via ai-blame init and the user follows their normal git commit and git push workflows, shouldn't everything get tracked and pushed with those commits including the notes automatically?\"",
+      "timestamp": "2026-01-31T18:14:19.478501+00:00",
+      "affected_files": [
+        "hooks/ai-blame-capture.sh"
+      ]
+    },
+    {
+      "index": 6,
+      "text": "\"Why doesn't the ai-blame hook trigger when using git commit directly? I don't really understand what you mean. If we have ai-blame configured in the repo via ai-blame init and the user follows their normal git commit and git push workflows, shouldn't everything get tracked and pushed with those commits including the notes automatically?\"",
+      "timestamp": "2026-01-31T18:14:25.747171+00:00",
+      "affected_files": [
+        "hooks/ai-blame-capture.sh"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "hooks/ai-blame-capture.sh",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "#!/bin/bash",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "# ai-blame capture hook for Claude Code",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "# This script captures file changes for AI attribution tracking",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "# It reads the conversation transcript to extract actual user prompts",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "set -o pipefail",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "# Enable debug logging",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "DEBUG_LOG=\"/tmp/ai-blame-hook-debug.log\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "ERROR_LOG=\"/tmp/ai-blame-hook-errors.log\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "log_debug() {",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "    echo \"$(date '+%Y-%m-%d %H:%M:%S') [$HOOK_PHASE] $1\" >> \"$DEBUG_LOG\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "}",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "log_error() {",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "    echo \"$(date '+%Y-%m-%d %H:%M:%S') [$HOOK_PHASE] ERROR: $1\" >> \"$ERROR_LOG\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "    log_debug \"ERROR: $1\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "}",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "# State directory for tracking pre-edit content",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "STATE_DIR=\"${TMPDIR:-/tmp}/ai-blame-state\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "mkdir -p \"$STATE_DIR\" 2>/dev/null || {",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "    log_error \"Failed to create state directory: $STATE_DIR\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "}",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "# Clean up stale state files (older than 1 hour)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "find \"$STATE_DIR\" -type f -mmin +60 -delete 2>/dev/null",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "# Read the hook input from stdin",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "INPUT=$(cat)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "if [[ -z \"$INPUT\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "    log_error \"Empty input from stdin\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "# Determine hook phase (pre or post)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "HOOK_PHASE=\"${AI_BLAME_HOOK_PHASE:-post}\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "log_debug \"Hook started\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "# Extract tool name with fallback",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "TOOL_NAME=$(echo \"$INPUT\" | jq -r '.tool_name // .tool // \"\"' 2>/dev/null)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "if [[ $? -ne 0 ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "    log_error \"Failed to parse JSON input\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "log_debug \"Tool: $TOOL_NAME\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "# Only process Edit and Write tools",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "if [[ \"$TOOL_NAME\" != \"Edit\" && \"$TOOL_NAME\" != \"Write\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "    log_debug \"Skipping non-Edit/Write tool\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "# Extract file path with multiple fallbacks",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "FILE_PATH=$(echo \"$INPUT\" | jq -r '.tool_input.file_path // .tool_input.path // .file_path // \"\"' 2>/dev/null)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "log_debug \"File path from input: $FILE_PATH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "if [[ -z \"$FILE_PATH\" || \"$FILE_PATH\" == \"null\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "    log_error \"Empty or null file path in input\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "# Make absolute path",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "if [[ ! \"$FILE_PATH\" = /* ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "    FILE_PATH=\"$(pwd)/$FILE_PATH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "# Normalize path (resolve symlinks, remove ..)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "FILE_PATH=$(realpath \"$FILE_PATH\" 2>/dev/null || echo \"$FILE_PATH\")",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "log_debug \"Absolute path: $FILE_PATH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "# Hash the file path for state file name (use md5 on macOS, md5sum on Linux)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "if command -v md5 &> /dev/null; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "    STATE_HASH=$(echo -n \"$FILE_PATH\" | md5)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "elif command -v md5sum &> /dev/null; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "    STATE_HASH=$(echo -n \"$FILE_PATH\" | md5sum | cut -d' ' -f1)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "    # Fallback to simple hash",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "    STATE_HASH=$(echo -n \"$FILE_PATH\" | cksum | cut -d' ' -f1)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "STATE_FILE=\"$STATE_DIR/$STATE_HASH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "log_debug \"State file: $STATE_FILE\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "if [[ \"$HOOK_PHASE\" == \"pre\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "    # PRE-TOOL: Save current file content before modification",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "    if [[ -f \"$FILE_PATH\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "        if cp \"$FILE_PATH\" \"$STATE_FILE\" 2>/dev/null; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "            LINES=$(wc -l < \"$STATE_FILE\" 2>/dev/null | tr -d ' ')",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "            log_debug \"Saved pre-edit state: $LINES lines\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "        else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "            log_error \"Failed to copy file to state: $FILE_PATH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "        fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "    else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "        rm -f \"$STATE_FILE\" 2>/dev/null",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "        log_debug \"File doesn't exist, removed state\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "    fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "# POST-TOOL: Capture the change",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "# Get old content from state file",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "OLD_CONTENT=\"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "if [[ -f \"$STATE_FILE\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "    OLD_CONTENT=$(cat \"$STATE_FILE\" 2>/dev/null)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "    if [[ $? -ne 0 ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "        log_error \"Failed to read state file\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "        OLD_CONTENT=\"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "    else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "        OLD_LINES=$(echo \"$OLD_CONTENT\" | wc -l | tr -d ' ')",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "        log_debug \"Read old content: $OLD_LINES lines\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "    fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "    rm -f \"$STATE_FILE\" 2>/dev/null",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "    log_debug \"WARNING: No state file found (file may be new)\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "# Get new content from actual file",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "if [[ ! -f \"$FILE_PATH\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "    log_error \"File doesn't exist for post-hook: $FILE_PATH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "NEW_CONTENT=$(cat \"$FILE_PATH\" 2>/dev/null)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "if [[ $? -ne 0 ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "    log_error \"Failed to read file: $FILE_PATH\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "NEW_LINES=$(echo \"$NEW_CONTENT\" | wc -l | tr -d ' ')",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "log_debug \"Read new content: $NEW_LINES lines\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "# Skip if no actual change",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "if [[ \"$OLD_CONTENT\" == \"$NEW_CONTENT\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "    log_debug \"No change detected, skipping\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "# Get the prompt from the conversation transcript",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "# Claude Code provides transcript_path pointing to the conversation JSON",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "TRANSCRIPT_PATH=$(echo \"$INPUT\" | jq -r '.transcript_path // \"\"' 2>/dev/null)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 150,
+          "content": "PROMPT=\"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "if [[ -n \"$TRANSCRIPT_PATH\" && -f \"$TRANSCRIPT_PATH\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "    # Extract the most recent user message from the transcript",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 153,
+          "content": "    # The transcript is a JSONL file (one JSON object per line)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "    # User messages have type=\"user\" and no toolUseResult (those are tool responses)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "    # The actual prompt is in .message.content (can be string or array)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 156,
+          "content": "    PROMPT=$(jq -s '",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 157,
+          "content": "        [.[] | select(.type == \"user\" and .toolUseResult == null)] |",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "        last |",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 159,
+          "content": "        if .message.content then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 160,
+          "content": "            if (.message.content | type) == \"string\" then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 161,
+          "content": "                .message.content",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 162,
+          "content": "            elif (.message.content | type) == \"array\" then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 163,
+          "content": "                [.message.content[] | select(.type == \"text\") | .text] | join(\" \")",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 164,
+          "content": "            else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 165,
+          "content": "                \"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 166,
+          "content": "            end",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 167,
+          "content": "        else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 168,
+          "content": "            \"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 169,
+          "content": "        end",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 170,
+          "content": "    ' \"$TRANSCRIPT_PATH\" 2>/dev/null | head -c 2000)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 171,
+          "content": "    log_debug \"Extracted prompt from transcript: ${PROMPT:0:100}...\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 172,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 173,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 174,
+          "content": "# Fallback to tool input description or default",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 175,
+          "content": "if [[ -z \"$PROMPT\" || \"$PROMPT\" == \"null\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 176,
+          "content": "    PROMPT=$(echo \"$INPUT\" | jq -r '.tool_input.description // \"\"' 2>/dev/null)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 177,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 178,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 179,
+          "content": "if [[ -z \"$PROMPT\" || \"$PROMPT\" == \"null\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 180,
+          "content": "    PROMPT=\"AI-assisted code change\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 181,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 182,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 183,
+          "content": "log_debug \"Prompt: ${PROMPT:0:100}...\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 184,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 185,
+          "content": "# Check if ai-blame is available",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 186,
+          "content": "AI_BLAME_BIN=\"${AI_BLAME_BIN:-$HOME/.cargo/bin/ai-blame}\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 187,
+          "content": "if [[ ! -x \"$AI_BLAME_BIN\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 188,
+          "content": "    log_error \"ai-blame binary not found at: $AI_BLAME_BIN\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 189,
+          "content": "    exit 0",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 190,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 191,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 192,
+          "content": "# Build and send to ai-blame",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 193,
+          "content": "capture_result=\"\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 194,
+          "content": "if [[ -z \"$OLD_CONTENT\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 195,
+          "content": "    log_debug \"Sending as NEW file\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 196,
+          "content": "    capture_result=$(jq -n \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 197,
+          "content": "        --arg tool \"$TOOL_NAME\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 198,
+          "content": "        --arg file_path \"$FILE_PATH\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 199,
+          "content": "        --arg prompt \"$PROMPT\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 200,
+          "content": "        --arg new_content \"$NEW_CONTENT\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 201,
+          "content": "        '{",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 202,
+          "content": "            tool: $tool,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 203,
+          "content": "            file_path: $file_path,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 204,
+          "content": "            prompt: $prompt,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 205,
+          "content": "            old_content: null,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 206,
+          "content": "            new_content: $new_content",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 207,
+          "content": "        }' 2>/dev/null | \"$AI_BLAME_BIN\" capture --stdin 2>&1)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 208,
+          "content": "else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 209,
+          "content": "    log_debug \"Sending as MODIFIED file\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 210,
+          "content": "    capture_result=$(jq -n \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 211,
+          "content": "        --arg tool \"$TOOL_NAME\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 212,
+          "content": "        --arg file_path \"$FILE_PATH\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 213,
+          "content": "        --arg prompt \"$PROMPT\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 214,
+          "content": "        --arg old_content \"$OLD_CONTENT\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 215,
+          "content": "        --arg new_content \"$NEW_CONTENT\" \\",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 216,
+          "content": "        '{",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 217,
+          "content": "            tool: $tool,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 218,
+          "content": "            file_path: $file_path,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 219,
+          "content": "            prompt: $prompt,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 220,
+          "content": "            old_content: $old_content,",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 221,
+          "content": "            new_content: $new_content",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 222,
+          "content": "        }' 2>/dev/null | \"$AI_BLAME_BIN\" capture --stdin 2>&1)",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 223,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 224,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 225,
+          "content": "capture_exit=$?",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 226,
+          "content": "if [[ $capture_exit -ne 0 ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 227,
+          "content": "    log_error \"ai-blame capture failed (exit $capture_exit): $capture_result\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 228,
+          "content": "else",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 229,
+          "content": "    if [[ -n \"$capture_result\" ]]; then",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 230,
+          "content": "        log_debug \"capture output: $capture_result\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 231,
+          "content": "    fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 232,
+          "content": "fi",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 233,
+          "content": "",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 234,
+          "content": "log_debug \"Hook completed\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c"
+          },
+          "edit_id": "c143a170-1c2a-4673-b1b3-a50cad71918c",
+          "prompt_index": 6,
+          "confidence": 1.0
+        }
+      ],
+      "summary": {
+        "total_lines": 234,
+        "ai_lines": 234,
+        "ai_modified_lines": 0,
+        "human_lines": 0,
+        "original_lines": 0,
+        "unknown_lines": 0
+      }
+    }
+  ]
+}
