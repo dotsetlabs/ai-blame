@@ -242,7 +242,12 @@ mod tests {
         let (dir, repo) = create_test_repo();
 
         // Create a simple file
-        create_commit(&repo, &dir, "test.rs", "fn main() {\n    println!(\"hello\");\n}\n");
+        create_commit(
+            &repo,
+            &dir,
+            "test.rs",
+            "fn main() {\n    println!(\"hello\");\n}\n",
+        );
 
         // Run blame
         let mut blamer = AIBlamer::new(&repo).unwrap();
@@ -270,8 +275,12 @@ mod tests {
         let (dir, repo) = create_test_repo();
 
         // Create a commit
-        let commit_id =
-            create_commit(&repo, &dir, "test.rs", "fn hello() {\n    println!(\"hi\");\n}\n");
+        let commit_id = create_commit(
+            &repo,
+            &dir,
+            "test.rs",
+            "fn hello() {\n    println!(\"hi\");\n}\n",
+        );
 
         // Store attribution for this commit
         let notes_store = NotesStore::new(&repo).unwrap();
@@ -334,7 +343,9 @@ mod tests {
             }],
         };
 
-        notes_store.store_attribution(commit_id, &attribution).unwrap();
+        notes_store
+            .store_attribution(commit_id, &attribution)
+            .unwrap();
 
         // Run blame
         let mut blamer = AIBlamer::new(&repo).unwrap();
@@ -342,7 +353,11 @@ mod tests {
 
         // All lines should now have AI attribution
         for line in &result.lines {
-            assert!(line.source.is_ai(), "Line {} should be AI", line.line_number);
+            assert!(
+                line.source.is_ai(),
+                "Line {} should be AI",
+                line.line_number
+            );
             assert_eq!(line.prompt_index, Some(0));
             assert!(line.prompt_preview.is_some());
             assert!(line.prompt_preview.as_ref().unwrap().contains("hello"));
@@ -368,7 +383,9 @@ mod tests {
             prompts: vec![],
             files: vec![],
         };
-        notes_store.store_attribution(commit_id, &attribution).unwrap();
+        notes_store
+            .store_attribution(commit_id, &attribution)
+            .unwrap();
 
         // Create blamer and fetch attribution twice
         let mut blamer = AIBlamer::new(&repo).unwrap();
