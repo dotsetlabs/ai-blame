@@ -173,15 +173,13 @@ jobs:
                     FULL_PROMPT_ESCAPED=$(echo "$FULL_PROMPT" | sed 's/|/\\|/g')
 
                     # Build prompt entry with expandable full text
-                    PROMPT_LIST="${PROMPT_LIST}
-**Prompt ${PROMPT_COUNT}** (${PROMPT_FILES})
-<details>
-<summary>${PROMPT_PREVIEW}</summary>
-
-\`\`\`
-${PROMPT_TEXT}
-\`\`\`
-</details>
+                    # Use a separator that won't conflict with YAML
+                    PROMPT_LIST="${PROMPT_LIST}---PROMPT_START---
+PROMPT_NUM:${PROMPT_COUNT}
+PROMPT_FILES:${PROMPT_FILES}
+PROMPT_PREVIEW:${PROMPT_PREVIEW}
+PROMPT_FULL:${PROMPT_TEXT}
+---PROMPT_END---
 "
                   fi
                 done
@@ -258,12 +256,41 @@ ${PROMPT_TEXT}
               console.log('No commit details file found');
             }
 
-            // Read prompts
+            // Read and parse prompts
             let promptDetails = '';
+            let parsedPrompts = [];
             try {
-              promptDetails = fs.readFileSync('/tmp/prompts.txt', 'utf8').trim();
+              const rawPrompts = fs.readFileSync('/tmp/prompts.txt', 'utf8').trim();
+              // Parse the custom format
+              const promptBlocks = rawPrompts.split('---PROMPT_START---').filter(b => b.trim());
+              for (const block of promptBlocks) {
+                const cleaned = block.replace('---PROMPT_END---', '').trim();
+                if (!cleaned) continue;
+
+                const lines = cleaned.split('\n');
+                const prompt = {};
+                let fullText = [];
+                let inFull = false;
+
+                for (const line of lines) {
+                  if (line.startsWith('PROMPT_NUM:')) {
+                    prompt.num = line.replace('PROMPT_NUM:', '').trim();
+                  } else if (line.startsWith('PROMPT_FILES:')) {
+                    prompt.files = line.replace('PROMPT_FILES:', '').trim();
+                  } else if (line.startsWith('PROMPT_PREVIEW:')) {
+                    prompt.preview = line.replace('PROMPT_PREVIEW:', '').trim();
+                  } else if (line.startsWith('PROMPT_FULL:')) {
+                    inFull = true;
+                    fullText.push(line.replace('PROMPT_FULL:', ''));
+                  } else if (inFull) {
+                    fullText.push(line);
+                  }
+                }
+                prompt.full = fullText.join('\n').trim();
+                if (prompt.num) parsedPrompts.push(prompt);
+              }
             } catch (e) {
-              console.log('No prompts file found');
+              console.log('No prompts file found or parse error:', e.message);
             }
 
             // Determine emoji based on AI percentage
@@ -303,11 +330,22 @@ ${PROMPT_TEXT}
             `;
             }
 
-            if (promptDetails && promptCount > 0) {
-              body += `### Prompts Used (${promptCount})
+            if (parsedPrompts.length > 0) {
+              body += `### Prompts Used (${parsedPrompts.length})
 
-            ${promptDetails}
-            `;
+`;
+              for (const p of parsedPrompts) {
+                body += `**Prompt ${p.num}** (${p.files})
+<details>
+<summary>${p.preview}</summary>
+
+\`\`\`
+${p.full}
+\`\`\`
+</details>
+
+`;
+              }
             }
 
             body += `
