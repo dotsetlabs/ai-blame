@@ -10,6 +10,7 @@ use git2::Repository;
 use serde::Serialize;
 
 use crate::capture::snapshot::LineSource;
+use crate::core::attribution::BlameLineResult;
 use crate::core::blame::AIBlamer;
 use crate::storage::notes::NotesStore;
 use crate::utils::truncate_prompt;
@@ -22,6 +23,18 @@ pub enum AnnotationsFormat {
     GithubChecks,
     /// Plain JSON array
     Json,
+}
+
+/// Consolidation mode for annotations
+#[derive(Debug, Clone, Copy, Default, ValueEnum)]
+pub enum ConsolidateMode {
+    /// Smart consolidation: file-level for new/high-AI files, granular for mixed
+    #[default]
+    Auto,
+    /// One annotation per file
+    File,
+    /// Granular line-level annotations (original behavior)
+    Lines,
 }
 
 /// Annotation level (maps to GitHub Checks API annotation_level)
@@ -53,24 +66,6 @@ pub struct CheckAnnotation {
     pub raw_details: Option<String>,
 }
 
-/// Grouped annotations for a contiguous range of AI lines
-#[derive(Debug)]
-struct AnnotationGroup {
-    start_line: u32,
-    end_line: u32,
-    source_type: GroupSourceType,
-    prompt_preview: Option<String>,
-    model: Option<String>,
-    timestamp: Option<String>,
-    confidence: Option<f64>,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq)]
-enum GroupSourceType {
-    AI,
-    AIModified,
-}
-
 /// Annotations command arguments
 #[derive(Debug, Args)]
 pub struct AnnotationsArgs {
@@ -86,6 +81,14 @@ pub struct AnnotationsArgs {
     #[arg(long, value_enum, default_value_t = AnnotationsFormat::GithubChecks)]
     pub format: AnnotationsFormat,
 
+    /// Consolidation mode: auto (smart), file (per-file), lines (granular)
+    #[arg(long, value_enum, default_value_t = ConsolidateMode::Auto)]
+    pub consolidate: ConsolidateMode,
+
+    /// AI coverage threshold for auto-consolidation (0.0-1.0, default 0.7)
+    #[arg(long, default_value = "0.7")]
+    pub consolidate_threshold: f64,
+
     /// Minimum number of AI lines to create an annotation (reduces noise)
     #[arg(long, default_value = "1")]
     pub min_lines: u32,
@@ -97,6 +100,36 @@ pub struct AnnotationsArgs {
     /// Only annotate pure AI lines (not AI-modified)
     #[arg(long)]
     pub ai_only: bool,
+}
+
+/// File-level statistics for consolidation decisions
+struct FileStats {
+    path: String,
+    total_lines: usize,
+    ai_lines: usize,
+    ai_modified_lines: usize,
+    human_lines: usize,
+    original_lines: usize,
+    is_new_file: bool,
+    primary_prompt: Option<String>,
+    prompt_count: usize,
+}
+
+impl FileStats {
+    fn ai_coverage(&self) -> f64 {
+        if self.total_lines == 0 {
+            0.0
+        } else {
+            (self.ai_lines + self.ai_modified_lines) as f64 / self.total_lines as f64
+        }
+    }
+
+    fn should_consolidate(&self, threshold: f64) -> bool {
+        // Consolidate if:
+        // 1. It's a new file (no original lines, all AI), OR
+        // 2. High AI coverage AND single prompt (or no prompts to distinguish)
+        self.is_new_file || (self.ai_coverage() >= threshold && self.prompt_count <= 1)
+    }
 }
 
 /// Check if repository is a shallow clone
@@ -178,86 +211,41 @@ pub fn run(args: AnnotationsArgs) -> Result<()> {
             Err(_) => continue, // Skip files that can't be blamed (deleted, etc.)
         };
 
-        // Group consecutive AI lines into annotation ranges
-        let groups = group_ai_lines(&blame_result.lines, args.ai_only);
+        // Compute file stats for consolidation decision
+        let file_stats = compute_file_stats(file_path, &blame_result.lines);
 
-        for group in groups {
-            // Skip groups smaller than min_lines
-            let line_count = group.end_line - group.start_line + 1;
-            if line_count < args.min_lines {
-                continue;
+        // Decide whether to consolidate based on mode
+        let should_consolidate = match args.consolidate {
+            ConsolidateMode::Auto => file_stats.should_consolidate(args.consolidate_threshold),
+            ConsolidateMode::File => true,
+            ConsolidateMode::Lines => false,
+        };
+
+        if should_consolidate {
+            // Create a single file-level annotation
+            if let Some(annotation) = create_file_annotation(
+                &file_stats,
+                model_info.as_deref(),
+                session_timestamp.as_deref(),
+            ) {
+                annotations.push(annotation);
             }
-
-            let title = match group.source_type {
-                GroupSourceType::AI => format!(
-                    "AI Generated ({} line{})",
-                    line_count,
-                    if line_count > 1 { "s" } else { "" }
-                ),
-                GroupSourceType::AIModified => format!(
-                    "AI Modified ({} line{})",
-                    line_count,
-                    if line_count > 1 { "s" } else { "" }
-                ),
-            };
-
-            // Build detailed message with prompt prominently displayed
-            let mut message_lines = Vec::new();
-
-            // First line: metadata
-            let mut meta_parts = Vec::new();
-            if let Some(ref model) = group.model.as_ref().or(model_info.as_ref()) {
-                meta_parts.push(format!("Model: {}", model));
-            }
-            if let Some(ref ts) = group.timestamp.as_ref().or(session_timestamp.as_ref()) {
-                meta_parts.push(format!("Timestamp: {}", ts));
-            }
-            if let Some(conf) = group.confidence {
-                meta_parts.push(format!("Confidence: {:.0}%", conf * 100.0));
-            }
-            if !meta_parts.is_empty() {
-                message_lines.push(meta_parts.join(" | "));
-            }
-
-            // Add prompt preview to the message (truncated for readability)
-            if let Some(ref prompt) = group.prompt_preview {
-                message_lines.push(String::new()); // blank line
-                message_lines.push(format!("**Prompt:** {}", prompt));
-            }
-
-            let message = if message_lines.is_empty() {
-                match group.source_type {
-                    GroupSourceType::AI => {
-                        "These lines were generated by AI and committed unchanged.".to_string()
-                    }
-                    GroupSourceType::AIModified => {
-                        "These lines were generated by AI and then modified by a human.".to_string()
-                    }
-                }
-            } else {
-                message_lines.join("\n")
-            };
-
-            // Keep full prompt in raw_details for reference
-            let raw_details = group.prompt_preview.clone();
-
-            annotations.push(CheckAnnotation {
-                path: file_path.clone(),
-                start_line: group.start_line,
-                end_line: group.end_line,
-                annotation_level: AnnotationLevel::Notice,
-                title,
-                message,
-                raw_details,
-            });
-
-            // Stop if we've hit the max
-            if annotations.len() >= args.max_annotations {
-                break;
-            }
+        } else {
+            // Create granular line-level annotations
+            let line_annotations = create_line_annotations(
+                file_path,
+                &blame_result.lines,
+                args.ai_only,
+                args.min_lines,
+                model_info.as_deref(),
+                session_timestamp.as_deref(),
+            );
+            annotations.extend(line_annotations);
         }
 
+        // Stop if we've hit the max
         if annotations.len() >= args.max_annotations {
+            annotations.truncate(args.max_annotations);
             break;
         }
     }
@@ -288,6 +276,192 @@ pub fn run(args: AnnotationsArgs) -> Result<()> {
     Ok(())
 }
 
+/// Compute statistics for a file to help with consolidation decisions
+fn compute_file_stats(path: &str, lines: &[BlameLineResult]) -> FileStats {
+    let mut ai_lines = 0;
+    let mut ai_modified_lines = 0;
+    let mut human_lines = 0;
+    let mut original_lines = 0;
+    let mut prompts: Vec<String> = Vec::new();
+
+    for line in lines {
+        match &line.source {
+            LineSource::AI { .. } => {
+                ai_lines += 1;
+                if let Some(ref p) = line.prompt_preview {
+                    if !prompts.contains(p) {
+                        prompts.push(p.clone());
+                    }
+                }
+            }
+            LineSource::AIModified { .. } => {
+                ai_modified_lines += 1;
+                if let Some(ref p) = line.prompt_preview {
+                    if !prompts.contains(p) {
+                        prompts.push(p.clone());
+                    }
+                }
+            }
+            LineSource::Human => human_lines += 1,
+            LineSource::Original => original_lines += 1,
+            LineSource::Unknown => {}
+        }
+    }
+
+    let is_new_file = original_lines == 0 && (ai_lines + ai_modified_lines + human_lines) > 0;
+
+    FileStats {
+        path: path.to_string(),
+        total_lines: lines.len(),
+        ai_lines,
+        ai_modified_lines,
+        human_lines,
+        original_lines,
+        is_new_file,
+        primary_prompt: prompts.first().cloned(),
+        prompt_count: prompts.len(),
+    }
+}
+
+/// Create a single file-level annotation
+fn create_file_annotation(
+    stats: &FileStats,
+    model: Option<&str>,
+    timestamp: Option<&str>,
+) -> Option<CheckAnnotation> {
+    let ai_total = stats.ai_lines + stats.ai_modified_lines;
+    if ai_total == 0 {
+        return None;
+    }
+
+    let title = if stats.is_new_file {
+        format!("New file ({} lines) generated by AI", stats.total_lines)
+    } else {
+        let pct = (stats.ai_coverage() * 100.0).round() as u32;
+        format!(
+            "{}% AI-generated ({} of {} lines)",
+            pct, ai_total, stats.total_lines
+        )
+    };
+
+    // Build message
+    let mut message_lines = Vec::new();
+
+    // Metadata line
+    let mut meta_parts = Vec::new();
+    if let Some(m) = model {
+        meta_parts.push(format!("Model: {}", m));
+    }
+    if let Some(ts) = timestamp {
+        meta_parts.push(format!("Timestamp: {}", ts));
+    }
+    if !meta_parts.is_empty() {
+        message_lines.push(meta_parts.join(" | "));
+    }
+
+    // Stats breakdown
+    message_lines.push(String::new());
+    message_lines.push(format!(
+        "**Breakdown:** {} AI, {} AI-modified, {} human, {} original",
+        stats.ai_lines, stats.ai_modified_lines, stats.human_lines, stats.original_lines
+    ));
+
+    // Prompt
+    if let Some(ref prompt) = stats.primary_prompt {
+        message_lines.push(String::new());
+        message_lines.push(format!("**Prompt:** {}", truncate_prompt(prompt, 200)));
+    }
+
+    Some(CheckAnnotation {
+        path: stats.path.clone(),
+        start_line: 1,
+        end_line: stats.total_lines as u32,
+        annotation_level: AnnotationLevel::Notice,
+        title,
+        message: message_lines.join("\n"),
+        raw_details: stats.primary_prompt.clone(),
+    })
+}
+
+/// Create granular line-level annotations for a file
+fn create_line_annotations(
+    file_path: &str,
+    lines: &[BlameLineResult],
+    ai_only: bool,
+    min_lines: u32,
+    model: Option<&str>,
+    timestamp: Option<&str>,
+) -> Vec<CheckAnnotation> {
+    let groups = group_ai_lines(lines, ai_only);
+    let mut annotations = Vec::new();
+
+    for group in groups {
+        let line_count = group.end_line - group.start_line + 1;
+        if line_count < min_lines {
+            continue;
+        }
+
+        let title = match group.source_type {
+            GroupSourceType::AI => format!(
+                "AI Generated ({} line{})",
+                line_count,
+                if line_count > 1 { "s" } else { "" }
+            ),
+            GroupSourceType::AIModified => format!(
+                "AI Modified ({} line{})",
+                line_count,
+                if line_count > 1 { "s" } else { "" }
+            ),
+        };
+
+        // Build message
+        let mut message_lines = Vec::new();
+
+        // Metadata
+        let mut meta_parts = Vec::new();
+        if let Some(m) = model {
+            meta_parts.push(format!("Model: {}", m));
+        }
+        if let Some(ts) = timestamp {
+            meta_parts.push(format!("Timestamp: {}", ts));
+        }
+        if !meta_parts.is_empty() {
+            message_lines.push(meta_parts.join(" | "));
+        }
+
+        // Prompt
+        if let Some(ref prompt) = group.prompt_preview {
+            message_lines.push(String::new());
+            message_lines.push(format!("**Prompt:** {}", prompt));
+        }
+
+        let message = if message_lines.is_empty() {
+            match group.source_type {
+                GroupSourceType::AI => {
+                    "These lines were generated by AI and committed unchanged.".to_string()
+                }
+                GroupSourceType::AIModified => {
+                    "These lines were generated by AI and then modified by a human.".to_string()
+                }
+            }
+        } else {
+            message_lines.join("\n")
+        };
+
+        annotations.push(CheckAnnotation {
+            path: file_path.to_string(),
+            start_line: group.start_line,
+            end_line: group.end_line,
+            annotation_level: AnnotationLevel::Notice,
+            title,
+            message,
+            raw_details: group.prompt_preview.clone(),
+        });
+    }
+
+    annotations
+}
+
 /// Output format for GitHub Checks API
 #[derive(Debug, Serialize)]
 struct GithubChecksOutput {
@@ -301,11 +475,23 @@ struct GithubChecksSummary {
     model: Option<String>,
 }
 
+/// Grouped annotations for a contiguous range of AI lines
+#[derive(Debug)]
+struct AnnotationGroup {
+    start_line: u32,
+    end_line: u32,
+    source_type: GroupSourceType,
+    prompt_preview: Option<String>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq)]
+enum GroupSourceType {
+    AI,
+    AIModified,
+}
+
 /// Group consecutive AI lines into annotation ranges
-fn group_ai_lines(
-    lines: &[crate::core::attribution::BlameLineResult],
-    ai_only: bool,
-) -> Vec<AnnotationGroup> {
+fn group_ai_lines(lines: &[BlameLineResult], ai_only: bool) -> Vec<AnnotationGroup> {
     let mut groups: Vec<AnnotationGroup> = Vec::new();
     let mut current_group: Option<AnnotationGroup> = None;
 
@@ -341,9 +527,6 @@ fn group_ai_lines(
                             .prompt_preview
                             .clone()
                             .map(|p| truncate_prompt(&p, 200)),
-                        model: None,
-                        timestamp: None,
-                        confidence: None,
                     });
                 }
             }
@@ -367,7 +550,6 @@ fn group_ai_lines(
 mod tests {
     use super::*;
     use crate::capture::snapshot::LineSource;
-    use crate::core::attribution::BlameLineResult;
 
     fn make_line(line_number: u32, source: LineSource) -> BlameLineResult {
         BlameLineResult {
@@ -470,5 +652,79 @@ mod tests {
         assert!(json.contains("\"annotation_level\":\"notice\""));
         assert!(json.contains("\"start_line\":1"));
         assert!(json.contains("\"end_line\":5"));
+    }
+
+    #[test]
+    fn test_file_stats_new_file() {
+        let lines = vec![
+            make_line(
+                1,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
+            make_line(
+                2,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
+        ];
+
+        let stats = compute_file_stats("test.rs", &lines);
+        assert!(stats.is_new_file);
+        assert_eq!(stats.ai_lines, 2);
+        assert_eq!(stats.original_lines, 0);
+        assert!(stats.should_consolidate(0.7));
+    }
+
+    #[test]
+    fn test_file_stats_mixed_file() {
+        let lines = vec![
+            make_line(1, LineSource::Original),
+            make_line(2, LineSource::Original),
+            make_line(3, LineSource::Original),
+            make_line(
+                4,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
+        ];
+
+        let stats = compute_file_stats("test.rs", &lines);
+        assert!(!stats.is_new_file);
+        assert_eq!(stats.ai_coverage(), 0.25);
+        assert!(!stats.should_consolidate(0.7)); // Below threshold
+    }
+
+    #[test]
+    fn test_file_stats_high_ai_coverage() {
+        let lines = vec![
+            make_line(1, LineSource::Original),
+            make_line(
+                2,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
+            make_line(
+                3,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
+            make_line(
+                4,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
+        ];
+
+        let stats = compute_file_stats("test.rs", &lines);
+        assert!(!stats.is_new_file);
+        assert_eq!(stats.ai_coverage(), 0.75);
+        assert!(stats.should_consolidate(0.7)); // Above threshold, single prompt
     }
 }
