@@ -377,7 +377,10 @@ mod tests {
         // Wrong separator
         let result = parse_date(&Some("2024/01/15".to_string()));
         assert!(result.is_err());
-        assert!(result.unwrap_err().to_string().contains("Invalid date format"));
+        assert!(result
+            .unwrap_err()
+            .to_string()
+            .contains("Invalid date format"));
     }
 
     #[test]

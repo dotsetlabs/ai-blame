@@ -152,9 +152,20 @@ mod tests {
     #[test]
     fn test_ai_only_filter() {
         let mut lines = vec![
-            create_test_blame_line(1, LineSource::AI { edit_id: "e1".to_string() }),
+            create_test_blame_line(
+                1,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
             create_test_blame_line(2, LineSource::Human),
-            create_test_blame_line(3, LineSource::AIModified { edit_id: "e2".to_string(), similarity: 0.8 }),
+            create_test_blame_line(
+                3,
+                LineSource::AIModified {
+                    edit_id: "e2".to_string(),
+                    similarity: 0.8,
+                },
+            ),
             create_test_blame_line(4, LineSource::Original),
         ];
 
@@ -169,9 +180,20 @@ mod tests {
     #[test]
     fn test_human_only_filter() {
         let mut lines = vec![
-            create_test_blame_line(1, LineSource::AI { edit_id: "e1".to_string() }),
+            create_test_blame_line(
+                1,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
             create_test_blame_line(2, LineSource::Human),
-            create_test_blame_line(3, LineSource::AIModified { edit_id: "e2".to_string(), similarity: 0.8 }),
+            create_test_blame_line(
+                3,
+                LineSource::AIModified {
+                    edit_id: "e2".to_string(),
+                    similarity: 0.8,
+                },
+            ),
             create_test_blame_line(4, LineSource::Original),
         ];
 
@@ -187,9 +209,20 @@ mod tests {
     fn test_no_filter() {
         #[allow(clippy::useless_vec)]
         let lines = vec![
-            create_test_blame_line(1, LineSource::AI { edit_id: "e1".to_string() }),
+            create_test_blame_line(
+                1,
+                LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+            ),
             create_test_blame_line(2, LineSource::Human),
-            create_test_blame_line(3, LineSource::AIModified { edit_id: "e2".to_string(), similarity: 0.8 }),
+            create_test_blame_line(
+                3,
+                LineSource::AIModified {
+                    edit_id: "e2".to_string(),
+                    similarity: 0.8,
+                },
+            ),
             create_test_blame_line(4, LineSource::Original),
         ];
 
@@ -235,16 +268,30 @@ mod tests {
     // LineSource behavior tests
     #[test]
     fn test_line_source_is_ai() {
-        assert!(LineSource::AI { edit_id: "e1".to_string() }.is_ai());
-        assert!(LineSource::AIModified { edit_id: "e1".to_string(), similarity: 0.9 }.is_ai());
+        assert!(LineSource::AI {
+            edit_id: "e1".to_string()
+        }
+        .is_ai());
+        assert!(LineSource::AIModified {
+            edit_id: "e1".to_string(),
+            similarity: 0.9
+        }
+        .is_ai());
         assert!(!LineSource::Human.is_ai());
         assert!(!LineSource::Original.is_ai());
     }
 
     #[test]
     fn test_line_source_is_human() {
-        assert!(!LineSource::AI { edit_id: "e1".to_string() }.is_human());
-        assert!(!LineSource::AIModified { edit_id: "e1".to_string(), similarity: 0.9 }.is_human());
+        assert!(!LineSource::AI {
+            edit_id: "e1".to_string()
+        }
+        .is_human());
+        assert!(!LineSource::AIModified {
+            edit_id: "e1".to_string(),
+            similarity: 0.9
+        }
+        .is_human());
         assert!(LineSource::Human.is_human());
         assert!(LineSource::Original.is_human());
     }

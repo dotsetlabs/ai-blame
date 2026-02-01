@@ -330,8 +330,18 @@ mod tests {
             path: "test.rs".to_string(),
             revision: "HEAD".to_string(),
             lines: vec![
-                create_test_line(1, LineSource::AI { edit_id: "e1".to_string() }),
-                create_test_line(2, LineSource::AI { edit_id: "e1".to_string() }),
+                create_test_line(
+                    1,
+                    LineSource::AI {
+                        edit_id: "e1".to_string(),
+                    },
+                ),
+                create_test_line(
+                    2,
+                    LineSource::AI {
+                        edit_id: "e1".to_string(),
+                    },
+                ),
                 create_test_line(3, LineSource::Human),
                 create_test_line(4, LineSource::Original),
             ],
@@ -358,8 +368,19 @@ mod tests {
             path: "test.rs".to_string(),
             revision: "HEAD".to_string(),
             lines: vec![
-                create_test_line(1, LineSource::AI { edit_id: "e1".to_string() }),
-                create_test_line(2, LineSource::AIModified { edit_id: "e1".to_string(), similarity: 0.8 }),
+                create_test_line(
+                    1,
+                    LineSource::AI {
+                        edit_id: "e1".to_string(),
+                    },
+                ),
+                create_test_line(
+                    2,
+                    LineSource::AIModified {
+                        edit_id: "e1".to_string(),
+                        similarity: 0.8,
+                    },
+                ),
             ],
         };
 
@@ -373,9 +394,25 @@ mod tests {
             path: "test.rs".to_string(),
             revision: "HEAD".to_string(),
             lines: vec![
-                create_test_line(1, LineSource::AI { edit_id: "e1".to_string() }),
-                create_test_line(2, LineSource::AI { edit_id: "e1".to_string() }),
-                create_test_line(3, LineSource::AIModified { edit_id: "e2".to_string(), similarity: 0.9 }),
+                create_test_line(
+                    1,
+                    LineSource::AI {
+                        edit_id: "e1".to_string(),
+                    },
+                ),
+                create_test_line(
+                    2,
+                    LineSource::AI {
+                        edit_id: "e1".to_string(),
+                    },
+                ),
+                create_test_line(
+                    3,
+                    LineSource::AIModified {
+                        edit_id: "e2".to_string(),
+                        similarity: 0.9,
+                    },
+                ),
             ],
         };
 

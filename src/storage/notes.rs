@@ -243,9 +243,7 @@ mod tests {
         let sig = Signature::now("Test", "test@test.com").unwrap();
         std::fs::write(dir.path().join("test.txt"), "test content").unwrap();
         let mut index = repo.index().unwrap();
-        index
-            .add_path(std::path::Path::new("test.txt"))
-            .unwrap();
+        index.add_path(std::path::Path::new("test.txt")).unwrap();
         index.write().unwrap();
         let tree_id = index.write_tree().unwrap();
         let tree = repo.find_tree(tree_id).unwrap();

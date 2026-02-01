@@ -309,7 +309,10 @@ mod tests {
         };
         let result = get_input(&args);
         assert!(result.is_err());
-        assert!(result.unwrap_err().to_string().contains("Either --text or --file is required"));
+        assert!(result
+            .unwrap_err()
+            .to_string()
+            .contains("Either --text or --file is required"));
     }
 
     #[test]
@@ -324,7 +327,10 @@ mod tests {
         };
         let result = get_input(&args);
         assert!(result.is_err());
-        assert!(result.unwrap_err().to_string().contains("Cannot specify both"));
+        assert!(result
+            .unwrap_err()
+            .to_string()
+            .contains("Cannot specify both"));
     }
 
     #[test]

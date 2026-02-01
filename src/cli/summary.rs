@@ -652,7 +652,7 @@ mod tests {
         // Check individual file summaries
         let main_summary = &summary.file_summaries[0];
         assert_eq!(main_summary.additions(), 80); // 50 + 10 + 20
-        // 60 AI / 80 total = 75%
+                                                  // 60 AI / 80 total = 75%
         assert!((main_summary.ai_percent() - 75.0).abs() < 0.001);
     }
 
