@@ -68,6 +68,7 @@ whogitit init
 This installs git hooks that:
 - Attach attribution data to commits (post-commit)
 - Push git notes with your commits (pre-push)
+- Preserve notes during rebase/amend (post-rewrite)
 - Configure git to fetch notes automatically
 
 ### 3. Verify your setup
@@ -272,6 +273,17 @@ Options:
 - `--min-lines <n>` - Minimum AI lines for annotation (default: 1)
 - `--max-annotations <n>` - Maximum annotations (default: 50)
 - `--ai-only` - Only annotate pure AI lines
+
+### `whogitit copy-notes`
+
+Copy attribution between commits (useful after cherry-pick):
+
+```bash
+whogitit copy-notes <source-sha> <target-sha>
+whogitit copy-notes abc123 def456 --dry-run
+```
+
+Note: For rebase and amend, the post-rewrite hook automatically preserves notes. Use `copy-notes` for cherry-pick or manual recovery.
 
 ### `whogitit pager`
 

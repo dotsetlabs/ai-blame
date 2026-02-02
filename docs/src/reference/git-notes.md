@@ -137,29 +137,51 @@ git fetch origin 'refs/notes/*:refs/notes/*'
 
 ## Notes and Rebasing
 
-When rebasing, commits get new SHAs. Notes don't automatically follow.
+When rebasing, commits get new SHAs. The post-rewrite hook (installed by `whogitit init`) automatically preserves notes.
 
-### After Rebase
+### Automatic Preservation (Recommended)
+
+Run `whogitit init` to install the post-rewrite hook:
 
 ```bash
-# Option 1: Copy notes from old to new commits
-git notes --ref=whogitit copy <old-sha> <new-sha>
-
-# Option 2: Accept loss (new commits won't have attribution)
+whogitit init
 ```
 
-### Preserving Notes During Rebase
+After this, notes are automatically preserved during:
+- `git rebase`
+- `git commit --amend`
+
+You'll see a message like:
+```
+whogitit: Preserved attribution for 3 commit(s)
+```
+
+### Manual Copy (Cherry-pick or Recovery)
+
+For cherry-pick (not covered by post-rewrite hook) or manual recovery:
 
 ```bash
-# Before rebase, save note mappings
+# Using whogitit command
+whogitit copy-notes <old-sha> <new-sha>
+
+# Or using git directly
+git notes --ref=whogitit copy <old-sha> <new-sha>
+```
+
+### Batch Recovery
+
+If you rebased without the hook installed:
+
+```bash
+# Before rebase, save commits
 git log --format='%H' main..HEAD > /tmp/old-commits
 
 # After rebase
 git log --format='%H' main..HEAD > /tmp/new-commits
 
-# Copy notes (script needed for automation)
+# Copy notes
 paste /tmp/old-commits /tmp/new-commits | while read old new; do
-  git notes --ref=whogitit copy "$old" "$new" 2>/dev/null || true
+  whogitit copy-notes "$old" "$new"
 done
 ```
 

@@ -238,18 +238,22 @@ Git notes are attached to specific commit SHAs. Rebase creates new SHAs.
 
 **Solutions:**
 
-1. **Before rebasing, save mappings:**
+1. **Install the post-rewrite hook (recommended):**
    ```bash
-   git log --format='%H' main..HEAD > /tmp/old-commits
+   whogitit init
    ```
 
-2. **After rebase, copy notes:**
+   This installs a `post-rewrite` hook that automatically preserves attribution during rebase and amend operations. Run this once per repository.
+
+2. **Manually copy notes after the fact:**
    ```bash
-   # Manual for each commit
-   git notes --ref=whogitit copy <old-sha> <new-sha>
+   whogitit copy-notes <old-sha> <new-sha>
    ```
 
-3. **Accept loss:** For small rebases, may not be worth the effort.
+3. **For cherry-pick (not covered by hook):**
+   ```bash
+   whogitit copy-notes <original-sha> <cherry-picked-sha>
+   ```
 
 ### Corrupt note data
 

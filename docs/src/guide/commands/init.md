@@ -30,7 +30,12 @@ This command should be run once per repository after the global `setup` command 
    - Automatically pushes git notes with regular pushes
    - Ensures attribution travels with your code
 
-3. **Configures git fetch**
+3. **Installs post-rewrite hook** (`.git/hooks/post-rewrite`)
+   - Preserves attribution during `git rebase`
+   - Preserves attribution during `git commit --amend`
+   - Automatically copies notes from old to new commit SHAs
+
+4. **Configures git fetch**
    - Adds fetch refspec for `refs/notes/whogitit`
    - Notes are automatically fetched on `git fetch`/`git pull`
 
@@ -76,6 +81,14 @@ The pre-push hook:
 - Runs before each push
 - Pushes `refs/notes/whogitit` to the remote
 - Ensures attribution notes travel with commits
+
+### post-rewrite hook
+
+The post-rewrite hook:
+- Runs after `git rebase` and `git commit --amend`
+- Receives old→new SHA mappings on stdin
+- Copies attribution notes to the new commits
+- Reports how many notes were preserved
 
 ## Idempotency
 

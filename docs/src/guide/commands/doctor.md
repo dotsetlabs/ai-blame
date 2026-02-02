@@ -22,6 +22,7 @@ The `doctor` command performs a comprehensive check of your whogitit configurati
 | Claude Code settings | Checks that `~/.claude/settings.json` has whogitit hooks configured |
 | Required tools | Verifies `jq` is installed (required by capture hook) |
 | Repository hooks | If in a git repo, checks that post-commit and pre-push hooks are installed |
+| Attribution notes | If notes exist, checks for orphaned notes (attached to deleted commits) |
 
 ## Example Output
 
@@ -36,6 +37,7 @@ Checking whogitit configuration...
 [OK] Claude Code settings: Hooks configured
 [OK] Required tools (jq): Available
 [OK] Repository hooks: Initialized in current repo
+[OK] Attribution notes: 42 notes, all valid
 
 All checks passed! whogitit is properly configured.
 ```

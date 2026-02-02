@@ -82,6 +82,7 @@ whogitit init
 This installs git hooks for the repository:
 - `post-commit` - Attaches attribution data to commits
 - `pre-push` - Automatically pushes git notes with your code
+- `post-rewrite` - Preserves notes during rebase and amend
 
 ### 3. Verify setup
 

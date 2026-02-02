@@ -360,6 +360,11 @@ pub fn run_doctor() -> Result<()> {
         checks.push(repo_check);
     }
 
+    // Check 7: Orphaned notes (if in a git repo with notes)
+    if let Some(notes_check) = check_orphaned_notes() {
+        checks.push(notes_check);
+    }
+
     // Display results
     for check in &checks {
         let status = if check.passed { "[OK]" } else { "[FAIL]" };
@@ -583,6 +588,42 @@ fn check_required_tools() -> DoctorCheck {
     }
 }
 
+fn check_orphaned_notes() -> Option<DoctorCheck> {
+    let repo = git2::Repository::discover(".").ok()?;
+    let store = crate::storage::notes::NotesStore::new(&repo).ok()?;
+
+    let all_notes = store.list_attributed_commits().ok()?;
+    if all_notes.is_empty() {
+        return None;
+    }
+
+    let mut orphaned = 0;
+    for oid in &all_notes {
+        if repo.find_commit(*oid).is_err() {
+            orphaned += 1;
+        }
+    }
+
+    Some(DoctorCheck {
+        name: "Attribution notes",
+        passed: orphaned == 0,
+        message: if orphaned == 0 {
+            format!("{} notes, all valid", all_notes.len())
+        } else {
+            format!(
+                "{}/{} notes orphaned (commits deleted)",
+                orphaned,
+                all_notes.len()
+            )
+        },
+        fix_hint: if orphaned > 0 {
+            Some("Run 'git notes --ref=whogitit prune' to clean up".to_string())
+        } else {
+            None
+        },
+    })
+}
+
 fn check_git_repo() -> Option<DoctorCheck> {
     // Only check if we're in a git repo
     let repo = git2::Repository::discover(".").ok()?;
@@ -741,5 +782,71 @@ mod tests {
             .as_str()
             .unwrap()
             .contains("WHOGITIT_HOOK_PHASE=post"));
+    }
+
+    #[test]
+    fn test_doctor_check_structure() {
+        let check = DoctorCheck {
+            name: "Test check",
+            passed: true,
+            message: "Test passed".to_string(),
+            fix_hint: None,
+        };
+
+        assert_eq!(check.name, "Test check");
+        assert!(check.passed);
+        assert!(check.fix_hint.is_none());
+    }
+
+    #[test]
+    fn test_doctor_check_with_fix_hint() {
+        let check = DoctorCheck {
+            name: "Failing check",
+            passed: false,
+            message: "Something is wrong".to_string(),
+            fix_hint: Some("Run this command to fix".to_string()),
+        };
+
+        assert!(!check.passed);
+        assert!(check.fix_hint.is_some());
+        assert_eq!(
+            check.fix_hint.unwrap(),
+            "Run this command to fix".to_string()
+        );
+    }
+
+    #[test]
+    fn test_setup_status_is_complete() {
+        let complete = SetupStatus {
+            hook_script_installed: true,
+            hook_script_executable: true,
+            settings_configured: true,
+            claude_dir_exists: true,
+        };
+        assert!(complete.is_complete());
+
+        let incomplete1 = SetupStatus {
+            hook_script_installed: false,
+            hook_script_executable: true,
+            settings_configured: true,
+            claude_dir_exists: true,
+        };
+        assert!(!incomplete1.is_complete());
+
+        let incomplete2 = SetupStatus {
+            hook_script_installed: true,
+            hook_script_executable: false,
+            settings_configured: true,
+            claude_dir_exists: true,
+        };
+        assert!(!incomplete2.is_complete());
+
+        let incomplete3 = SetupStatus {
+            hook_script_installed: true,
+            hook_script_executable: true,
+            settings_configured: false,
+            claude_dir_exists: true,
+        };
+        assert!(!incomplete3.is_complete());
     }
 }

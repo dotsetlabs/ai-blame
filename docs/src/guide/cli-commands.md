@@ -37,6 +37,7 @@ whogitit provides a comprehensive CLI for viewing and managing AI attribution da
 | [`setup`](./commands/setup.md) | Configure Claude Code integration (one-time) |
 | [`doctor`](./commands/doctor.md) | Verify whogitit configuration |
 | [`init`](./commands/init.md) | Initialize whogitit in a repository |
+| [`copy-notes`](./commands/copy-notes.md) | Copy attribution between commits |
 
 ### Privacy Commands
 
@@ -109,6 +110,10 @@ whogitit init
 
 # Initialize even if global setup incomplete
 whogitit init --force
+
+# Copy attribution (after cherry-pick or manual rebase recovery)
+whogitit copy-notes <old-sha> <new-sha>
+whogitit copy-notes <old-sha> <new-sha> --dry-run
 ```
 
 ### Privacy Testing
@@ -176,3 +181,4 @@ Explore each command in detail:
 - [setup](./commands/setup.md) - Global configuration
 - [doctor](./commands/doctor.md) - Configuration check
 - [init](./commands/init.md) - Repository setup
+- [copy-notes](./commands/copy-notes.md) - Copy attribution between commits
