@@ -1,0 +1,5285 @@
+{
+  "version": 3,
+  "session": {
+    "session_id": "b7da1710-13c3-4853-b99b-af7f378a8c50",
+    "model": {
+      "id": "claude-opus-4-5-20251101",
+      "provider": "anthropic"
+    },
+    "started_at": "2026-02-02T03:59:42.728445+00:00",
+    "prompt_count": 3,
+    "used_plan_mode": false,
+    "subagent_count": 0
+  },
+  "prompts": [
+    {
+      "index": 0,
+      "text": "\"switch back to main, pull the latest, and then bump the package version in all areas that need updated to 0.2.0\"",
+      "timestamp": "2026-02-02T03:59:42.728515+00:00",
+      "affected_files": [
+        "Cargo.toml"
+      ]
+    },
+    {
+      "index": 1,
+      "text": "\"switch back to main, pull the latest, and then bump the package version in all areas that need updated to 0.2.0\"",
+      "timestamp": "2026-02-02T03:59:43.757015+00:00",
+      "affected_files": [
+        ".github/workflows/release.yml"
+      ]
+    },
+    {
+      "index": 2,
+      "text": "\"switch back to main, pull the latest, and then bump the package version in all areas that need updated to 0.2.0\"",
+      "timestamp": "2026-02-02T03:59:51.322067+00:00",
+      "affected_files": [
+        "docs/src/getting-started/installation.md"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/src/getting-started/installation.md",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "# Installation",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "## Prerequisites",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "- **Git** (2.25 or later)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "- **jq** - JSON processor used by capture hook",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "  - macOS: `brew install jq`",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "  - Linux: `apt install jq` or `dnf install jq`",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "- **Claude Code** - For automatic AI attribution capture",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "## Quick Install (Recommended)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "**macOS / Linux:**",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "curl -sSL https://github.com/dotsetlabs/whogitit/releases/latest/download/install.sh | sh",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "**Windows (PowerShell):**",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "```powershell",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "irm https://github.com/dotsetlabs/whogitit/releases/latest/download/install.ps1 | iex",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "This downloads the latest pre-built binary and installs it to `~/.cargo/bin`.",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "## Install via Cargo",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "If you have Rust installed:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "cargo install whogitit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "## Install from Source",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "For development or to build from the latest code:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "**Prerequisites:** [Rust](https://rustup.rs/) 1.70 or later",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "# Clone the repository",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "git clone https://github.com/dotsetlabs/whogitit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "cd whogitit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "# Install to ~/.cargo/bin",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "cargo install --path .",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "## Verify Installation",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "whogitit --version",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "You should see output like:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "whogitit 0.2.0",
+          "source": {
+            "type": "AI",
+            "edit_id": "d7e4c293-73d0-433b-8569-eba0e1ba83d0"
+          },
+          "edit_id": "d7e4c293-73d0-433b-8569-eba0e1ba83d0",
+          "prompt_index": 2,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "## Quick Setup (Recommended)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "The easiest way to set up whogitit is with the automated setup command:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "### 1. Run global setup (once)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "whogitit setup",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "This automatically:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "- Installs the capture hook script to `~/.claude/hooks/`",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "- Configures Claude Code's `~/.claude/settings.json` with required hooks",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "- Creates a backup of your existing settings",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "> **Note**: After running `whogitit setup`, you must also run `whogitit init` in each repository where you want to track AI attribution. The global hooks only activate for initialized repositories.",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "### 2. Initialize your repository",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "cd your-project",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "whogitit init",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "This installs git hooks for the repository:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "- `post-commit` - Attaches attribution data to commits",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "- `pre-push` - Automatically pushes git notes with your code",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "- `post-rewrite` - Preserves notes during rebase and amend",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "### 3. Verify setup",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "whogitit doctor",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "This checks all configuration and shows any issues:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "[OK] whogitit binary: Installed and running",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "[OK] Capture hook: Installed at ~/.claude/hooks/whogitit-capture.sh",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "[OK] Hook permissions: Executable",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "[OK] Claude Code settings: Hooks configured",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "[OK] Required tools (jq): Available",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "[OK] Repository hooks: Initialized in current repo",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "All checks passed! whogitit is properly configured.",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "## Manual Setup (Alternative)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "If you prefer manual configuration or need to customize the setup:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "### 1. Copy the hook script",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "mkdir -p ~/.claude/hooks",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "cp hooks/whogitit-capture.sh ~/.claude/hooks/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "chmod +x ~/.claude/hooks/whogitit-capture.sh",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "### 2. Configure Claude Code",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "Add the following to `~/.claude/settings.json`:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "```json",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "{",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "  \"hooks\": {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "    \"PreToolUse\": [",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "      {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "        \"matcher\": \"Edit|Write|Bash\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "        \"hooks\": [",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "          {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "            \"type\": \"command\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "            \"command\": \"WHOGITIT_HOOK_PHASE=pre ~/.claude/hooks/whogitit-capture.sh\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "          }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "        ]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "      }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "    ],",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "    \"PostToolUse\": [",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "      {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "        \"matcher\": \"Edit|Write|Bash\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "        \"hooks\": [",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "          {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "            \"type\": \"command\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "            \"command\": \"WHOGITIT_HOOK_PHASE=post ~/.claude/hooks/whogitit-capture.sh\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "          }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "        ]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "      }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "    ]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "  }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 150,
+          "content": "}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 153,
+          "content": "> **Note**: The hook captures Edit, Write, and Bash tool uses. Bash commands that modify files (like `sed`, `echo >`, etc.) are also tracked.",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "### 3. Initialize a Repository",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 156,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 157,
+          "content": "In each repository where you want to track AI attribution:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 159,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 160,
+          "content": "cd your-project",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 161,
+          "content": "whogitit init",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 162,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 163,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 164,
+          "content": "## Verify Setup",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 165,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 166,
+          "content": "After setup, you can verify everything is working:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 167,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 168,
+          "content": "```bash",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 169,
+          "content": "# Run the doctor command for comprehensive checks",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 170,
+          "content": "whogitit doctor",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 171,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 172,
+          "content": "# Or check manually:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 173,
+          "content": "# Check that hooks are installed",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 174,
+          "content": "ls -la .git/hooks/post-commit .git/hooks/pre-push",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 175,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 176,
+          "content": "# Check git notes configuration",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 177,
+          "content": "git config --get-all remote.origin.fetch | grep whogitit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 178,
+          "content": "```",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 179,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 180,
+          "content": "## Next Steps",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 181,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 182,
+          "content": "- Continue to [Quick Start](./quick-start.md) to see whogitit in action",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 183,
+          "content": "- Learn about [Core Concepts](./concepts.md) to understand how attribution works",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        }
+      ],
+      "summary": {
+        "total_lines": 183,
+        "ai_lines": 1,
+        "ai_modified_lines": 0,
+        "human_lines": 0,
+        "original_lines": 182,
+        "unknown_lines": 0
+      }
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "# Release workflow powered by cargo-dist",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "#",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "# To trigger a release:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "#   git tag v0.2.0",
+          "source": {
+            "type": "AI",
+            "edit_id": "9e82b9e6-85ff-464a-9e4e-17bbd07a921a"
+          },
+          "edit_id": "9e82b9e6-85ff-464a-9e4e-17bbd07a921a",
+          "prompt_index": 1,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "#   git push origin v0.2.0",
+          "source": {
+            "type": "AI",
+            "edit_id": "9e82b9e6-85ff-464a-9e4e-17bbd07a921a"
+          },
+          "edit_id": "9e82b9e6-85ff-464a-9e4e-17bbd07a921a",
+          "prompt_index": 1,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "#",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "# This workflow will:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "#   - Build binaries for all supported platforms",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "#   - Create a GitHub Release with all artifacts",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "#   - Generate shell/PowerShell installers",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "#   - Update Homebrew formula (if tap is configured)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "name: Release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "permissions:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "  contents: write",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "on:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "  pull_request:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "  push:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "    tags:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "      - 'v[0-9]+.*'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "  CARGO_TERM_COLOR: always",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "jobs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "  # Plan what to build",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "  plan:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "    name: Plan release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "    outputs:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "      tag: ${{ steps.tag.outputs.tag }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "      publishing: ${{ steps.tag.outputs.publishing }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "      - uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "          fetch-depth: 0",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "      - name: Determine tag",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "        id: tag",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "          if [[ \"${{ github.ref_type }}\" == \"tag\" ]]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "            echo \"tag=${{ github.ref_name }}\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "            echo \"publishing=true\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "          else",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "            echo \"tag=v0.0.0-dev\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "            echo \"publishing=false\" >> \"$GITHUB_OUTPUT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "          fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "  # Build for each platform",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "  build:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "    name: Build ${{ matrix.target }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "    needs: plan",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "    strategy:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "      fail-fast: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "      matrix:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "        include:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "          - target: x86_64-unknown-linux-gnu",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "            os: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "            cross: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "          - target: aarch64-unknown-linux-gnu",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "            os: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "            cross: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "          - target: x86_64-apple-darwin",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "            os: macos-14",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "            cross: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "          - target: aarch64-apple-darwin",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "            os: macos-14",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "            cross: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "          - target: x86_64-pc-windows-msvc",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 72,
+          "content": "            os: windows-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 73,
+          "content": "            cross: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 74,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 75,
+          "content": "    runs-on: ${{ matrix.os }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 76,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 77,
+          "content": "      - uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 78,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 79,
+          "content": "      - name: Install Rust toolchain",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 80,
+          "content": "        uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 81,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 82,
+          "content": "          targets: ${{ matrix.target }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 83,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 84,
+          "content": "      - name: Install cross (Linux ARM)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 85,
+          "content": "        if: matrix.cross",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 86,
+          "content": "        run: cargo install cross --git https://github.com/cross-rs/cross",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 87,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 88,
+          "content": "      - name: Build (native)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 89,
+          "content": "        if: ${{ !matrix.cross }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 90,
+          "content": "        run: cargo build --release --target ${{ matrix.target }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 91,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 92,
+          "content": "      - name: Build (cross)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 93,
+          "content": "        if: matrix.cross",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 94,
+          "content": "        run: cross build --release --target ${{ matrix.target }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 95,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 96,
+          "content": "      - name: Package (Unix)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 97,
+          "content": "        if: runner.os != 'Windows'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 98,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 99,
+          "content": "          cd target/${{ matrix.target }}/release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 100,
+          "content": "          tar czvf ../../../whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.tar.gz whogitit",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 101,
+          "content": "          cd ../../..",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 102,
+          "content": "          shasum -a 256 whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.tar.gz > whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.tar.gz.sha256",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 103,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 104,
+          "content": "      - name: Package (Windows)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 105,
+          "content": "        if: runner.os == 'Windows'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 106,
+          "content": "        shell: pwsh",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 107,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 108,
+          "content": "          cd target/${{ matrix.target }}/release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 109,
+          "content": "          7z a ../../../whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.zip whogitit.exe",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 110,
+          "content": "          cd ../../..",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 111,
+          "content": "          (Get-FileHash whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.zip -Algorithm SHA256).Hash.ToLower() + \"  whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.zip\" | Out-File -Encoding utf8 whogitit-${{ needs.plan.outputs.tag }}-${{ matrix.target }}.zip.sha256",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 112,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 113,
+          "content": "      - name: Upload artifacts",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 114,
+          "content": "        uses: actions/upload-artifact@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 115,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 116,
+          "content": "          name: dist-${{ matrix.target }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 117,
+          "content": "          path: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 118,
+          "content": "            whogitit-*.tar.gz",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 119,
+          "content": "            whogitit-*.zip",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 120,
+          "content": "            whogitit-*.sha256",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 121,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 122,
+          "content": "  # Create GitHub Release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 123,
+          "content": "  release:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 124,
+          "content": "    name: Create Release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 125,
+          "content": "    needs: [plan, build]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 126,
+          "content": "    if: needs.plan.outputs.publishing == 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 127,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 128,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 129,
+          "content": "      - uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 130,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 131,
+          "content": "      - name: Download all artifacts",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 132,
+          "content": "        uses: actions/download-artifact@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 133,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 134,
+          "content": "          path: artifacts",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 135,
+          "content": "          pattern: dist-*",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 136,
+          "content": "          merge-multiple: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 137,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 138,
+          "content": "      - name: Generate installer scripts",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 139,
+          "content": "        run: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 140,
+          "content": "          # Generate shell installer",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 141,
+          "content": "          cat > artifacts/install.sh << 'INSTALLER'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 142,
+          "content": "          #!/bin/sh",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 143,
+          "content": "          set -eu",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 144,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 145,
+          "content": "          REPO=\"dotsetlabs/whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 146,
+          "content": "          BINARY=\"whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 147,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 148,
+          "content": "          # Detect platform",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 149,
+          "content": "          OS=$(uname -s | tr '[:upper:]' '[:lower:]')",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 150,
+          "content": "          ARCH=$(uname -m)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 151,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 152,
+          "content": "          case \"$OS\" in",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 153,
+          "content": "            darwin) OS=\"apple-darwin\" ;;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 154,
+          "content": "            linux) OS=\"unknown-linux-gnu\" ;;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 155,
+          "content": "            *) echo \"Unsupported OS: $OS\"; exit 1 ;;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 156,
+          "content": "          esac",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 157,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 158,
+          "content": "          case \"$ARCH\" in",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 159,
+          "content": "            x86_64|amd64) ARCH=\"x86_64\" ;;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 160,
+          "content": "            arm64|aarch64) ARCH=\"aarch64\" ;;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 161,
+          "content": "            *) echo \"Unsupported architecture: $ARCH\"; exit 1 ;;",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 162,
+          "content": "          esac",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 163,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 164,
+          "content": "          TARGET=\"${ARCH}-${OS}\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 165,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 166,
+          "content": "          # Get latest release or use provided version",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 167,
+          "content": "          if [ -n \"${VERSION:-}\" ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 168,
+          "content": "            TAG=\"v$VERSION\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 169,
+          "content": "          else",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 170,
+          "content": "            TAG=$(curl -sL \"https://api.github.com/repos/$REPO/releases/latest\" | grep '\"tag_name\"' | cut -d'\"' -f4)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 171,
+          "content": "          fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 172,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 173,
+          "content": "          if [ -z \"$TAG\" ]; then",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 174,
+          "content": "            echo \"Failed to determine version\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 175,
+          "content": "            exit 1",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 176,
+          "content": "          fi",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 177,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 178,
+          "content": "          URL=\"https://github.com/$REPO/releases/download/$TAG/${BINARY}-${TAG}-${TARGET}.tar.gz\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 179,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 180,
+          "content": "          echo \"Downloading $BINARY $TAG for $TARGET...\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 181,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 182,
+          "content": "          TMPDIR=$(mktemp -d)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 183,
+          "content": "          trap \"rm -rf $TMPDIR\" EXIT",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 184,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 185,
+          "content": "          curl -sL \"$URL\" | tar xz -C \"$TMPDIR\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 186,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 187,
+          "content": "          INSTALL_DIR=\"${CARGO_HOME:-$HOME/.cargo}/bin\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 188,
+          "content": "          mkdir -p \"$INSTALL_DIR\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 189,
+          "content": "          mv \"$TMPDIR/$BINARY\" \"$INSTALL_DIR/\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 190,
+          "content": "          chmod +x \"$INSTALL_DIR/$BINARY\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 191,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 192,
+          "content": "          echo \"Installed $BINARY to $INSTALL_DIR/$BINARY\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 193,
+          "content": "          echo \"Make sure $INSTALL_DIR is in your PATH\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 194,
+          "content": "          INSTALLER",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 195,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 196,
+          "content": "          # Generate PowerShell installer",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 197,
+          "content": "          cat > artifacts/install.ps1 << 'INSTALLER'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 198,
+          "content": "          $ErrorActionPreference = \"Stop\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 199,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 200,
+          "content": "          $repo = \"dotsetlabs/whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 201,
+          "content": "          $binary = \"whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 202,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 203,
+          "content": "          # Get latest release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 204,
+          "content": "          if ($env:VERSION) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 205,
+          "content": "              $tag = \"v$env:VERSION\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 206,
+          "content": "          } else {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 207,
+          "content": "              $release = Invoke-RestMethod -Uri \"https://api.github.com/repos/$repo/releases/latest\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 208,
+          "content": "              $tag = $release.tag_name",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 209,
+          "content": "          }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 210,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 211,
+          "content": "          $target = \"x86_64-pc-windows-msvc\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 212,
+          "content": "          $url = \"https://github.com/$repo/releases/download/$tag/$binary-$tag-$target.zip\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 213,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 214,
+          "content": "          Write-Host \"Downloading $binary $tag...\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 215,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 216,
+          "content": "          $tmp = New-TemporaryFile | Rename-Item -NewName { $_.Name + \".zip\" } -PassThru",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 217,
+          "content": "          Invoke-WebRequest -Uri $url -OutFile $tmp",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 218,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 219,
+          "content": "          $extractDir = Join-Path $env:TEMP \"$binary-extract\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 220,
+          "content": "          Expand-Archive -Path $tmp -DestinationPath $extractDir -Force",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 221,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 222,
+          "content": "          $installDir = Join-Path $env:USERPROFILE \".cargo\\bin\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 223,
+          "content": "          if (-not (Test-Path $installDir)) {",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 224,
+          "content": "              New-Item -ItemType Directory -Path $installDir | Out-Null",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 225,
+          "content": "          }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 226,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 227,
+          "content": "          Move-Item -Path (Join-Path $extractDir \"$binary.exe\") -Destination $installDir -Force",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 228,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 229,
+          "content": "          Remove-Item $tmp -Force",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 230,
+          "content": "          Remove-Item $extractDir -Recurse -Force",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 231,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 232,
+          "content": "          Write-Host \"Installed $binary to $installDir\\$binary.exe\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 233,
+          "content": "          Write-Host \"Make sure $installDir is in your PATH\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 234,
+          "content": "          INSTALLER",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 235,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 236,
+          "content": "      - name: List artifacts",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 237,
+          "content": "        run: ls -la artifacts/",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 238,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 239,
+          "content": "      - name: Create Release",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 240,
+          "content": "        uses: softprops/action-gh-release@v2",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 241,
+          "content": "        with:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 242,
+          "content": "          tag_name: ${{ needs.plan.outputs.tag }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 243,
+          "content": "          name: ${{ needs.plan.outputs.tag }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 244,
+          "content": "          draft: false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 245,
+          "content": "          prerelease: ${{ contains(needs.plan.outputs.tag, '-') }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 246,
+          "content": "          generate_release_notes: true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 247,
+          "content": "          files: |",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 248,
+          "content": "            artifacts/*",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 249,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 250,
+          "content": "  # Publish to crates.io (optional, manual trigger)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 251,
+          "content": "  publish-crates:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 252,
+          "content": "    name: Publish to crates.io",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 253,
+          "content": "    needs: [plan, release]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 254,
+          "content": "    if: needs.plan.outputs.publishing == 'true'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 255,
+          "content": "    runs-on: ubuntu-latest",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 256,
+          "content": "    environment: crates-io  # Requires manual approval",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 257,
+          "content": "    steps:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 258,
+          "content": "      - uses: actions/checkout@v4",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 259,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 260,
+          "content": "      - name: Install Rust toolchain",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 261,
+          "content": "        uses: dtolnay/rust-toolchain@stable",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 262,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 263,
+          "content": "      - name: Publish to crates.io",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 264,
+          "content": "        env:",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 265,
+          "content": "          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 266,
+          "content": "        run: cargo publish --no-verify",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        }
+      ],
+      "summary": {
+        "total_lines": 266,
+        "ai_lines": 2,
+        "ai_modified_lines": 0,
+        "human_lines": 0,
+        "original_lines": 264,
+        "unknown_lines": 0
+      }
+    },
+    {
+      "path": "Cargo.toml",
+      "lines": [
+        {
+          "line_number": 1,
+          "content": "[package]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 2,
+          "content": "name = \"whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 3,
+          "content": "version = \"0.2.0\"",
+          "source": {
+            "type": "AI",
+            "edit_id": "37e607bd-d559-4f90-b08a-f0353242d537"
+          },
+          "edit_id": "37e607bd-d559-4f90-b08a-f0353242d537",
+          "prompt_index": 0,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 4,
+          "content": "edition = \"2021\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 5,
+          "content": "description = \"Track AI-generated code at line-level granularity\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 6,
+          "content": "license = \"MIT\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 7,
+          "content": "repository = \"https://github.com/dotsetlabs/whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 8,
+          "content": "homepage = \"https://github.com/dotsetlabs/whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 9,
+          "content": "readme = \"README.md\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 10,
+          "content": "keywords = [\"git\", \"ai\", \"attribution\", \"cli\", \"blame\"]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 11,
+          "content": "categories = [\"command-line-utilities\", \"development-tools\"]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 12,
+          "content": "rust-version = \"1.70\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 13,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 14,
+          "content": "[dependencies]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 15,
+          "content": "git2 = \"0.18\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 16,
+          "content": "openssl = { version = \"0.10\", features = [\"vendored\"] }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 17,
+          "content": "clap = { version = \"4\", features = [\"derive\"] }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 18,
+          "content": "serde = { version = \"1\", features = [\"derive\"] }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 19,
+          "content": "serde_json = \"1\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 20,
+          "content": "similar = \"2\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 21,
+          "content": "anyhow = \"1\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 22,
+          "content": "chrono = { version = \"0.4\", features = [\"serde\"] }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 23,
+          "content": "sha2 = \"0.10\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 24,
+          "content": "colored = \"2\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 25,
+          "content": "regex = \"1\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 26,
+          "content": "uuid = { version = \"1\", features = [\"v4\"] }",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 27,
+          "content": "toml = \"0.8\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 28,
+          "content": "dirs = \"5\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 29,
+          "content": "atty = \"0.2\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 30,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 31,
+          "content": "[target.'cfg(unix)'.dependencies]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 32,
+          "content": "libc = \"0.2\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 33,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 34,
+          "content": "[dev-dependencies]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 35,
+          "content": "tempfile = \"3\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 36,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 37,
+          "content": "[profile.release]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 38,
+          "content": "lto = \"thin\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 39,
+          "content": "codegen-units = 1",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 40,
+          "content": "strip = true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 41,
+          "content": "opt-level = 3",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 42,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 43,
+          "content": "# Config for 'cargo dist'",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 44,
+          "content": "[workspace.metadata.dist]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 45,
+          "content": "# The preferred cargo-dist version to use in CI (Conditions to При)",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 46,
+          "content": "cargo-dist-version = \"0.27.0\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 47,
+          "content": "# CI backends to support",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 48,
+          "content": "ci = \"github\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 49,
+          "content": "# The installers to generate for each app",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 50,
+          "content": "installers = [\"shell\", \"powershell\", \"homebrew\"]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 51,
+          "content": "# Target platforms to build for",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 52,
+          "content": "targets = [",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 53,
+          "content": "    \"aarch64-apple-darwin\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 54,
+          "content": "    \"x86_64-apple-darwin\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 55,
+          "content": "    \"aarch64-unknown-linux-gnu\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 56,
+          "content": "    \"x86_64-unknown-linux-gnu\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 57,
+          "content": "    \"x86_64-pc-windows-msvc\",",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 58,
+          "content": "]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 59,
+          "content": "# Path that installers should place binaries in",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 60,
+          "content": "install-path = \"CARGO_HOME\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 61,
+          "content": "# Whether to install an updater program",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 62,
+          "content": "install-updater = false",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 63,
+          "content": "# Publish jobs to run in CI",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 64,
+          "content": "pr-run-mode = \"plan\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 65,
+          "content": "# Whether to auto-include files like README, LICENSE, CHANGELOG",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 66,
+          "content": "auto-includes = true",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 67,
+          "content": "",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 68,
+          "content": "# Homebrew tap configuration",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 69,
+          "content": "[workspace.metadata.dist.homebrew]",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 70,
+          "content": "tap = \"dotsetlabs/homebrew-tap\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        },
+        {
+          "line_number": 71,
+          "content": "formula = \"whogitit\"",
+          "source": {
+            "type": "Original"
+          },
+          "edit_id": null,
+          "prompt_index": null,
+          "confidence": 1.0
+        }
+      ],
+      "summary": {
+        "total_lines": 71,
+        "ai_lines": 1,
+        "ai_modified_lines": 0,
+        "human_lines": 0,
+        "original_lines": 70,
+        "unknown_lines": 0
+      }
+    }
+  ]
+}
