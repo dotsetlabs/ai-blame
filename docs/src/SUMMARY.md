@@ -25,6 +25,7 @@
   - [setup](./guide/commands/setup.md)
   - [doctor](./guide/commands/doctor.md)
   - [init](./guide/commands/init.md)
+  - [copy-notes](./guide/commands/copy-notes.md)
   - [redact-test](./guide/commands/redact-test.md)
 - [Configuration](./guide/configuration.md)
 - [Privacy & Redaction](./guide/privacy.md)

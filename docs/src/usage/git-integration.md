@@ -114,12 +114,21 @@ git push origin refs/notes/whogitit
 
 ## Integration with Git Hooks
 
-whogitit installs two hooks via `whogitit init`:
+whogitit installs three hooks via `whogitit init`:
 
 1. **post-commit**: Automatically attaches attribution to commits
 2. **pre-push**: Automatically pushes notes with regular pushes
+3. **post-rewrite**: Preserves attribution during rebase and amend
 
 These hooks are idempotent and can be safely re-run.
+
+## Rebase Support
+
+Attribution is automatically preserved during rebase and amend operations via the post-rewrite hook. For cherry-pick, use:
+
+```bash
+whogitit copy-notes <original-sha> <cherry-picked-sha>
+```
 
 ## Troubleshooting
 

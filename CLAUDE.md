@@ -66,6 +66,10 @@ cargo run -- pager              # Read diff from stdin
 # Privacy testing
 cargo run -- redact-test --text "api_key=secret"
 cargo run -- redact-test --list-patterns
+
+# Copy attribution (after cherry-pick or recovery)
+cargo run -- copy-notes <old-sha> <new-sha>
+cargo run -- copy-notes abc123 def456 --dry-run
 ```
 
 ## Architecture Overview
@@ -124,6 +128,7 @@ Git Notes (refs/notes/whogitit)
   - `retention.rs`: Data retention policy management
   - `audit.rs`: Audit log viewing
   - `redact.rs`: Redaction pattern testing
+  - `copy.rs`: Copy attribution between commits
   - `output.rs`: Formatting (Pretty, JSON, Markdown)
 
 - **privacy/**: Sensitive data protection

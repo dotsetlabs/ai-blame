@@ -269,6 +269,111 @@ fn test_new_file_attribution() {
     assert_eq!(result.summary.original_lines, 0);
 }
 
+/// Test copying attribution between commits
+#[test]
+fn test_copy_attribution() {
+    use whogitit::capture::snapshot::{
+        AttributionSummary, FileAttributionResult, LineAttribution, LineSource,
+    };
+    use whogitit::core::attribution::ModelInfo;
+
+    let dir = TempDir::new().unwrap();
+    let repo = Repository::init(dir.path()).unwrap();
+
+    // Configure git user
+    let mut config = repo.config().unwrap();
+    config.set_str("user.name", "Test User").unwrap();
+    config.set_str("user.email", "test@example.com").unwrap();
+
+    // Create first commit
+    let sig = Signature::now("Test", "test@test.com").unwrap();
+    let tree_id = repo.index().unwrap().write_tree().unwrap();
+    let tree = repo.find_tree(tree_id).unwrap();
+    let first_commit = repo
+        .commit(Some("HEAD"), &sig, &sig, "First commit", &tree, &[])
+        .unwrap();
+
+    // Create second commit
+    fs::write(dir.path().join("file.txt"), "content").unwrap();
+    let mut index = repo.index().unwrap();
+    index.add_path(std::path::Path::new("file.txt")).unwrap();
+    index.write().unwrap();
+    let tree_id = index.write_tree().unwrap();
+    let tree = repo.find_tree(tree_id).unwrap();
+    let second_commit = repo
+        .commit(
+            Some("HEAD"),
+            &sig,
+            &sig,
+            "Second commit",
+            &tree,
+            &[&repo.find_commit(first_commit).unwrap()],
+        )
+        .unwrap();
+
+    let store = NotesStore::new(&repo).unwrap();
+
+    // Add attribution to first commit
+    let attribution = AIAttribution {
+        version: 2,
+        session: SessionMetadata {
+            session_id: "copy-test-session".to_string(),
+            model: ModelInfo::claude("claude-opus-4-5-20251101"),
+            started_at: "2026-01-30T10:00:00Z".to_string(),
+            prompt_count: 1,
+            used_plan_mode: false,
+            subagent_count: 0,
+        },
+        prompts: vec![PromptInfo {
+            index: 0,
+            text: "Test copy functionality".to_string(),
+            timestamp: "2026-01-30T10:00:00Z".to_string(),
+            affected_files: vec!["test.rs".to_string()],
+        }],
+        files: vec![FileAttributionResult {
+            path: "test.rs".to_string(),
+            lines: vec![LineAttribution {
+                line_number: 1,
+                content: "fn test() {}".to_string(),
+                source: LineSource::AI {
+                    edit_id: "e1".to_string(),
+                },
+                edit_id: Some("e1".to_string()),
+                prompt_index: Some(0),
+                confidence: 1.0,
+            }],
+            summary: AttributionSummary {
+                total_lines: 1,
+                ai_lines: 1,
+                ai_modified_lines: 0,
+                human_lines: 0,
+                original_lines: 0,
+                unknown_lines: 0,
+            },
+        }],
+    };
+
+    store.store_attribution(first_commit, &attribution).unwrap();
+
+    // Verify first has attribution, second doesn't
+    assert!(store.has_attribution(first_commit));
+    assert!(!store.has_attribution(second_commit));
+
+    // Copy attribution
+    store.copy_attribution(first_commit, second_commit).unwrap();
+
+    // Verify both now have attribution
+    assert!(store.has_attribution(first_commit));
+    assert!(store.has_attribution(second_commit));
+
+    // Verify content matches
+    let original = store.fetch_attribution(first_commit).unwrap().unwrap();
+    let copied = store.fetch_attribution(second_commit).unwrap().unwrap();
+    assert_eq!(original.session.session_id, copied.session.session_id);
+    assert_eq!(original.prompts.len(), copied.prompts.len());
+    assert_eq!(original.files.len(), copied.files.len());
+}
+
 /// Test storing and fetching attribution from git notes
 #[test]
 fn test_notes_roundtrip() {

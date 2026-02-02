@@ -1,6 +1,7 @@
 pub mod annotations;
 pub mod audit;
 pub mod blame;
+pub mod copy;
 pub mod export;
 pub mod output;
 pub mod pager;
@@ -82,6 +83,9 @@ pub enum Commands {
 
     /// Check whogitit configuration and diagnose issues
     Doctor,
+
+    /// Copy AI attribution from one commit to another
+    CopyNotes(copy::CopyNotesArgs),
 }
 
 /// Init command arguments
@@ -134,6 +138,7 @@ pub fn run() -> Result<()> {
         Commands::Init(args) => run_init(args),
         Commands::Setup => setup::run_setup(),
         Commands::Doctor => setup::run_doctor(),
+        Commands::CopyNotes(args) => copy::run(args),
     }
 }
 
@@ -237,6 +242,9 @@ fn run_init(args: InitArgs) -> Result<()> {
 
     // Install pre-push hook (auto-pushes notes with regular git push)
     install_pre_push_hook(&hooks_dir)?;
+
+    // Install post-rewrite hook (preserves notes during rebase/amend)
+    install_post_rewrite_hook(&hooks_dir)?;
 
     // Configure git to auto-fetch notes
     configure_git_fetch(&repo)?;
@@ -349,6 +357,55 @@ fi
     Ok(())
 }
 
+fn install_post_rewrite_hook(hooks_dir: &std::path::Path) -> Result<()> {
+    let hook_path = hooks_dir.join("post-rewrite");
+
+    if hook_path.exists() {
+        let content = fs::read_to_string(&hook_path)?;
+
+        // Check for marker-based or legacy whogitit hook
+        if content.contains(WHOGITIT_MARKER_START) || content.contains("whogitit") {
+            println!("✓ whogitit post-rewrite hook already installed.");
+            return Ok(());
+        }
+
+        // Append to existing hook with markers for idempotency
+        let whogitit_section = format!(
+            "\n\n{}\n# whogitit post-rewrite hook - preserve notes during rebase/amend\ncopied=0\nwhile read -r old_sha new_sha extra; do\n  [[ -z \"$old_sha\" || -z \"$new_sha\" ]] && continue\n  if git notes --ref=whogitit show \"$old_sha\" &>/dev/null; then\n    git notes --ref=whogitit copy \"$old_sha\" \"$new_sha\" 2>/dev/null && copied=$((copied + 1))\n  fi\ndone\n[[ $copied -gt 0 ]] && echo \"whogitit: Preserved attribution for $copied commit(s)\"\n{}\n",
+            WHOGITIT_MARKER_START,
+            WHOGITIT_MARKER_END
+        );
+        let new_content = format!("{}{}", content.trim_end(), whogitit_section);
+        fs::write(&hook_path, new_content)?;
+        println!("✓ Added whogitit to existing post-rewrite hook.");
+    } else {
+        let hook_content = format!(
+            r#"#!/bin/bash
+{}
+# whogitit post-rewrite hook
+# Preserves AI attribution notes during rebase/amend
+
+copied=0
+while read -r old_sha new_sha extra; do
+  [[ -z "$old_sha" || -z "$new_sha" ]] && continue
+  if git notes --ref=whogitit show "$old_sha" &>/dev/null; then
+    git notes --ref=whogitit copy "$old_sha" "$new_sha" 2>/dev/null && copied=$((copied + 1))
+  fi
+done
+
+[[ $copied -gt 0 ]] && echo "whogitit: Preserved attribution for $copied commit(s)"
+{}
+"#,
+            WHOGITIT_MARKER_START, WHOGITIT_MARKER_END
+        );
+        fs::write(&hook_path, hook_content)?;
+        make_executable(&hook_path)?;
+        println!("✓ Installed whogitit post-rewrite hook.");
+    }
+
+    Ok(())
+}
+
 /// Make a file executable (Unix only - no-op on Windows)
 #[cfg(unix)]
 fn make_executable(path: &std::path::Path) -> Result<()> {
@@ -386,4 +443,179 @@ fn configure_git_fetch(repo: &git2::Repository) -> Result<()> {
     }
 
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use tempfile::TempDir;
+
+    fn create_test_hooks_dir() -> TempDir {
+        TempDir::new().unwrap()
+    }
+
+    #[test]
+    fn test_whogitit_markers() {
+        assert!(WHOGITIT_MARKER_START.contains("whogitit"));
+        assert!(WHOGITIT_MARKER_END.contains("whogitit"));
+        assert!(WHOGITIT_MARKER_START.contains(">>>"));
+        assert!(WHOGITIT_MARKER_END.contains("<<<"));
+    }
+
+    #[test]
+    fn test_install_post_commit_hook_new() {
+        let dir = create_test_hooks_dir();
+        install_post_commit_hook(dir.path()).unwrap();
+
+        let hook_path = dir.path().join("post-commit");
+        assert!(hook_path.exists());
+
+        let content = fs::read_to_string(&hook_path).unwrap();
+        assert!(content.contains(WHOGITIT_MARKER_START));
+        assert!(content.contains(WHOGITIT_MARKER_END));
+        assert!(content.contains("whogitit post-commit"));
+        assert!(content.starts_with("#!/bin/bash"));
+    }
+
+    #[test]
+    fn test_install_post_commit_hook_idempotent() {
+        let dir = create_test_hooks_dir();
+
+        // Install twice
+        install_post_commit_hook(dir.path()).unwrap();
+        install_post_commit_hook(dir.path()).unwrap();
+
+        let hook_path = dir.path().join("post-commit");
+        let content = fs::read_to_string(&hook_path).unwrap();
+
+        // Should only have one marker section
+        let marker_count = content.matches(WHOGITIT_MARKER_START).count();
+        assert_eq!(marker_count, 1);
+    }
+
+    #[test]
+    fn test_install_post_commit_hook_append_to_existing() {
+        let dir = create_test_hooks_dir();
+        let hook_path = dir.path().join("post-commit");
+
+        // Create existing hook
+        fs::write(&hook_path, "#!/bin/bash\necho 'existing hook'\n").unwrap();
+
+        install_post_commit_hook(dir.path()).unwrap();
+
+        let content = fs::read_to_string(&hook_path).unwrap();
+        assert!(content.contains("existing hook"));
+        assert!(content.contains(WHOGITIT_MARKER_START));
+        assert!(content.contains("whogitit post-commit"));
+    }
+
+    #[test]
+    fn test_install_pre_push_hook_new() {
+        let dir = create_test_hooks_dir();
+        install_pre_push_hook(dir.path()).unwrap();
+
+        let hook_path = dir.path().join("pre-push");
+        assert!(hook_path.exists());
+
+        let content = fs::read_to_string(&hook_path).unwrap();
+        assert!(content.contains(WHOGITIT_MARKER_START));
+        assert!(content.contains("WHOGITIT_PUSHING_NOTES"));
+        assert!(content.contains("refs/notes/whogitit"));
+    }
+
+    #[test]
+    fn test_install_pre_push_hook_idempotent() {
+        let dir = create_test_hooks_dir();
+
+        install_pre_push_hook(dir.path()).unwrap();
+        install_pre_push_hook(dir.path()).unwrap();
+
+        let hook_path = dir.path().join("pre-push");
+        let content = fs::read_to_string(&hook_path).unwrap();
+
+        let marker_count = content.matches(WHOGITIT_MARKER_START).count();
+        assert_eq!(marker_count, 1);
+    }
+
+    #[test]
+    fn test_install_post_rewrite_hook_new() {
+        let dir = create_test_hooks_dir();
+        install_post_rewrite_hook(dir.path()).unwrap();
+
+        let hook_path = dir.path().join("post-rewrite");
+        assert!(hook_path.exists());
+
+        let content = fs::read_to_string(&hook_path).unwrap();
+        assert!(content.contains(WHOGITIT_MARKER_START));
+        assert!(content.contains("git notes --ref=whogitit copy"));
+        assert!(content.contains("Preserved attribution"));
+    }
+
+    #[test]
+    fn test_install_post_rewrite_hook_idempotent() {
+        let dir = create_test_hooks_dir();
+
+        install_post_rewrite_hook(dir.path()).unwrap();
+        install_post_rewrite_hook(dir.path()).unwrap();
+
+        let hook_path = dir.path().join("post-rewrite");
+        let content = fs::read_to_string(&hook_path).unwrap();
+
+        let marker_count = content.matches(WHOGITIT_MARKER_START).count();
+        assert_eq!(marker_count, 1);
+    }
+
+    #[test]
+    fn test_install_post_rewrite_hook_append_to_existing() {
+        let dir = create_test_hooks_dir();
+        let hook_path = dir.path().join("post-rewrite");
+
+        // Create existing hook
+        fs::write(&hook_path, "#!/bin/bash\necho 'existing rewrite hook'\n").unwrap();
+
+        install_post_rewrite_hook(dir.path()).unwrap();
+
+        let content = fs::read_to_string(&hook_path).unwrap();
+        assert!(content.contains("existing rewrite hook"));
+        assert!(content.contains(WHOGITIT_MARKER_START));
+        assert!(content.contains("git notes --ref=whogitit copy"));
+    }
+
+    #[test]
+    fn test_init_args_default() {
+        let args = InitArgs { force: false };
+        assert!(!args.force);
+    }
+
+    #[test]
+    fn test_init_args_force() {
+        let args = InitArgs { force: true };
+        assert!(args.force);
+    }
+
+    #[test]
+    fn test_capture_args_stdin() {
+        let args = CaptureArgs {
+            stdin: true,
+            file: None,
+            tool: None,
+            prompt: None,
+        };
+        assert!(args.stdin);
+        assert!(args.file.is_none());
+    }
+
+    #[test]
+    fn test_capture_args_with_file() {
+        let args = CaptureArgs {
+            stdin: false,
+            file: Some("test.rs".to_string()),
+            tool: Some("Edit".to_string()),
+            prompt: Some("Fix bug".to_string()),
+        };
+        assert!(!args.stdin);
+        assert_eq!(args.file.as_deref(), Some("test.rs"));
+        assert_eq!(args.tool.as_deref(), Some("Edit"));
+        assert_eq!(args.prompt.as_deref(), Some("Fix bug"));
+    }
 }

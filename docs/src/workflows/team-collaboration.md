@@ -195,14 +195,21 @@ git notes --ref=whogitit add -m '{"schema_version":2,"session":{"session_id":"un
 
 ### Rebasing and Attribution
 
-When rebasing, git notes may not follow:
+With `whogitit init`, the post-rewrite hook automatically preserves attribution during rebase:
 
 ```bash
-# After rebase, copy notes from old commits
-git notes --ref=whogitit copy <old-commit> <new-commit>
+# Ensure hooks are installed
+whogitit init
 
-# Or fetch and let whogitit handle it
-git fetch origin refs/notes/whogitit
+# Rebase as normal - notes are preserved automatically
+git rebase main
+# Output: whogitit: Preserved attribution for 3 commit(s)
+```
+
+For cherry-pick (not covered by the hook):
+
+```bash
+whogitit copy-notes <original-sha> <cherry-picked-sha>
 ```
 
 ### Squash Merging

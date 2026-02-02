@@ -90,6 +90,7 @@ src/
 │   ├── retention.rs   # whogitit retention
 │   ├── audit.rs       # whogitit audit
 │   ├── redact.rs      # whogitit redact-test
+│   ├── copy.rs        # whogitit copy-notes
 │   └── output.rs      # Output formatting
 │
 ├── lib.rs             # Library exports
@@ -191,6 +192,7 @@ pub struct NotesStore<'repo> {
 impl NotesStore {
     pub fn store_attribution(&self, commit: Oid, attr: &AIAttribution) -> Result<()>;
     pub fn fetch_attribution(&self, commit: Oid) -> Result<Option<AIAttribution>>;
+    pub fn copy_attribution(&self, from: Oid, to: Oid) -> Result<()>;
     pub fn list_attributed_commits(&self) -> Result<Vec<Oid>>;
 }
 ```

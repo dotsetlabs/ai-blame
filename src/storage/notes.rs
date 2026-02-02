@@ -62,6 +62,26 @@ impl<'a> NotesStore<'a> {
         Ok(())
     }
 
+    /// Copy attribution from one commit to another
+    pub fn copy_attribution(&self, from_oid: Oid, to_oid: Oid) -> Result<()> {
+        let note = self
+            .repo
+            .find_note(Some(NOTES_REF), from_oid)
+            .context("Source commit has no attribution note")?;
+
+        let message = note
+            .message()
+            .ok_or_else(|| anyhow::anyhow!("Note has no content"))?;
+
+        let sig = self.get_signature()?;
+
+        self.repo
+            .note(&sig, &sig, Some(NOTES_REF), to_oid, message, false)
+            .context("Failed to copy note to target commit")?;
+
+        Ok(())
+    }
+
     /// Get default signature from git config
     fn get_signature(&self) -> Result<Signature<'static>> {
         if let Ok(sig) = self.repo.signature() {
@@ -296,6 +316,68 @@ mod tests {
     #[test]
     fn test_notes_ref_constant() {
         assert_eq!(NOTES_REF, "refs/notes/whogitit");
+    }
+
+    #[test]
+    fn test_copy_attribution() {
+        let (dir, repo) = create_test_repo();
+        let store = NotesStore::new(&repo).unwrap();
+
+        // Get first commit
+        let first_commit = repo.head().unwrap().peel_to_commit().unwrap().id();
+
+        // Create a second commit
+        let sig = Signature::now("Test", "test@test.com").unwrap();
+        std::fs::write(dir.path().join("test.txt"), "test content").unwrap();
+        let mut index = repo.index().unwrap();
+        index.add_path(std::path::Path::new("test.txt")).unwrap();
+        index.write().unwrap();
+        let tree_id = index.write_tree().unwrap();
+        let tree = repo.find_tree(tree_id).unwrap();
+        let second_commit = repo
+            .commit(
+                Some("HEAD"),
+                &sig,
+                &sig,
+                "Second commit",
+                &tree,
+                &[&repo.find_commit(first_commit).unwrap()],
+            )
+            .unwrap();
+
+        // Store attribution on first commit
+        let attribution = create_minimal_attribution("copy-test");
+        store.store_attribution(first_commit, &attribution).unwrap();
+        assert!(store.has_attribution(first_commit));
+        assert!(!store.has_attribution(second_commit));
+
+        // Copy attribution to second commit
+        store.copy_attribution(first_commit, second_commit).unwrap();
+
+        // Verify both commits now have attribution
+        assert!(store.has_attribution(first_commit));
+        assert!(store.has_attribution(second_commit));
+
+        // Verify content is identical
+        let original = store.fetch_attribution(first_commit).unwrap().unwrap();
+        let copied = store.fetch_attribution(second_commit).unwrap().unwrap();
+        assert_eq!(original.session.session_id, copied.session.session_id);
+    }
+
+    #[test]
+    fn test_copy_attribution_source_not_found() {
+        let (_dir, repo) = create_test_repo();
+        let store = NotesStore::new(&repo).unwrap();
+
+        let head = repo.head().unwrap().peel_to_commit().unwrap().id();
+
+        // Try to copy from a commit without attribution
+        let result = store.copy_attribution(head, head);
+        assert!(result.is_err());
+        assert!(result
+            .unwrap_err()
+            .to_string()
+            .contains("no attribution note"));
     }
 
     // Helper function to create minimal attribution for tests

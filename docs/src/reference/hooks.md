@@ -19,8 +19,9 @@ whogitit uses two hook systems: Claude Code hooks for capturing changes, and git
 ┌─────────────────────────────────────────────────────────────────┐
 │                        Git Hooks                                │
 │                                                                 │
-│  post-commit  ──►  Analyze pending buffer, create attribution  │
-│  pre-push     ──►  Push notes alongside code                   │
+│  post-commit   ──►  Analyze pending buffer, create attribution │
+│  pre-push      ──►  Push notes alongside code                  │
+│  post-rewrite  ──►  Preserve notes during rebase/amend         │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -190,6 +191,32 @@ This hook:
 2. Pushes notes to the same remote
 3. Handles errors gracefully
 
+### post-rewrite
+
+Created by `whogitit init` in `.git/hooks/post-rewrite`:
+
+```bash
+#!/bin/bash
+# whogitit post-rewrite hook
+# Preserves AI attribution notes during rebase/amend
+
+copied=0
+while read -r old_sha new_sha extra; do
+  [[ -z "$old_sha" || -z "$new_sha" ]] && continue
+  if git notes --ref=whogitit show "$old_sha" &>/dev/null; then
+    git notes --ref=whogitit copy "$old_sha" "$new_sha" 2>/dev/null && copied=$((copied + 1))
+  fi
+done
+
+[[ $copied -gt 0 ]] && echo "whogitit: Preserved attribution for $copied commit(s)"
+```
+
+This hook:
+1. Runs after `git rebase` and `git commit --amend`
+2. Receives old→new SHA mappings on stdin
+3. Copies notes from old commits to new commits
+4. Reports how many notes were preserved
+
 ## Installing Hooks
 
 ### Automatic
@@ -198,7 +225,7 @@ This hook:
 whogitit init
 ```
 
-Installs both git hooks and configures notes fetching.
+Installs all three git hooks (post-commit, pre-push, post-rewrite) and configures notes fetching.
 
 ### Manual Git Hooks
 

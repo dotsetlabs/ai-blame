@@ -124,7 +124,9 @@ whogitit retention apply --execute
 
 ### Does attribution survive rebasing?
 
-Not automatically. Rebase creates new commits with new SHAs. You can manually copy notes from old to new commits.
+Yes! Run `whogitit init` to install the post-rewrite hook that automatically preserves notes during rebase and amend operations.
+
+For cherry-pick, manually copy: `whogitit copy-notes <old> <new>`
 
 ### Does attribution survive squash merging?
 
@@ -132,7 +134,11 @@ No. Squash creates a new commit. The individual commit notes are not combined. C
 
 ### Can I cherry-pick commits with attribution?
 
-Cherry-pick creates new commits. Attribution doesn't automatically transfer. You can manually copy the note.
+Cherry-pick creates new commits. Attribution doesn't automatically transfer. Use the `copy-notes` command:
+
+```bash
+whogitit copy-notes <original-sha> <cherry-picked-sha>
+```
 
 ### How do I share attribution with my team?
 

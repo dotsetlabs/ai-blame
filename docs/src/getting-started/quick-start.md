@@ -32,7 +32,7 @@ whogitit doctor
 
 You should see all checks passing.
 
-## 3. Write Some Code with Claude
+## 5. Write Some Code with Claude
 
 Use Claude Code to make changes to your project. For example:
 
@@ -45,7 +45,7 @@ Claude will edit or create files. whogitit automatically captures:
 - The file content after the edit
 - The prompt you used
 
-## 4. Check Pending Attribution
+## 6. Check Pending Attribution
 
 Before committing, see what whogitit has captured:
 
@@ -65,7 +65,7 @@ Pending AI attribution:
 Run 'git commit' to finalize attribution.
 ```
 
-## 5. Commit Your Changes
+## 7. Commit Your Changes
 
 Commit as normal:
 
@@ -79,7 +79,7 @@ The post-commit hook automatically:
 2. Performs three-way diff analysis
 3. Attaches attribution data as a git note
 
-## 6. View Attribution
+## 8. View Attribution
 
 ### See AI attribution for a file
 
@@ -149,7 +149,7 @@ Files affected by this prompt:
   - src/validation.rs
 ```
 
-## 7. Push with Attribution
+## 9. Push with Attribution
 
 When you push, git notes are automatically included:
 
